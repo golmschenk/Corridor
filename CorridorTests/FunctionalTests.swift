@@ -28,7 +28,8 @@ class FunctionalTests: XCTestCase {
         XCTAssertNotNil(viewController.view, "View Did Not load")
 
         // Make sure the frame is originally nil
-        XCTFail("Finish me!") // XCTAssertNil(viewController.frame)
+        XCTAssertNil(viewController.frame)
+        XCTFail("Finish me!")
 
         // Check that the user can load an image as a frame.
 

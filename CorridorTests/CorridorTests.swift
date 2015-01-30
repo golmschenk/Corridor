@@ -10,10 +10,9 @@ import UIKit
 import XCTest
 
 class CorridorTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
-        let viewController = ViewController()
     }
     
     override func tearDown() {
@@ -22,6 +21,7 @@ class CorridorTests: XCTestCase {
     }
 
     func testViewHasLoadImageButton() {
+        let viewController = ViewController()
         XCTAssertNotNil(viewController.loadImageButton)
     }
     
