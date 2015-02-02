@@ -24,18 +24,20 @@ class FunctionalTests: XCTestCase {
     func testUserCanLoadAndProcessImage() {
         let viewController = ViewController()
 
-        // Check that the view loaded.
+        // Kara opens the app and sees the main screen of the app.
         XCTAssertNotNil(viewController.view, "View Did Not load")
 
-        // Make sure the frame is originally nil
-        XCTAssertNil(viewController.frame)
+        // Originally, Kara sees that no image is selected.
+        //XCTAssertNil(viewController.frame)
         XCTFail("Finish me!")
 
-        // Check that the user can load an image as a frame.
+        // She sees that there is a button to load an image.
 
-        // Check that the frame is processed.
+        // Once loaded, the main screen of the app shows the image.
 
-        // Check that the processed frame image is displayed.
+        // Kara also sees there's a button to process the image.
+
+        // After processing the image, Kara is shown the processed image which is nicely labelled.
     }
 
 }

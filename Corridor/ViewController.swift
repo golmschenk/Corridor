@@ -12,6 +12,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //@IBAction func loadImageButton() {
+    //}
 
     override func viewDidLoad() {
     super.viewDidLoad()
