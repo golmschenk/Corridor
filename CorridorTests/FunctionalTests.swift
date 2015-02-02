@@ -28,7 +28,7 @@ class FunctionalTests: XCTestCase {
         XCTAssertNotNil(viewController.view, "View Did Not load")
 
         // Originally, Kara sees that no image is selected.
-        //XCTAssertNil(viewController.frame)
+        XCTAssertNil(viewController.frame)
         XCTFail("Finish me!")
 
         // She sees that there is a button to load an image.
