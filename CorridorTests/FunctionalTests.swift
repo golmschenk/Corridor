@@ -5,6 +5,7 @@
 
 import UIKit
 import XCTest
+import UIAutomation
 
 class FunctionalTests: XCTestCase {
 
@@ -29,15 +30,17 @@ class FunctionalTests: XCTestCase {
 
         // Originally, Kara sees that no image is selected.
         XCTAssertNil(viewController.frame)
-        XCTFail("Finish me!")
 
         // She sees that there is a button to load an image.
+        XCTAssertNotNil(viewController.loadImageButton)
 
         // Once loaded, the main screen of the app shows the image.
 
         // Kara also sees there's a button to process the image.
 
         // After processing the image, Kara is shown the processed image which is nicely labelled.
+
+        XCTFail("Finish me!")
     }
 
 }
