@@ -22,7 +22,7 @@ class CorridorTests: XCTestCase {
 
     func testViewHasLoadImageButton() {
         let viewController = ViewController()
-        XCTAssertNotNil(viewController.loadImageButton)
+        XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
     }
     
 //    func testExample() {

@@ -14,8 +14,8 @@ class ViewController: UIViewController {
 
     var frame: UIImage!
 
-    //@IBAction func loadImageButton() {
-    //}
+    @IBAction func loadImageButton() {
+    }
 
     override func viewDidLoad() {
     super.viewDidLoad()

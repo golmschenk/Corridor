@@ -5,7 +5,6 @@
 
 import UIKit
 import XCTest
-import UIAutomation
 
 class FunctionalTests: XCTestCase {
 
@@ -32,7 +31,7 @@ class FunctionalTests: XCTestCase {
         XCTAssertNil(viewController.frame)
 
         // She sees that there is a button to load an image.
-        XCTAssertNotNil(viewController.loadImageButton)
+        //XCTAssertNotNil(viewController.loadImageButton)
 
         // Once loaded, the main screen of the app shows the image.
 
