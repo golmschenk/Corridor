@@ -20,10 +20,10 @@ class CorridorTests: XCTestCase {
         super.tearDown()
     }
 
-//    func testViewHasLoadImageButton() {
-//        let viewController = ViewController()
-//        XCTAssertNotNil(viewController.loadImageButton)
-//    }
+    func testViewHasLoadImageButton() {
+        let viewController = ViewController()
+        XCTAssertNotNil(viewController.loadImageButton)
+    }
     
 //    func testExample() {
 //        // This is an example of a functional test case.
