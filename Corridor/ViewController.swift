@@ -12,6 +12,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var frame: UIImage!
+
     //@IBAction func loadImageButton() {
     //}
 
