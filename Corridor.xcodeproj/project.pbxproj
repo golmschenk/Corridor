@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6557380B1A807FDB00A0000E /* example_hallway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6557380A1A807FDB00A0000E /* example_hallway.jpg */; };
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		B620003612EA658256A2119D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6200F24372FD8407AB7118E /* Images.xcassets */; };
 		B6200185884840BD8BFD0145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6200B18786B645286082EA7 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6557380A1A807FDB00A0000E /* example_hallway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example_hallway.jpg; sourceTree = "<group>"; };
 		B620000B1787A71C58E5D7DC /* CorridorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorridorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62001DAA6F7897D86767429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B62002C8114BEC1EF53BED8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		B62002ADBE88DFED46E3C277 /* CorridorTests */ = {
 			isa = PBXGroup;
 			children = (
+				6557380A1A807FDB00A0000E /* example_hallway.jpg */,
 				B6200A320FB2158756E26DAA /* Supporting Files */,
 				B62006905443123CF96317F0 /* CorridorTests.swift */,
 				B6200BF2B496B369A4145471 /* FunctionalTests.swift */,
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6557380B1A807FDB00A0000E /* example_hallway.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

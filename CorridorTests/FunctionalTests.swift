@@ -31,9 +31,11 @@ class FunctionalTests: XCTestCase {
         XCTAssertNil(viewController.frame)
 
         // She sees that there is a button to load an image.
-        //XCTAssertNotNil(viewController.loadImageButton)
+        XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
 
         // Once loaded, the main screen of the app shows the image.
+        let corridorUIImage = UIImage(named: "example_hallway.jpg")
+        XCTAssertEqual(viewController.frame, corridorUIImage!, "The frame UIImage is not the same as the example UIImage")
 
         // Kara also sees there's a button to process the image.
 
