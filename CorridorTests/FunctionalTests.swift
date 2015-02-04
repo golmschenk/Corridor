@@ -32,11 +32,15 @@ class FunctionalTests: XCTestCase {
 
         // She sees that there is a button to load an image.
         XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
-
-        // Once loaded, the main screen of the app shows the image.
+        
+        // She loads an image.
+        // (We're cheating here to avoid UI control in this test)
         let testBundle = NSBundle(forClass: self.dynamicType)
         let imagePath = testBundle.pathForResource("example_hallway", ofType: "jpg")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
+        viewController.frame = corridorUIImage
+        
+        // Once loaded, the main screen of the app shows the image.
         XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
 
         // Kara also sees there's a button to process the image.
