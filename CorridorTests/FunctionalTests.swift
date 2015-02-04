@@ -35,7 +35,7 @@ class FunctionalTests: XCTestCase {
 
         // Once loaded, the main screen of the app shows the image.
         let testBundle = NSBundle(forClass: self.dynamicType)
-        let imagePath = Bundle.pathForResource("example_hallway", ofType: "jpg")
+        let imagePath = testBundle.pathForResource("example_hallway", ofType: "jpg")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
 
