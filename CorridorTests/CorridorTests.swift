@@ -11,7 +11,10 @@ import XCTest
 
 class CorridorTests: XCTestCase {
 
+    var viewController: ViewController!
+    
     override func setUp() {
+        viewController = ViewController()
         super.setUp()
     }
     
@@ -21,12 +24,10 @@ class CorridorTests: XCTestCase {
     }
 
     func testViewHasLoadImageButton() {
-        let viewController = ViewController()
         XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
     }
     
     func testLoadImageButtonOpensImagePicker() {
-        let viewController = ViewController()
         viewController.loadImageButton()
         XCTAssertTrue(viewController.imagePicker.isViewLoaded())
     }
