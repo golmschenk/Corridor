@@ -29,7 +29,6 @@ class CorridorTests: XCTestCase {
         let viewController = ViewController()
         viewController.loadImageButton()
         XCTAssertTrue(viewController.imagePicker.isViewLoaded())
-        XCTAssertNotNil(viewController.imagePicker.view.window)
     }
     
 //    func testExample() {
