@@ -25,6 +25,13 @@ class CorridorTests: XCTestCase {
         XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
     }
     
+    func testLoadImageButtonOpensImagePicker() {
+        let viewController = ViewController()
+        viewController.loadImageButton()
+        XCTAssertTrue(viewController.imagePicker.isViewLoaded)
+        XCTAssertNotNil(viewController.imagePicker.view.window)
+    }
+    
 //    func testExample() {
 //        // This is an example of a functional test case.
 //        XCTAssert(true, "Pass")
