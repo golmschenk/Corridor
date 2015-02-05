@@ -10,11 +10,15 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var frame: UIImage!
+    var imagePicker: UIImagePickerController!
 
     @IBAction func loadImageButton() {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
