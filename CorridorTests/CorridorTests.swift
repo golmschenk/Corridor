@@ -29,7 +29,19 @@ class CorridorTests: XCTestCase {
     
     func testLoadImageButtonOpensImagePicker() {
         viewController.loadImageButton()
+        
         XCTAssertTrue(viewController.imagePicker.isViewLoaded())
+    }
+    
+    func testImagePickerSetsFrameOnImageSelection() {
+        let testBundle = NSBundle(forClass: self.dynamicType)
+        let imagePath = testBundle.pathForResource("example_hallway", ofType: "jpg")
+        let corridorUIImage = UIImage(contentsOfFile: imagePath!)
+        
+        viewController.imagePickerController(UIImagePickerController(), didFinishPickingImage: corridorUIImage, editingInfo: [:])
+        
+        XCTAssertNotNil(viewController.frame)
+        XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
     }
     
 //    func testExample() {
