@@ -19,20 +19,6 @@
                ReferencedContainer = "container:Corridor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65CD08311A84307900F69CEE"
-               BuildableName = "FunctionalTests.xctest"
-               BlueprintName = "FunctionalTests"
-               ReferencedContainer = "container:Corridor.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -48,16 +34,6 @@
                BlueprintIdentifier = "B620064D901C17E3A6844770"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:Corridor.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65CD08311A84307900F69CEE"
-               BuildableName = "FunctionalTests.xctest"
-               BlueprintName = "FunctionalTests"
                ReferencedContainer = "container:Corridor.xcodeproj">
             </BuildableReference>
          </TestableReference>

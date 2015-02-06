@@ -44,6 +44,7 @@ class FunctionalTests: XCTestCase {
         XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
 
         // Kara also sees there's a button to process the image.
+        XCTAssertTrue(viewController.respondsToSelector(Selector("processFrameButton")))
 
         // After processing the image, Kara is shown the processed image which is nicely labelled.
 

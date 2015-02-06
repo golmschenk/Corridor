@@ -41,7 +41,7 @@
 		65CD08321A84307900F69CEE /* FunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CD08351A84307900F69CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65CF08E91A82961D00D4ED20 /* example_hallway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example_hallway.jpg; sourceTree = "<group>"; };
-		B620000B1787A71C58E5D7DC /* CorridorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorridorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B620000B1787A71C58E5D7DC /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62001DAA6F7897D86767429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B62002C8114BEC1EF53BED8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6200497E7633BCBDB19E89F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				B62005C1D4ABEC6AFB8019A3 /* Corridor.app */,
-				B620000B1787A71C58E5D7DC /* CorridorTests.xctest */,
+				B620000B1787A71C58E5D7DC /* UnitTests.xctest */,
 				65CD08321A84307900F69CEE /* FunctionalTests.xctest */,
 			);
 			name = Products;
@@ -149,10 +149,10 @@
 		B6200F5A10EC13F2AC654CBA = {
 			isa = PBXGroup;
 			children = (
-				65CD08331A84307900F69CEE /* FunctionalTests */,
 				B62009788307C0149B5CDD7D /* Products */,
 				B620071A388A3B97847D5EDD /* Corridor */,
 				B62002ADBE88DFED46E3C277 /* UnitTests */,
+				65CD08331A84307900F69CEE /* FunctionalTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,7 +209,7 @@
 			);
 			name = UnitTests;
 			productName = CorridorTests;
-			productReference = B620000B1787A71C58E5D7DC /* CorridorTests.xctest */;
+			productReference = B620000B1787A71C58E5D7DC /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -510,6 +510,7 @@
 				65CD083B1A84307900F69CEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6200512AC2F92C0FDB8EBB3 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
