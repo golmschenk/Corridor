@@ -47,7 +47,9 @@ class FunctionalTests: XCTestCase {
         XCTAssertTrue(viewController.respondsToSelector(Selector("processFrameButton")))
 
         // After processing the image, Kara is shown the processed image which is nicely labelled.
-
+        // (We're cheating a little here because we won't have a good way to test the image just now)
+        XCTAssertEqual(viewController.corridor.vanishingPoints.count, 3)
+        
         XCTFail("Finish me!")
     }
 
