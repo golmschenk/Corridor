@@ -20,6 +20,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func processFrameButton() {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
