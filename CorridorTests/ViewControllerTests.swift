@@ -44,6 +44,10 @@ class CorridorTests: XCTestCase {
         XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
     }
     
+    func testViewHasProcessFrameButton() {
+        XCTAssertTrue(viewController.respondsToSelector(Selector("processFrameButton")))
+    }
+    
 //    func testExample() {
 //        // This is an example of a functional test case.
 //        XCTAssert(true, "Pass")
