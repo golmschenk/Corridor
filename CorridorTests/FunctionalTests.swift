@@ -36,7 +36,7 @@ class FunctionalTests: XCTestCase {
         // She loads an image.
         // (We're cheating here to avoid UI control in this test)
         let testBundle = NSBundle(forClass: self.dynamicType)
-        let imagePath = testBundle.pathForResource("example_hallway", ofType: "jpg")
+        let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         viewController.frame = corridorUIImage
         

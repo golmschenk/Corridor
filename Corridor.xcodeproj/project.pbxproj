@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
+		6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
+		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
+		6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200BF2B496B369A4145471 /* FunctionalTests.swift */; };
-		65CD083E1A8430A900F69CEE /* example_hallway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65CF08E91A82961D00D4ED20 /* example_hallway.jpg */; };
 		65CD083F1A84315300F69CEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
-		65CF08EA1A82961D00D4ED20 /* example_hallway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65CF08E91A82961D00D4ED20 /* example_hallway.jpg */; };
 		B620003612EA658256A2119D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6200F24372FD8407AB7118E /* Images.xcassets */; };
 		B6200185884840BD8BFD0145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6200B18786B645286082EA7 /* Main.storyboard */; };
 		B62007070CD5A95E8359074B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
@@ -46,7 +47,6 @@
 		65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway2.png; sourceTree = "<group>"; };
 		65CD08321A84307900F69CEE /* FunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CD08351A84307900F69CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65CF08E91A82961D00D4ED20 /* example_hallway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example_hallway.jpg; sourceTree = "<group>"; };
 		B620000B1787A71C58E5D7DC /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62001DAA6F7897D86767429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B62002C8114BEC1EF53BED8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,12 +85,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65CD08331A84307900F69CEE /* FunctionalTests */ = {
+		6590B2C71A9508FC000F5194 /* Test Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */,
 				65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */,
 				65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */,
+			);
+			name = "Test Supporting Files";
+			path = FunctionalTests;
+			sourceTree = "<group>";
+		};
+		65CD08331A84307900F69CEE /* FunctionalTests */ = {
+			isa = PBXGroup;
+			children = (
 				B6200BF2B496B369A4145471 /* FunctionalTests.swift */,
 				65CD08341A84307900F69CEE /* Supporting Files */,
 			);
@@ -108,9 +116,8 @@
 		B62002ADBE88DFED46E3C277 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				65CF08E91A82961D00D4ED20 /* example_hallway.jpg */,
-				B6200A320FB2158756E26DAA /* Supporting Files */,
 				B62006905443123CF96317F0 /* ViewControllerTests.swift */,
+				B6200A320FB2158756E26DAA /* Supporting Files */,
 			);
 			name = UnitTests;
 			path = CorridorTests;
@@ -119,6 +126,9 @@
 		B62004A4C67E60B83B111037 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6200F24372FD8407AB7118E /* Images.xcassets */,
+				B6200D7735068F0AA299859A /* LaunchScreen.xib */,
+				B62002C8114BEC1EF53BED8C /* AppDelegate.swift */,
 				B6200C4532A56D1612549784 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -127,12 +137,9 @@
 		B620071A388A3B97847D5EDD /* Corridor */ = {
 			isa = PBXGroup;
 			children = (
-				B62004A4C67E60B83B111037 /* Supporting Files */,
-				B6200F24372FD8407AB7118E /* Images.xcassets */,
-				B6200D7735068F0AA299859A /* LaunchScreen.xib */,
-				B62002C8114BEC1EF53BED8C /* AppDelegate.swift */,
 				B6200B18786B645286082EA7 /* Main.storyboard */,
 				B6200DB904BE796D189E21B5 /* ViewController.swift */,
+				B62004A4C67E60B83B111037 /* Supporting Files */,
 			);
 			path = Corridor;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 				B620071A388A3B97847D5EDD /* Corridor */,
 				B62002ADBE88DFED46E3C277 /* UnitTests */,
 				65CD08331A84307900F69CEE /* FunctionalTests */,
+				6590B2C71A9508FC000F5194 /* Test Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */,
-				65CD083E1A8430A900F69CEE /* example_hallway.jpg in Resources */,
 				65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */,
 				65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */,
 			);
@@ -270,7 +277,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65CF08EA1A82961D00D4ED20 /* example_hallway.jpg in Resources */,
+				6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */,
+				6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */,
+				6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
