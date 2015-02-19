@@ -28,7 +28,7 @@ class FunctionalTests: XCTestCase {
         XCTAssertNotNil(viewController.view, "View Did Not load")
 
         // Originally, Kara sees that no image is selected.
-        XCTAssertNil(viewController.frame)
+        XCTAssertNil(viewController.frame!.image)
 
         // She sees that there is a button to load an image.
         XCTAssertTrue(viewController.respondsToSelector(Selector("loadImageButton")))
@@ -38,17 +38,17 @@ class FunctionalTests: XCTestCase {
         let testBundle = NSBundle(forClass: self.dynamicType)
         let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
-        viewController.frame = corridorUIImage
+        viewController.frame!.image = corridorUIImage
         
         // Once loaded, the main screen of the app shows the image.
-        XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
+        XCTAssertTrue(viewController.frame!.image.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
 
         // Kara also sees there's a button to process the image.
         XCTAssertTrue(viewController.respondsToSelector(Selector("processFrameButton")))
 
         // After processing the image, Kara is shown the processed image which is nicely labelled.
         // (We're cheating a little here because we won't have a good way to test the image just now)
-        XCTAssertEqual(viewController.corridor.vanishingPoints.count, 3)
+        XCTAssertEqual(viewController.frame.vanishingPoints.count, 3)
         
         XCTFail("Finish me!")
     }

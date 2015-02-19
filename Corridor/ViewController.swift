@@ -12,7 +12,7 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    var frame: UIImage!
+    var frame: Frame?
     var imagePicker: UIImagePickerController!
 
     @IBAction func loadImageButton() {
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
-        frame = image
+        frame = Frame(image: image)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

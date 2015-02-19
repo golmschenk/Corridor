@@ -40,8 +40,8 @@ class CorridorTests: XCTestCase {
         
         viewController.imagePickerController(UIImagePickerController(), didFinishPickingImage: corridorUIImage, editingInfo: [:])
         
-        XCTAssertNotNil(viewController.frame)
-        XCTAssertTrue(viewController.frame.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
+        XCTAssertNotNil(viewController.frame!.image)
+        XCTAssertTrue(viewController.frame!.image.isEqual(corridorUIImage!), "The frame UIImage is not the same as the example UIImage")
     }
     
     func testViewHasProcessFrameButton() {
