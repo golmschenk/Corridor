@@ -9,10 +9,13 @@
 import UIKit
 
 class Frame {
-    var image: UIImage! = nil
-    var twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
+    
+    let image: UIImage! = nil
+    let twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
+    var edgeMap: [[Bool]]?
     
     init(image: UIImage) {
         self.image = image
     }
+    
 }

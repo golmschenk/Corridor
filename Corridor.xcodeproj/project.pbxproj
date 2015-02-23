@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB01A9BC7DC007F5A78 /* FrameTests.swift */; };
+		65427FBA1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */; };
+		65427FBB1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */; };
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
@@ -50,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
+		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
+		65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVBridge.cpp; sourceTree = "<group>"; };
+		65427FB91A9BD4AE007F5A78 /* OpenCVBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVBridge.h; sourceTree = "<group>"; };
 		65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0.png; sourceTree = "<group>"; };
 		65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway1.png; sourceTree = "<group>"; };
 		65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway2.png; sourceTree = "<group>"; };
@@ -95,6 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65427FB31A9BD3BD007F5A78 /* OpenCVBridge */ = {
+			isa = PBXGroup;
+			children = (
+				65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */,
+				65427FB91A9BD4AE007F5A78 /* OpenCVBridge.h */,
+				65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */,
+			);
+			name = OpenCVBridge;
+			sourceTree = "<group>";
+		};
 		6590B2C71A9508FC000F5194 /* Test Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +163,7 @@
 		B620071A388A3B97847D5EDD /* Corridor */ = {
 			isa = PBXGroup;
 			children = (
+				65427FB31A9BD3BD007F5A78 /* OpenCVBridge */,
 				B6200B18786B645286082EA7 /* Main.storyboard */,
 				65FF0AA61A96559500B983AC /* Frame.swift */,
 				65FF0AAA1A9661B000B983AC /* Geometry.swift */,
@@ -327,6 +343,7 @@
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA81A96559500B983AC /* Frame.swift in Sources */,
 				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
+				65427FBB1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,
 			);
@@ -338,6 +355,7 @@
 			files = (
 				65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA71A96559500B983AC /* Frame.swift in Sources */,
+				65427FBA1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */,
 				B6200C5476A53A6A9F1B3556 /* AppDelegate.swift in Sources */,
 				B62007070CD5A95E8359074B /* ViewController.swift in Sources */,
 			);
@@ -495,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Corridor.app/Corridor";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -502,6 +521,8 @@
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/UnitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -510,9 +531,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Corridor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -520,9 +544,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Corridor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -530,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Corridor.app/Corridor";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,6 +564,7 @@
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/UnitTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
