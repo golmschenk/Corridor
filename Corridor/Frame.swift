@@ -10,6 +10,7 @@ import UIKit
 
 class Frame {
     var image: UIImage! = nil
+    var twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     
     init(image: UIImage) {
         self.image = image

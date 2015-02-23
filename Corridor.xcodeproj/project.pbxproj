@@ -19,6 +19,9 @@
 		65FF0AA71A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65FF0AA81A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65FF0AA91A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
+		65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
+		65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
+		65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
 		B620003612EA658256A2119D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6200F24372FD8407AB7118E /* Images.xcassets */; };
 		B6200185884840BD8BFD0145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6200B18786B645286082EA7 /* Main.storyboard */; };
 		B62007070CD5A95E8359074B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
@@ -51,6 +54,7 @@
 		65CD08321A84307900F69CEE /* FunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CD08351A84307900F69CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65FF0AA61A96559500B983AC /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
+		65FF0AAA1A9661B000B983AC /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		B620000B1787A71C58E5D7DC /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62001DAA6F7897D86767429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B62002C8114BEC1EF53BED8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				B6200B18786B645286082EA7 /* Main.storyboard */,
 				65FF0AA61A96559500B983AC /* Frame.swift */,
+				65FF0AAA1A9661B000B983AC /* Geometry.swift */,
 				B6200DB904BE796D189E21B5 /* ViewController.swift */,
 				B62004A4C67E60B83B111037 /* Supporting Files */,
 			);
@@ -305,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA91A96559500B983AC /* Frame.swift in Sources */,
 				65CD083F1A84315300F69CEE /* ViewController.swift in Sources */,
 				65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */,
@@ -315,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA81A96559500B983AC /* Frame.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,
@@ -325,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA71A96559500B983AC /* Frame.swift in Sources */,
 				B6200C5476A53A6A9F1B3556 /* AppDelegate.swift in Sources */,
 				B62007070CD5A95E8359074B /* ViewController.swift in Sources */,

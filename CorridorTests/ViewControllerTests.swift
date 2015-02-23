@@ -35,7 +35,7 @@ class CorridorTests: XCTestCase {
     
     func testImagePickerSetsFrameOnImageSelection() {
         let testBundle = NSBundle(forClass: self.dynamicType)
-        let imagePath = testBundle.pathForResource("example_hallway", ofType: "jpg")
+        let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         
         viewController.imagePickerController(UIImagePickerController(), didFinishPickingImage: corridorUIImage, editingInfo: [:])
