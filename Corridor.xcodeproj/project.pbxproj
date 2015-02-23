@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB01A9BC7DC007F5A78 /* FrameTests.swift */; };
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0.png; sourceTree = "<group>"; };
 		65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway1.png; sourceTree = "<group>"; };
 		65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway2.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		B62002ADBE88DFED46E3C277 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				65427FB01A9BC7DC007F5A78 /* FrameTests.swift */,
 				B62006905443123CF96317F0 /* ViewControllerTests.swift */,
 				B6200A320FB2158756E26DAA /* Supporting Files */,
 			);
@@ -323,6 +326,7 @@
 			files = (
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA81A96559500B983AC /* Frame.swift in Sources */,
+				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,
 			);
