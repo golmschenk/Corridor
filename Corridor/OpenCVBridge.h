@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface OpenCVBridge : NSObject
-+ (int) canny;
++ (void) cannyWithImage:(UIImage*)image
+                toEdges:(UIImage*)edges
+         withThreshold1:(double)threshold1
+         withThreshold2:(double)threshold2;
 @end
  
