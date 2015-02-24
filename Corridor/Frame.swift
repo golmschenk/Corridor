@@ -11,6 +11,7 @@ import UIKit
 class Frame {
     
     let image: UIImage! = nil
+    var edgeImage: UIImage! = nil
     let twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     var edgeMap: [[Bool]]?
     
@@ -18,8 +19,8 @@ class Frame {
         self.image = image
     }
     
-    func canny() -> Int {
-        return 1
+    func canny() {
+        OpenCVBridge.cannyWithImage(image, toEdges: edgeImage, withThreshold1: 20, withThreshold2: 60)
     }
     
 }
