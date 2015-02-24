@@ -18,4 +18,9 @@ class Frame {
         self.image = image
     }
     
+    func canny() -> Int {
+        println(OpenCVBridge.canny())
+        return 1
+    }
+    
 }

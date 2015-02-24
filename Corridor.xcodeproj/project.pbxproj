@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB01A9BC7DC007F5A78 /* FrameTests.swift */; };
-		65427FBA1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */; };
-		65427FBB1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */; };
+		65738D981A9C119300501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
+		65738D991A9C11A700501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
+		65738D9C1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
+		65738D9E1A9C186400501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
+		65BA168F1A9C1C500074E7E0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
+		65BA16911A9C1DED0074E7E0 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
+		65BA16921A9C1DED0074E7E0 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200BF2B496B369A4145471 /* FunctionalTests.swift */; };
 		65CD083F1A84315300F69CEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		65FF0AA71A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
-		65FF0AA81A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
-		65FF0AA91A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
 		65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
 		65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
@@ -53,8 +57,9 @@
 /* Begin PBXFileReference section */
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
-		65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVBridge.cpp; sourceTree = "<group>"; };
-		65427FB91A9BD4AE007F5A78 /* OpenCVBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVBridge.h; sourceTree = "<group>"; };
+		65738D971A9C119300501DFF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../3rdparty/OpenCV/opencv2.framework; sourceTree = "<group>"; };
+		65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVBridge.mm; sourceTree = "<group>"; };
+		65738D9D1A9C141E00501DFF /* OpenCVBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVBridge.h; sourceTree = "<group>"; };
 		65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0.png; sourceTree = "<group>"; };
 		65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway1.png; sourceTree = "<group>"; };
 		65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway2.png; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BA168F1A9C1C500074E7E0 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65738D981A9C119300501DFF /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65738D991A9C11A700501DFF /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +111,10 @@
 		65427FB31A9BD3BD007F5A78 /* OpenCVBridge */ = {
 			isa = PBXGroup;
 			children = (
-				65427FB81A9BD4AE007F5A78 /* OpenCVBridge.cpp */,
-				65427FB91A9BD4AE007F5A78 /* OpenCVBridge.h */,
+				65738D971A9C119300501DFF /* opencv2.framework */,
 				65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */,
+				65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */,
+				65738D9D1A9C141E00501DFF /* OpenCVBridge.h */,
 			);
 			name = OpenCVBridge;
 			sourceTree = "<group>";
@@ -330,9 +339,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */,
-				65FF0AA91A96559500B983AC /* Frame.swift in Sources */,
 				65CD083F1A84315300F69CEE /* ViewController.swift in Sources */,
 				65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */,
+				65738D9E1A9C186400501DFF /* OpenCVBridge.mm in Sources */,
+				65BA16921A9C1DED0074E7E0 /* Frame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,9 +351,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
-				65FF0AA81A96559500B983AC /* Frame.swift in Sources */,
 				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
-				65427FBB1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */,
+				65738D9C1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */,
+				65BA16911A9C1DED0074E7E0 /* Frame.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,
 			);
@@ -355,9 +365,9 @@
 			files = (
 				65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA71A96559500B983AC /* Frame.swift in Sources */,
-				65427FBA1A9BD4AE007F5A78 /* OpenCVBridge.cpp in Sources */,
 				B6200C5476A53A6A9F1B3556 /* AppDelegate.swift in Sources */,
 				B62007070CD5A95E8359074B /* ViewController.swift in Sources */,
+				65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +413,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -411,6 +422,7 @@
 				INFOPLIST_FILE = FunctionalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Corridor.app/Corridor";
 			};
 			name = Debug;
@@ -422,10 +434,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
 				);
 				INFOPLIST_FILE = FunctionalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Corridor.app/Corridor";
 			};
 			name = Release;
@@ -517,11 +531,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
 				);
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/UnitTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -532,6 +547,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
+				);
 				INFOPLIST_FILE = Corridor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +564,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
+				);
 				INFOPLIST_FILE = Corridor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -560,11 +583,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/golmschenk/Code/3rdparty/OpenCV,
 				);
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/UnitTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Corridor/Corridor-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
