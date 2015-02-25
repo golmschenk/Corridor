@@ -26,7 +26,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
         frame = Frame(image: image)
-        frame?.canny()
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

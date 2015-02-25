@@ -22,9 +22,20 @@ class FrameTests: XCTestCase {
     }
     
     func testFrameCanGetCanny() {
-        XCTAssertTrue(frame.edgeMap == nil)
+        XCTAssertTrue(frame.edgeImage == nil)
         frame.obtainCanny()
-        XCTAssertTrue(frame.edgeMap != nil)
+        XCTAssertTrue(frame.edgeImage != nil)
+    }
+    
+    func testFrameCanObtainContours() {
+        let testBundle = NSBundle(forClass: self.dynamicType)
+        let cannyImagePath = testBundle.pathForResource("simple_hallway0_canny", ofType: "png")
+        let cannyUIImage = UIImage(contentsOfFile: cannyImagePath!)
+        frame.edgeImage = cannyUIImage
+        
+        XCTAssertNil(frame.contours)
+        frame.obtainCanny()
+        XCTAssertNotNil(frame.contours)
     }
     
 }

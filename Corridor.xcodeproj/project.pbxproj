@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6526DDDE1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
+		6526DDDF1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
+		6526DDE01A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
 		652DC1A11A9E458E00B96CC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC1A01A9E458E00B96CC2 /* Constant.swift */; };
 		652DC1A41A9E4F9200B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		652DC1A51A9E4F9300B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
@@ -59,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0_canny.png; sourceTree = "<group>"; };
 		652DC1A01A9E458E00B96CC2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		6590B2C71A9508FC000F5194 /* Test Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */,
 				65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */,
 				65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */,
 				65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */,
@@ -316,6 +321,7 @@
 			files = (
 				65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */,
 				65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */,
+				6526DDE01A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */,
 				65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +332,7 @@
 			files = (
 				6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */,
 				6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */,
+				6526DDDF1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */,
 				6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +343,7 @@
 			files = (
 				B620003612EA658256A2119D /* Images.xcassets in Resources */,
 				B6200950244C6451453DB08A /* LaunchScreen.xib in Resources */,
+				6526DDDE1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */,
 				B6200185884840BD8BFD0145 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
