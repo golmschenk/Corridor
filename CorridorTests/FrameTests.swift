@@ -23,7 +23,7 @@ class FrameTests: XCTestCase {
     
     func testFrameCanGetCanny() {
         XCTAssertTrue(frame.edgeMap == nil)
-        frame.canny()
+        frame.obtainCanny()
         XCTAssertTrue(frame.edgeMap != nil)
     }
     

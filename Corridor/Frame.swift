@@ -19,7 +19,7 @@ class Frame {
         self.image = image
     }
     
-    func canny() {
+    func obtainCanny() {
         edgeImage = OpenCVBridge.canny(image)
     }
     
