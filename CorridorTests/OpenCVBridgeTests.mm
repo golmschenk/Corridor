@@ -14,7 +14,7 @@
 @interface OpenCVBridge (Testing)
 
 // Need the "private" methods being tested.
-+ (NSArray*) TwoDimensionalPointNSArrayFromVector:(std::vector<std::vector<cv::Point2i>>)vector;
++ (NSMutableArray*) TwoDimensionalPointNSArrayFromVector:(std::vector<std::vector<cv::Point2i>>)vector;
 
 @end
 
@@ -30,12 +30,14 @@
     subvector1.push_back(cv::Point2i(1, 2));
     subvector1.push_back(cv::Point2i(3, 4));
     subvector2.push_back(cv::Point2i(5, 6));
+    vector.push_back(subvector1);
+    vector.push_back(subvector2);
     
-    NSArray* array = [OpenCVBridge TwoDimensionalPointNSArrayFromVector:vector];
+    NSMutableArray* array = [OpenCVBridge TwoDimensionalPointNSArrayFromVector:vector];
     
     XCTAssertEqual([array count], 2);
-    XCTAssertEqual([[array objectAtIndex:1] count], 2);
-    XCTAssertEqual([[array objectAtIndex:1] objectAtIndex:0], [NSNumber numberWithInt:5]);
+    XCTAssertEqual([[array objectAtIndex:0] count], 2);
+    XCTAssertEqual([[[[array objectAtIndex:1] objectAtIndex:0] objectAtIndex:0] integerValue], 5);
 }
 
 @end

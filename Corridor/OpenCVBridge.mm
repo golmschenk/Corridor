@@ -105,8 +105,18 @@
     return edges;
 }
 
-+ (NSArray*) TwoDimensionalPointNSArrayFromVector:(std::vector<std::vector<cv::Point2i>>)vector {
-    NSArray* array;
++ (NSMutableArray*) TwoDimensionalPointNSArrayFromVector:(std::vector<std::vector<cv::Point2i>>)vector {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    for(std::vector<std::vector<cv::Point2i>>::iterator it = vector.begin(); it != vector.end(); ++it) {
+        NSMutableArray* array2 = [[NSMutableArray alloc] init];
+        for(std::vector<cv::Point2i>::iterator it2 = it->begin(); it2 != it->end(); ++it2) {
+            NSMutableArray* array3 = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:it2->x],
+                                      [NSNumber numberWithInt:it2->y],
+                                      nil];
+            [array2 addObject:array3];
+        }
+        [array addObject:array2];
+    }
     return array;
 }
 
@@ -115,7 +125,7 @@
     imageMat = [self cvMatFromUIImage:image];
     std::vector<std::vector<cv::Point2i>> contoursVector;
     cv::findContours(imageMat, contoursVector, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
-    NSArray* contours = [self TwoDimensionalPointNSArrayFromVector:contoursVector];
+    NSMutableArray* contours = [self TwoDimensionalPointNSArrayFromVector:contoursVector];
     return contours;
 }
 
