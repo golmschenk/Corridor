@@ -11,9 +11,6 @@
 
 
 @interface OpenCVBridge : NSObject
-+ (void) cannyWithImage:(UIImage*)image
-                toEdges:(UIImage*)edges
-         withThreshold1:(double)threshold1
-         withThreshold2:(double)threshold2;
++ (UIImage*) canny:(UIImage*)image;
 @end
  

@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652DC1A11A9E458E00B96CC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC1A01A9E458E00B96CC2 /* Constant.swift */; };
+		652DC1A41A9E4F9200B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
+		652DC1A51A9E4F9300B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
+		652DC1A61A9E4F9D00B96CC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC1A01A9E458E00B96CC2 /* Constant.swift */; };
+		652DC1A71A9E4F9D00B96CC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC1A01A9E458E00B96CC2 /* Constant.swift */; };
+		652DC1A81A9E4FA100B96CC2 /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
+		652DC1A91A9E4FA200B96CC2 /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
 		65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB01A9BC7DC007F5A78 /* FrameTests.swift */; };
 		65738D981A9C119300501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
 		65738D991A9C11A700501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
-		65738D9C1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
-		65738D9E1A9C186400501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
 		658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65BA168F1A9C1C500074E7E0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
-		65BA16911A9C1DED0074E7E0 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
-		65BA16921A9C1DED0074E7E0 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65BA16941A9C267E0074E7E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BA16931A9C267E0074E7E0 /* CoreGraphics.framework */; };
 		65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
@@ -56,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		652DC1A01A9E458E00B96CC2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
 		65738D971A9C119300501DFF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../3rdparty/OpenCV/opencv2.framework; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			children = (
 				65427FB31A9BD3BD007F5A78 /* OpenCVBridge */,
 				B6200B18786B645286082EA7 /* Main.storyboard */,
+				652DC1A01A9E458E00B96CC2 /* Constant.swift */,
 				65FF0AA61A96559500B983AC /* Frame.swift */,
 				65FF0AAA1A9661B000B983AC /* Geometry.swift */,
 				B6200DB904BE796D189E21B5 /* ViewController.swift */,
@@ -343,10 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */,
+				652DC1A41A9E4F9200B96CC2 /* Frame.swift in Sources */,
+				652DC1A61A9E4F9D00B96CC2 /* Constant.swift in Sources */,
+				652DC1A81A9E4FA100B96CC2 /* OpenCVBridge.mm in Sources */,
 				65CD083F1A84315300F69CEE /* ViewController.swift in Sources */,
 				65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */,
-				65738D9E1A9C186400501DFF /* OpenCVBridge.mm in Sources */,
-				65BA16921A9C1DED0074E7E0 /* Frame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,10 +362,11 @@
 			files = (
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
 				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
-				65738D9C1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */,
-				65BA16911A9C1DED0074E7E0 /* Frame.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,
+				652DC1A51A9E4F9300B96CC2 /* Frame.swift in Sources */,
+				652DC1A71A9E4F9D00B96CC2 /* Constant.swift in Sources */,
+				652DC1A91A9E4FA200B96CC2 /* OpenCVBridge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +379,7 @@
 				B6200C5476A53A6A9F1B3556 /* AppDelegate.swift in Sources */,
 				B62007070CD5A95E8359074B /* ViewController.swift in Sources */,
 				65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */,
+				652DC1A11A9E458E00B96CC2 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +431,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(TARGET_TEMP_DIR)/../$(PROJECT_NAME).build/DerivedSources",
+				);
 				INFOPLIST_FILE = FunctionalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,6 +452,11 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					/Users/golmschenk/Code/3rdparty/OpenCV,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(TARGET_TEMP_DIR)/../$(PROJECT_NAME).build/DerivedSources",
 				);
 				INFOPLIST_FILE = FunctionalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -467,6 +485,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -510,6 +529,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -537,6 +557,11 @@
 					"$(inherited)",
 					/Users/golmschenk/Code/3rdparty/OpenCV,
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(TARGET_TEMP_DIR)/../$(PROJECT_NAME).build/DerivedSources",
+				);
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -551,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/golmschenk/Code/3rdparty/OpenCV,
@@ -568,6 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/golmschenk/Code/3rdparty/OpenCV,
@@ -588,6 +615,11 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					/Users/golmschenk/Code/3rdparty/OpenCV,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(TARGET_TEMP_DIR)/../$(PROJECT_NAME).build/DerivedSources",
 				);
 				INFOPLIST_FILE = CorridorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

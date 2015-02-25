@@ -9,6 +9,7 @@
 #import "OpenCVBridge.h"
 #import <opencv2/opencv.hpp>
 #import <CoreGraphics/CoreGraphics.h>
+#import "Corridor-Swift.h"
 
 
 @implementation OpenCVBridge : NSObject
@@ -96,15 +97,12 @@
     return finalImage;
 }
 
-+ (void) cannyWithImage:(UIImage*)image
-               toEdges:(UIImage*)edges
-        withThreshold1:(double)threshold1
-        withThreshold2:(double)threshold2 {
-    
++ (UIImage*) canny:(UIImage*)image {
     cv::Mat imageMat, edgesMat;
     imageMat = [self cvMatFromUIImage:image];
-    cv::Canny(imageMat, edgesMat, threshold1, threshold2);
-    edges = [self UIImageFromCVMat:edgesMat];
+    cv::Canny(imageMat, edgesMat, [ObjCConstant cannyLowThreshold], [ObjCConstant cannyLowThreshold]);
+    UIImage* edges = [self UIImageFromCVMat:edgesMat];
+    return edges;
 }
 
 @end
