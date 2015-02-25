@@ -12,5 +12,6 @@
 
 @interface OpenCVBridge : NSObject
 + (UIImage*) canny:(UIImage*)image;
++ (NSArray*) findContours:(UIImage*)image;
 @end
  

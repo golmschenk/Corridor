@@ -10,6 +10,7 @@
 		6526DDDE1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
 		6526DDDF1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
 		6526DDE01A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */ = {isa = PBXBuildFile; fileRef = 6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */; };
+		6526DDE21A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6526DDE11A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm */; };
 		652DC1A11A9E458E00B96CC2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC1A01A9E458E00B96CC2 /* Constant.swift */; };
 		652DC1A41A9E4F9200B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		652DC1A51A9E4F9300B96CC2 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		6526DDDD1A9E56DB000A9BC4 /* simple_hallway0_canny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0_canny.png; sourceTree = "<group>"; };
+		6526DDE11A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVBridgeTests.mm; sourceTree = "<group>"; };
 		652DC1A01A9E458E00B96CC2 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				65427FB01A9BC7DC007F5A78 /* FrameTests.swift */,
 				B62006905443123CF96317F0 /* ViewControllerTests.swift */,
+				6526DDE11A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm */,
 				B6200A320FB2158756E26DAA /* Supporting Files */,
 			);
 			name = UnitTests;
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
+				6526DDE21A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm in Sources */,
 				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
 				B6200F13CAE9D8D558DAD44D /* ViewControllerTests.swift in Sources */,

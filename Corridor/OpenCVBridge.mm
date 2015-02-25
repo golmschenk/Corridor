@@ -105,4 +105,18 @@
     return edges;
 }
 
++ (NSArray*) TwoDimensionalPointNSArrayFromVector:(std::vector<std::vector<cv::Point2i>>)vector {
+    NSArray* array;
+    return array;
+}
+
++ (NSArray*) findContours:(UIImage*)image {
+    cv::Mat imageMat;
+    imageMat = [self cvMatFromUIImage:image];
+    std::vector<std::vector<cv::Point2i>> contoursVector;
+    cv::findContours(imageMat, contoursVector, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
+    NSArray* contours = [self TwoDimensionalPointNSArrayFromVector:contoursVector];
+    return contours;
+}
+
 @end

@@ -13,7 +13,7 @@ class Frame {
     let image: UIImage! = nil
     var edgeImage: UIImage! = nil
     let twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
-    var edgeMap: [[Bool]]?
+    var contours: [[TwoDimensionalPoint]]!
     
     init(image: UIImage) {
         self.image = image
@@ -21,6 +21,10 @@ class Frame {
     
     func obtainCanny() {
         edgeImage = OpenCVBridge.canny(image)
+    }
+    
+    func obtainContours() {
+        let contours_list = OpenCVBridge.findContours(edgeImage) as [[[Int]]]
     }
     
 }
