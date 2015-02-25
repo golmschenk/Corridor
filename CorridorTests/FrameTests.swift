@@ -34,9 +34,9 @@ class FrameTests: XCTestCase {
         let cannyUIImage = UIImage(contentsOfFile: cannyImagePath!)
         frame.edgeImage = cannyUIImage
         
-        XCTAssertTrue(frame.contours == nil)
-        frame.obtainCanny()
-        XCTAssertTrue(frame.contours != nil)
+        XCTAssertTrue(frame.contours.isEmpty)
+        frame.obtainContours()
+        XCTAssertFalse(frame.contours.isEmpty)
     }
     
 }
