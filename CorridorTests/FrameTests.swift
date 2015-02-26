@@ -13,6 +13,26 @@ class FrameTests: XCTestCase {
 
     var frame: Frame!
     
+    // Square contour with each side having a length of 2.
+    let squareContour = [TwoDimensionalPoint(x: 0, y: 0),
+                         TwoDimensionalPoint(x: 0, y: 1),
+                         TwoDimensionalPoint(x: 0, y: 2),
+                         TwoDimensionalPoint(x: 1, y: 2),
+                         TwoDimensionalPoint(x: 2, y: 2),
+                         TwoDimensionalPoint(x: 2, y: 1),
+                         TwoDimensionalPoint(x: 2, y: 0),
+                         TwoDimensionalPoint(x: 1, y: 0)]
+    // A contour with a jump. 3 length horizontal, 1 vertical, 3 horizontal again. Right, up, right.
+    let jumpContour = [TwoDimensionalPoint(x: 0, y: 0),
+                       TwoDimensionalPoint(x: 1, y: 0),
+                       TwoDimensionalPoint(x: 2, y: 0),
+                       TwoDimensionalPoint(x: 3, y: 0),
+                       TwoDimensionalPoint(x: 3, y: 1),
+                       TwoDimensionalPoint(x: 4, y: 1),
+                       TwoDimensionalPoint(x: 5, y: 1),
+                       TwoDimensionalPoint(x: 6, y: 1)]
+    
+    
     override func setUp() {
         let testBundle = NSBundle(forClass: self.dynamicType)
         let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
@@ -37,6 +57,11 @@ class FrameTests: XCTestCase {
         XCTAssertTrue(frame.contours.isEmpty)
         frame.obtainContours()
         XCTAssertFalse(frame.contours.isEmpty)
+    }
+    
+    func testCanGetLineSegmentsFromContour() {
+        let lineSegments = frame.attainLineSegmentsFromContour(squareContour)
+        XCTAssertFalse(lineSegments.isEmpty)
     }
     
 }

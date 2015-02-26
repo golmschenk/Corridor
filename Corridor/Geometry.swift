@@ -16,3 +16,8 @@ struct TwoDimensionalManhattanVanishingPointSet {
     let Y: TwoDimensionalPoint
     let Z: TwoDimensionalPoint
 }
+
+struct TwoDimensionalLineSegment {
+    let start: TwoDimensionalPoint
+    let end: TwoDimensionalPoint
+}

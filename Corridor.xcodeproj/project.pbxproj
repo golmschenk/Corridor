@@ -121,10 +121,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65427FB31A9BD3BD007F5A78 /* OpenCVBridge */ = {
+		6526DDE41A9E77BD000A9BC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				65738D971A9C119300501DFF /* opencv2.framework */,
+				65BA16931A9C267E0074E7E0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65427FB31A9BD3BD007F5A78 /* OpenCVBridge */ = {
+			isa = PBXGroup;
+			children = (
 				65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */,
 				65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */,
 				65738D9D1A9C141E00501DFF /* OpenCVBridge.h */,
@@ -176,6 +184,7 @@
 		B62004A4C67E60B83B111037 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6526DDE41A9E77BD000A9BC4 /* Frameworks */,
 				B6200F24372FD8407AB7118E /* Images.xcassets */,
 				B6200D7735068F0AA299859A /* LaunchScreen.xib */,
 				B62002C8114BEC1EF53BED8C /* AppDelegate.swift */,
@@ -219,12 +228,11 @@
 		B6200F5A10EC13F2AC654CBA = {
 			isa = PBXGroup;
 			children = (
-				65BA16931A9C267E0074E7E0 /* CoreGraphics.framework */,
-				B62009788307C0149B5CDD7D /* Products */,
 				B620071A388A3B97847D5EDD /* Corridor */,
 				B62002ADBE88DFED46E3C277 /* UnitTests */,
 				65CD08331A84307900F69CEE /* FunctionalTests */,
 				6590B2C71A9508FC000F5194 /* Test Supporting Files */,
+				B62009788307C0149B5CDD7D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
