@@ -59,9 +59,9 @@ class FrameTests: XCTestCase {
         XCTAssertFalse(frame.contours.isEmpty)
     }
     
-    func testCanGetLineSegmentsFromContour() {
+    /*func testCanGetLineSegmentsFromContour() {
         let lineSegments = frame.attainLineSegmentsFromContour(squareContour)
         XCTAssertFalse(lineSegments.isEmpty)
-    }
+    }*/
     
 }

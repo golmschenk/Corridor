@@ -9,6 +9,14 @@
 struct TwoDimensionalPoint {
     let x: Int
     let y: Int
+    
+    func asTuple() -> (Int, Int) {
+        return (x, y)
+    }
+}
+
+func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
+    return (point1.x == point2.x) && (point1.y == point2.y)
 }
 
 struct TwoDimensionalManhattanVanishingPointSet {
@@ -18,6 +26,6 @@ struct TwoDimensionalManhattanVanishingPointSet {
 }
 
 struct TwoDimensionalLineSegment {
-    let start: TwoDimensionalPoint
-    let end: TwoDimensionalPoint
+    var start: TwoDimensionalPoint
+    var end: TwoDimensionalPoint
 }
