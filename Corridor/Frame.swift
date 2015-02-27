@@ -35,25 +35,21 @@ class Frame {
         }
     }
     
-    func doesPoint(point: TwoDimensionalPoint, extendLineSegment lineSegment: TwoDimensionalLineSegment) -> Bool {
-        //TODO
-        return true
-    }
-    
     func attainLineSegmentsFromContour(var contour: [TwoDimensionalPoint]) {
         var lineSegments = [TwoDimensionalLineSegment]()
         // The potential line starts as just an individual point.
         var point = contour.removeLast()
-        var potentialLine = TwoDimensionalLineSegment(start: point, end: point)
+        var potentialLineSegment = TwoDimensionalLineSegment(start: point, end: point)
         while !contour.isEmpty {
             point = contour.removeLast()
             // If the line is just a single point, we can immediately add the new point.
-            if potentialLine.start == potentialLine.end {
-                potentialLine.end = point
+            if potentialLineSegment.start == potentialLineSegment.end {
+                potentialLineSegment.end = point
                 continue
             }
             // Check if the new point is on or extends the line segment.
-            if doesPoint(point, extendLineSegment: potentialLine) {
+            if point.canExtendLineSegment(potentialLineSegment) {
+                // Merge the point into the line segment.
                 //TODO
             }
         }

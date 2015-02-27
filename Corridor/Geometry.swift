@@ -55,6 +55,10 @@ struct TwoDimensionalLineSegment {
     }
 }
 
+func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {
+    return (lineSegment0.start == lineSegment1.start) && (lineSegment0.end == lineSegment1.end)
+}
+
 
 struct TwoDimensionalManhattanVanishingPointSet {
     let X: TwoDimensionalPoint
