@@ -32,9 +32,11 @@ struct TwoDimensionalPoint {
         return numerator / denominator
     }
     
-    /*func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
+    func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
         let deviation = self.distanceToLine(lineSegment)
-    }*/
+        let length = lineSegment.length
+        return deviation/length < deviationToLengthRatio
+    }
 }
 
 func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {

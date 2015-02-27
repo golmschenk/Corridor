@@ -35,7 +35,7 @@ class TwoDimensionalPointTests: XCTestCase {
         XCTAssertEqualWithAccuracy(distance, sqrt(2), DBL_EPSILON)
     }
     
-    /*func testAcceptanceForLineSegmentExtension() {
+    func testAcceptanceForLineSegmentExtension() {
         let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 100, y: 0))
         let point0 = TwoDimensionalPoint(x: 200, y: 1)
         
@@ -45,7 +45,7 @@ class TwoDimensionalPointTests: XCTestCase {
         let point1 = TwoDimensionalPoint(x: 2, y: 1)
         
         XCTAssertFalse(point1.canExtendLineSegment(lineSegment1, withDeviationToLengthRatio: 0.05))
-    }*/
+    }
 }
 
 class TwoDimensionalLineSegmentTests: XCTestCase {
