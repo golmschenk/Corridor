@@ -9,6 +9,8 @@
 struct Constant {
     static let cannyLowThreshold = 20.0
     static let cannyHighThreshold = 60.0
+    
+    static let lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint = 0.05
 }
 
 @objc class ObjCConstant {

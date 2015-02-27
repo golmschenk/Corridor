@@ -28,9 +28,13 @@ struct TwoDimensionalPoint {
         let numeratorPart1 = (y2-y1)*x0 - (x2-x1)*y0
         let numeratorPart2 = x2*y1 - y2*x1
         let numerator = Double(abs(numeratorPart1 + numeratorPart2))
-        let denominator = lineSegment.start.distanceToPoint(lineSegment.end)
+        let denominator = lineSegment.length
         return numerator / denominator
     }
+    
+    /*func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
+        let deviation = self.distanceToLine(lineSegment)
+    }*/
 }
 
 func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
@@ -41,6 +45,12 @@ func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
 struct TwoDimensionalLineSegment {
     var start: TwoDimensionalPoint
     var end: TwoDimensionalPoint
+    
+    var length: Double {
+        get {
+            return self.start.distanceToPoint(self.end)
+        }
+    }
 }
 
 

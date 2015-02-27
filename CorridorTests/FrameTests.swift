@@ -41,13 +41,13 @@ class FrameTests: XCTestCase {
         super.setUp()
     }
     
-    func testFrameCanGetCanny() {
+    func testCanGetCanny() {
         XCTAssertTrue(frame.edgeImage == nil)
         frame.obtainCanny()
         XCTAssertTrue(frame.edgeImage != nil)
     }
     
-    func testFrameCanObtainContours() {
+    func testCanObtainContours() {
         // Need a canny image to get the contours.
         let testBundle = NSBundle(forClass: self.dynamicType)
         let cannyImagePath = testBundle.pathForResource("simple_hallway0_canny", ofType: "png")
