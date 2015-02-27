@@ -15,11 +15,11 @@ struct TwoDimensionalPoint {
         return (x, y)
     }
     
-    /*func distanceToPoint(point: TwoDimensionalPoint) -> Float {
+    func distanceToPoint(point: TwoDimensionalPoint) -> Double {
         let (x0, y0) = self.asTuple()
         let (x1, y1) = point.asTuple()
-        return sqrt((y1-y0) + (x1-x0)^2)
-    }*/
+        return sqrt(Double(y1-y0)**2 + Double(x1-x0)**2)
+    }
 }
 
 func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {

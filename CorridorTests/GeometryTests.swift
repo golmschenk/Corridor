@@ -19,11 +19,11 @@ class TwoDimensionalPointTests: XCTestCase {
         XCTAssertFalse(point0 == point2)
     }
     
-    /*func testDistanceBetweenTwoPoints() {
-        let point0 = TwoDimensionalPoint(x: 1, y: 1)
-        let point1 = TwoDimensionalPoint(x: 1, y: 1)
+    func testDistanceBetweenTwoPoints() {
+        let point0 = TwoDimensionalPoint(x: 0, y: 0)
+        let point1 = TwoDimensionalPoint(x: 2, y: 2)
         
         let distance = point0.distanceToPoint(point1)
-        XCTAssertEqualWithAccuracy(distance, 2*sqrt(2), FLT_EPSILON)
-    }*/
+        XCTAssertEqualWithAccuracy(distance, 2*sqrt(2), DBL_EPSILON)
+    }
 }
