@@ -35,13 +35,6 @@ class Frame {
         }
     }
     
-    func distanceFromPoint(point: TwoDimensionalPoint, toLine lineSegment: TwoDimensionalLineSegment) {
-        let (x0, y0) = point.asTuple()
-        let (x1, y1) = lineSegment.start.asTuple()
-        let (x2, y2) = lineSegment.end.asTuple()
-        //let distance = abs((y2-y1)*x0 - (x2-x1)*y0 + x2*y1 - y2*x1) / sqrt((y2-y1)^2 + (x2-x1)^2)
-    }
-    
     func doesPoint(point: TwoDimensionalPoint, extendLineSegment lineSegment: TwoDimensionalLineSegment) -> Bool {
         //TODO
         return true
