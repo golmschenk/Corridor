@@ -27,6 +27,10 @@
 		6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65B017A41AA0C4880022093A /* GeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B017A21AA0C4430022093A /* GeometryTests.swift */; };
+		65B017A61AA0CB040022093A /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B017A51AA0CB040022093A /* Math.swift */; };
+		65B017A81AA0CB4D0022093A /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B017A71AA0CB4D0022093A /* MathTests.swift */; };
+		65B017A91AA0CBE70022093A /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B017A51AA0CB040022093A /* Math.swift */; };
+		65B017AA1AA0CBE70022093A /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B017A51AA0CB040022093A /* Math.swift */; };
 		65BA168F1A9C1C500074E7E0 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
 		65BA16941A9C267E0074E7E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BA16931A9C267E0074E7E0 /* CoreGraphics.framework */; };
 		65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
@@ -73,6 +77,8 @@
 		65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVBridge.mm; sourceTree = "<group>"; };
 		65738D9D1A9C141E00501DFF /* OpenCVBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVBridge.h; sourceTree = "<group>"; };
 		65B017A21AA0C4430022093A /* GeometryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryTests.swift; sourceTree = "<group>"; };
+		65B017A51AA0CB040022093A /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Math.swift; path = ../Math.swift; sourceTree = "<group>"; };
+		65B017A71AA0CB4D0022093A /* MathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		65BA16931A9C267E0074E7E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway0.png; sourceTree = "<group>"; };
 		65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway1.png; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 				65B017A21AA0C4430022093A /* GeometryTests.swift */,
 				B62006905443123CF96317F0 /* ViewControllerTests.swift */,
 				6526DDE11A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm */,
+				65B017A71AA0CB4D0022093A /* MathTests.swift */,
 				B6200A320FB2158756E26DAA /* Supporting Files */,
 			);
 			name = UnitTests;
@@ -201,6 +208,7 @@
 			children = (
 				65427FB31A9BD3BD007F5A78 /* OpenCVBridge */,
 				B6200B18786B645286082EA7 /* Main.storyboard */,
+				65B017A51AA0CB040022093A /* Math.swift */,
 				652DC1A01A9E458E00B96CC2 /* Constant.swift */,
 				65FF0AA61A96559500B983AC /* Frame.swift */,
 				65FF0AAA1A9661B000B983AC /* Geometry.swift */,
@@ -372,6 +380,7 @@
 				65FF0AAD1A9661B000B983AC /* Geometry.swift in Sources */,
 				652DC1A41A9E4F9200B96CC2 /* Frame.swift in Sources */,
 				652DC1A61A9E4F9D00B96CC2 /* Constant.swift in Sources */,
+				65B017AA1AA0CBE70022093A /* Math.swift in Sources */,
 				652DC1A81A9E4FA100B96CC2 /* OpenCVBridge.mm in Sources */,
 				65CD083F1A84315300F69CEE /* ViewController.swift in Sources */,
 				65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */,
@@ -383,6 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */,
+				65B017A81AA0CB4D0022093A /* MathTests.swift in Sources */,
+				65B017A91AA0CBE70022093A /* Math.swift in Sources */,
 				6526DDE21A9E5EEB000A9BC4 /* OpenCVBridgeTests.mm in Sources */,
 				65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */,
 				658A7FCB1A7BFEFF00832AE3 /* ViewController.swift in Sources */,
@@ -401,6 +412,7 @@
 				65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */,
 				65FF0AA71A96559500B983AC /* Frame.swift in Sources */,
 				B6200C5476A53A6A9F1B3556 /* AppDelegate.swift in Sources */,
+				65B017A61AA0CB040022093A /* Math.swift in Sources */,
 				B62007070CD5A95E8359074B /* ViewController.swift in Sources */,
 				65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */,
 				652DC1A11A9E458E00B96CC2 /* Constant.swift in Sources */,
