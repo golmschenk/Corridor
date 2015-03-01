@@ -64,8 +64,8 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertFalse(lineSegment0 == lineSegment2)
     }
     
-    /*func testMergingInPoints() {
-        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
+    func testMergingInPoints() {
+        var lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
         let lineSegment0expected = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
         let point0 = TwoDimensionalPoint(x: 1, y: 1)
         
@@ -73,12 +73,12 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         
         XCTAssertEqual(lineSegment0, lineSegment0expected, "Should not have merged in the point since it's between the end points.")
         
-        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
+        var lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
         let lineSegment1expected = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 3))
         let point1 = TwoDimensionalPoint(x: 3, y: 3)
         
         lineSegment1.mergeInPoint(point1)
         
         XCTAssertEqual(lineSegment1, lineSegment1expected, "Should have merged in the point since it's beyond the end point.")
-    }*/
+    }
 }

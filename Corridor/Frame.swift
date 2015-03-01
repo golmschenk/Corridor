@@ -39,19 +39,32 @@ class Frame {
         var lineSegments = [TwoDimensionalLineSegment]()
         // The potential line starts as just an individual point.
         var point = contour.removeLast()
+        var lastMergedPoint = point
         var potentialLineSegment = TwoDimensionalLineSegment(start: point, end: point)
         while !contour.isEmpty {
             point = contour.removeLast()
             // If the line is just a single point, we can immediately add the new point.
             if potentialLineSegment.start == potentialLineSegment.end {
                 potentialLineSegment.end = point
+                lastMergedPoint = point
                 continue
             }
             // Check if the new point is on or extends the line segment.
             if point.canExtendLineSegment(potentialLineSegment) {
                 // Merge the point into the line segment.
-                //TODO
+                potentialLineSegment.mergeInPoint(point)
+                lastMergedPoint = point
+                continue
+            } else {
+                lineSegments.append(potentialLineSegment)
+                contour.append(lastMergedPoint)
+                potentialLineSegment = TwoDimensionalLineSegment(start: point, end: point)
+                continue
             }
+        }
+        // Check if the final line segment can extend the first one.
+        if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
+            lineSegments[0].mergeWithLineSegment(potentialLineSegment)
         }
     }
     

@@ -7,7 +7,7 @@
 //
 
 
-struct TwoDimensionalPoint {
+struct TwoDimensionalPoint: Equatable {
     let x: Int
     let y: Int
     
@@ -44,7 +44,7 @@ func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
 }
 
 
-struct TwoDimensionalLineSegment {
+struct TwoDimensionalLineSegment: Equatable {
     var start: TwoDimensionalPoint
     var end: TwoDimensionalPoint
     
@@ -52,6 +52,26 @@ struct TwoDimensionalLineSegment {
         get {
             return self.start.distanceToPoint(self.end)
         }
+    }
+    
+    mutating func mergeInPoint(point: TwoDimensionalPoint) {
+        // Find which end point the new point is closest to.
+        let endIsCloser = point.distanceToPoint(self.end) < point.distanceToPoint(self.start)
+        let (closerPoint, fartherPoint) = endIsCloser ? (self.end, self.start) : (self.start, self.end)
+        // See if the new point is beyond the line segment ends.
+        if fartherPoint.distanceToPoint(closerPoint) < fartherPoint.distanceToPoint(point) {
+            // Update the line segment.
+            if endIsCloser {
+                self.end = point
+            }
+            else {
+                self.start = point
+            }
+        }
+    }
+    
+    func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment) {
+        
     }
 }
 
