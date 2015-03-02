@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Greg Olmschenk. All rights reserved.
 //
 
+import Darwin
 
 struct TwoDimensionalPoint: Equatable {
     let x: Int
@@ -78,7 +79,7 @@ struct TwoDimensionalLineSegment: Equatable {
     }
     
     func angleToLineSegment(lineSegment: TwoDimensionalLineSegment) -> Double {
-        return 0.0
+        return acos(Double(self.vector.x * lineSegment.vector.x + self.vector.y * lineSegment.vector.y) / ( self.length * lineSegment.length))
     }
     
     /*func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment) {
