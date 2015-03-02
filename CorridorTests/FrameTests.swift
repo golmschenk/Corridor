@@ -31,6 +31,11 @@ class FrameTests: XCTestCase {
                        TwoDimensionalPoint(x: 4, y: 1),
                        TwoDimensionalPoint(x: 5, y: 1),
                        TwoDimensionalPoint(x: 6, y: 1)]
+    // A straight line contour from x-axis 0 to 3 which doubles back on itself and has the start-end gap in the middle.
+    let doubleBackContour = [TwoDimensionalPoint(x: 2, y: 0),
+                             TwoDimensionalPoint(x: 3, y: 0),
+                             TwoDimensionalPoint(x: 0, y: 0),
+                             TwoDimensionalPoint(x: 1, y: 0)]
     
     
     override func setUp() {
@@ -59,9 +64,21 @@ class FrameTests: XCTestCase {
         XCTAssertFalse(frame.contours.isEmpty)
     }
     
-    /*func testCanGetLineSegmentsFromContour() {
-        let lineSegments = frame.attainLineSegmentsFromContour(squareContour)
-        XCTAssertFalse(lineSegments.isEmpty)
-    }*/
+    func testCanGetLineSegmentsFromSquareContour() {
+        let squareLineSegments = frame.attainLineSegmentsFromContour(squareContour)
+        
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 0))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 2), end: TwoDimensionalPoint(x: 2, y: 0))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 2, y: 2))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))))
+    }
+    
+    func testCanGetLineSegmentsFromJumpContour() {
+        let jumpLineSegments = frame.attainLineSegmentsFromContour(jumpContour)
+        
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 0))))
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 0), end: TwoDimensionalPoint(x: 3, y: 1))))
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 1), end: TwoDimensionalPoint(x: 6, y: 1))))
+    }
     
 }

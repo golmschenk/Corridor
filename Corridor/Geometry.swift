@@ -1,5 +1,5 @@
 //
-//  VanishingPoints.swift
+//  Geometry.swift
 //  Corridor
 //
 //  Created by Greg Olmschenk on 2/19/15.
@@ -94,7 +94,7 @@ struct TwoDimensionalLineSegment: Equatable {
 }
 
 func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {
-    return (lineSegment0.start == lineSegment1.start) && (lineSegment0.end == lineSegment1.end)
+    return ((lineSegment0.start == lineSegment1.start) && (lineSegment0.end == lineSegment1.end)) || (lineSegment0.start == lineSegment1.end) && (lineSegment0.end == lineSegment1.start)
 }
 
 

@@ -35,7 +35,7 @@ class Frame {
         }
     }
     
-    func attainLineSegmentsFromContour(var contour: [TwoDimensionalPoint]) {
+    func attainLineSegmentsFromContour(var contour: [TwoDimensionalPoint]) -> [TwoDimensionalLineSegment] {
         var lineSegments = [TwoDimensionalLineSegment]()
         // The potential line starts as just an individual point.
         var point = contour.removeLast()
@@ -57,15 +57,23 @@ class Frame {
                 continue
             } else {
                 lineSegments.append(potentialLineSegment)
-                contour.append(lastMergedPoint)
-                potentialLineSegment = TwoDimensionalLineSegment(start: point, end: point)
+                potentialLineSegment = TwoDimensionalLineSegment(start: lastMergedPoint, end: point)
+                lastMergedPoint = point
                 continue
             }
         }
         // Check if the final line segment can extend the first one.
-        /*if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
+        if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
             lineSegments[0].mergeWithLineSegment(potentialLineSegment)
-        }*/
+        } else {
+            lineSegments.append(potentialLineSegment)
+            // Check if the final point can extend the first line segment.
+            if point.canExtendLineSegment(lineSegments[0]) {
+                // Merge the point into the line segment.
+                lineSegments[0].mergeInPoint(point)
+            }
+        }
+        return lineSegments
     }
     
 }
