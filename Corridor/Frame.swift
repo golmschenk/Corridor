@@ -63,9 +63,9 @@ class Frame {
             }
         }
         // Check if the final line segment can extend the first one.
-        if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
+        /*if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
             lineSegments[0].mergeWithLineSegment(potentialLineSegment)
-        }
+        }*/
     }
     
 }

@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Greg Olmschenk. All rights reserved.
 //
 
+import Darwin
+
+let π = M_PI
+
 infix operator ** { associativity left precedence 160 }
 
 func ** (left: Double, right: Double) -> Double {

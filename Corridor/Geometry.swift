@@ -43,6 +43,7 @@ func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
     return (point1.x == point2.x) && (point1.y == point2.y)
 }
 
+typealias TwoDimensionalVector = TwoDimensionalPoint
 
 struct TwoDimensionalLineSegment: Equatable {
     var start: TwoDimensionalPoint
@@ -51,6 +52,12 @@ struct TwoDimensionalLineSegment: Equatable {
     var length: Double {
         get {
             return self.start.distanceToPoint(self.end)
+        }
+    }
+    
+    var vector: TwoDimensionalVector {
+        get {
+            return TwoDimensionalVector(x: self.end.x - self.start.x, y: self.end.y - self.start.y)
         }
     }
     
@@ -70,9 +77,13 @@ struct TwoDimensionalLineSegment: Equatable {
         }
     }
     
-    func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment) {
-        
+    func angleToLineSegment(lineSegment: TwoDimensionalLineSegment) -> Double {
+        return 0.0
     }
+    
+    /*func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment) {
+        
+    }*/
 }
 
 func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {
