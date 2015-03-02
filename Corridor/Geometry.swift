@@ -78,6 +78,11 @@ struct TwoDimensionalLineSegment: Equatable {
         }
     }
     
+    mutating func mergeWithLineSegment(lineSegment: TwoDimensionalLineSegment) {
+        self.mergeInPoint(lineSegment.start)
+        self.mergeInPoint(lineSegment.end)
+    }
+    
     func angleToLineSegment(lineSegment: TwoDimensionalLineSegment) -> Double {
         return acos(Double(self.vector.x * lineSegment.vector.x + self.vector.y * lineSegment.vector.y) / ( self.length * lineSegment.length))
     }

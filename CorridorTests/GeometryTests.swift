@@ -122,4 +122,18 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertTrue(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 1.1))
         XCTAssertFalse(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.9))
     }
+    
+    func testMergingWithLineSegments() {
+        var lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
+        var lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 4, y: 4))
+        let lineSegmentToMerge = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 1), end: TwoDimensionalPoint(x: 3, y: 3))
+        let lineSegment0Expected = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 3))
+        let lineSegment1Expected = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 4, y: 4))
+        
+        lineSegment0.mergeWithLineSegment(lineSegmentToMerge)
+        lineSegment1.mergeWithLineSegment(lineSegmentToMerge)
+        
+        XCTAssertEqual(lineSegment0, lineSegment0Expected)
+        XCTAssertEqual(lineSegment1, lineSegment1Expected)
+    }
 }
