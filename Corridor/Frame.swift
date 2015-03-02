@@ -62,16 +62,21 @@ class Frame {
                 continue
             }
         }
-        // Check if the final line segment can extend the first one.
-        if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
-            lineSegments[0].mergeWithLineSegment(potentialLineSegment)
+        // If there's at least one line segment in the list...
+        if !lineSegments.isEmpty {
+            // Check if the final line segment can extend the first one.
+            if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
+                lineSegments[0].mergeWithLineSegment(potentialLineSegment)
+            } else {
+                lineSegments.append(potentialLineSegment)
+                // Check if the final point can extend the first line segment.
+                if point.canExtendLineSegment(lineSegments[0]) {
+                    // Merge the point into the line segment.
+                    lineSegments[0].mergeInPoint(point)
+                }
+            }
         } else {
             lineSegments.append(potentialLineSegment)
-            // Check if the final point can extend the first line segment.
-            if point.canExtendLineSegment(lineSegments[0]) {
-                // Merge the point into the line segment.
-                lineSegments[0].mergeInPoint(point)
-            }
         }
         return lineSegments
     }

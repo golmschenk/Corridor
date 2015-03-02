@@ -71,6 +71,7 @@ class FrameTests: XCTestCase {
         XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 2), end: TwoDimensionalPoint(x: 2, y: 0))))
         XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 2, y: 2))))
         XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))))
+        XCTAssertEqual(squareLineSegments.count, 4)
     }
     
     func testCanGetLineSegmentsFromJumpContour() {
@@ -79,6 +80,14 @@ class FrameTests: XCTestCase {
         XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 0))))
         XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 0), end: TwoDimensionalPoint(x: 3, y: 1))))
         XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 1), end: TwoDimensionalPoint(x: 6, y: 1))))
+        XCTAssertEqual(jumpLineSegments.count, 3)
+    }
+    
+    func testCanGetLineSegmentsFromDoubleBackContour() {
+        let doubleBackLineSegments = frame.attainLineSegmentsFromContour(doubleBackContour)
+        
+        XCTAssertTrue(contains(doubleBackLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 0))))
+        XCTAssertEqual(doubleBackLineSegments.count, 1)
     }
     
 }
