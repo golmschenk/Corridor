@@ -82,9 +82,10 @@ struct TwoDimensionalLineSegment: Equatable {
         return acos(Double(self.vector.x * lineSegment.vector.x + self.vector.y * lineSegment.vector.y) / ( self.length * lineSegment.length))
     }
     
-    /*func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment) {
-        
-    }*/
+    // Could consider making the acceptance values depend on segment lengths.
+    func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withAngleAcceptance angleAcceptance: Double = Constant.angleAcceptanceForExtensionAcceptanceOfLineSegmentWithLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
+        return self.angleToLineSegment(lineSegment) < angleAcceptance && (lineSegment.start.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio) || lineSegment.end.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio))
+    }
 }
 
 func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {

@@ -95,4 +95,31 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         
         XCTAssertEqualWithAccuracy(lineSegment0.angleToLineSegment(lineSegment1), π/4, DBL_EPSILON)
     }
+    
+    func testCanExtendLineSegment() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 1))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 0, y: 3))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 0))
+        let lineSegment3 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 0), end: TwoDimensionalPoint(x: 3, y: 0))
+        
+        XCTAssertTrue(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.05))
+        XCTAssertTrue(lineSegment2.canExtendLineSegment(lineSegment3, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.05))
+    }
+    
+    func testCanExtendLineSegmentAngleAcceptance() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 1, y: 4))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 3, y: 4))
+        
+        XCTAssertTrue(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/4, withDeviationToLengthRatio: 0.05))
+        XCTAssertFalse(lineSegment0.canExtendLineSegment(lineSegment2, withAngleAcceptance: π/4, withDeviationToLengthRatio: 0.05))
+    }
+    
+    func testCanExtendLineSegmentDeviationAcceptance() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 1))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 2), end: TwoDimensionalPoint(x: 1, y: 3))
+        
+        XCTAssertTrue(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 1.1))
+        XCTAssertFalse(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.9))
+    }
 }
