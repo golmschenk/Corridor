@@ -136,4 +136,23 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertEqual(lineSegment0, lineSegment0Expected)
         XCTAssertEqual(lineSegment1, lineSegment1Expected)
     }
+    
+    func testCanFindIntersectionWithLineSegment() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 1), end: TwoDimensionalPoint(x: 2, y: 2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: -1, y: 1), end: TwoDimensionalPoint(x: -2, y: 2))
+        let point1 = TwoDimensionalPoint(x: 0, y: 0)
+        
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 1, y: 2))
+        let lineSegment3 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 0), end: TwoDimensionalPoint(x: 2, y: 1))
+        let point2 = TwoDimensionalPoint(x: 2, y: 2)
+        
+        XCTAssertEqual(lineSegment0.findIntersectionWithLine(lineSegment1)!, point1)
+        XCTAssertEqual(lineSegment2.findIntersectionWithLine(lineSegment3)!, point2)
+    }
+    
+    func testFindIntersectionWithParallelLinesReturnsNil() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 0))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 1), end: TwoDimensionalPoint(x: 1, y: 1))
+        XCTAssertTrue(lineSegment0.findIntersectionWithLine(lineSegment1) == nil)
+    }
 }

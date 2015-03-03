@@ -12,6 +12,12 @@ struct TwoDimensionalPoint: Equatable {
     let x: Int
     let y: Int
     
+    var tuple: (Int, Int) {
+        get {
+            return (x, y)
+        }
+    }
+    
     func asTuple() -> (Int, Int) {
         return (x, y)
     }
@@ -90,6 +96,21 @@ struct TwoDimensionalLineSegment: Equatable {
     // Could consider making the acceptance values depend on segment lengths.
     func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withAngleAcceptance angleAcceptance: Double = Constant.angleAcceptanceForExtensionAcceptanceOfLineSegmentWithLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
         return self.angleToLineSegment(lineSegment) < angleAcceptance && (lineSegment.start.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio) || lineSegment.end.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio))
+    }
+    
+    func findIntersectionWithLine(lineSegment: TwoDimensionalLineSegment) -> TwoDimensionalPoint? {
+        let (x0, y0) = self.start.tuple
+        let (x1, y1) = self.end.tuple
+        let (x2, y2) = lineSegment.start.tuple
+        let (x3, y3) = lineSegment.end.tuple
+        
+        let denominator = (x0-x1)*(y2-y3) - (y0-y1)*(x2-x3)
+        if denominator == 0 {
+            return nil
+        }
+        let x = ((x0*y1-y0*x1)*(x2-x3)-(x0-x1)*(x2*y3-y2*x3) / denominator)
+        let y = ((x0*y1-y0*x1)*(y2-y3)-(y0-y1)*(x2*y3-y2*x3) / denominator)
+        return TwoDimensionalPoint(x: x, y: y)
     }
 }
 
