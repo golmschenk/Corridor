@@ -90,4 +90,17 @@ class FrameTests: XCTestCase {
         XCTAssertEqual(doubleBackLineSegments.count, 1)
     }
     
+    func testCanFilterLineSegmentsBySize() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 0))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))
+        let lineSegments = [lineSegment0, lineSegment1, lineSegment2]
+        
+        let filteredLineSegments0 = frame.filterLineSegments(lineSegments, byLength: 1.1)
+        let filteredLineSegments1 = frame.filterLineSegments(lineSegments, byLength: 1.9)
+        
+        XCTAssertEqual(filteredLineSegments0.count, 2)
+        XCTAssertEqual(filteredLineSegments1.count, 1)
+    }
+    
 }

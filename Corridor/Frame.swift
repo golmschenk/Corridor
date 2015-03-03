@@ -35,6 +35,10 @@ class Frame {
         }
     }
     
+    func filterLineSegments(lineSegments: [TwoDimensionalLineSegment], byLength filterLength: Double) -> [TwoDimensionalLineSegment] {
+        return lineSegments.filter() {$0.length > filterLength}
+    }
+    
     func attainLineSegmentsFromContour(var contour: [TwoDimensionalPoint]) -> [TwoDimensionalLineSegment] {
         var lineSegments = [TwoDimensionalLineSegment]()
         // The potential line starts as just an individual point.
