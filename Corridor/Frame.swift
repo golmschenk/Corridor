@@ -108,9 +108,13 @@ class Frame {
         return models
     }
     
-    /*func generateInitialClusters() -> [[Bool]] {
-        var models = generateVanishingPointModels()
-        
-    }*/
+    func generateInitialClusters() -> [[Bool]] {
+        let models = generateVanishingPointModels()
+        var clusters = [[Bool]]()
+        for lineSegment in lineSegments {
+            clusters.append( map(models) { lineSegment.agreesWithVanishingPoint($0) } )
+        }
+        return clusters
+    }
     
 }

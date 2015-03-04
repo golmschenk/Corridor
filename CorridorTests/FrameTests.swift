@@ -37,6 +37,12 @@ class FrameTests: XCTestCase {
                              TwoDimensionalPoint(x: 0, y: 0),
                              TwoDimensionalPoint(x: 1, y: 0)]
     
+    // Line segments for a square with sides of length 2.
+    let squareLineSegments = [TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 0)),
+                              TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 0), end: TwoDimensionalPoint(x: 2, y: 2)),
+                              TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 2), end: TwoDimensionalPoint(x: 0, y: 2)),
+                              TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 0, y: 0))]
+    
     
     override func setUp() {
         let testBundle = NSBundle(forClass: self.dynamicType)
@@ -119,6 +125,25 @@ class FrameTests: XCTestCase {
         
         XCTAssertEqual(models.count, 5)
         XCTAssertEqual(models[0], TwoDimensionalPoint(x: 1, y: 1))
+    }
+    
+    func testGenerationOfInitialClusters() {
+        frame.lineSegments = squareLineSegments
+        func anyMatch(array: [[Bool]], match: [Bool]) -> Bool {
+            for element in array {
+                if element == match {
+                    return true
+                }
+            }
+            return false
+        }
+        
+        let clusters = frame.generateInitialClusters()
+        
+        XCTAssertTrue(anyMatch(clusters, [true, true, false, false]))
+        XCTAssertTrue(anyMatch(clusters, [false, true, true, false]))
+        XCTAssertTrue(anyMatch(clusters, [false, false, true, true]))
+        XCTAssertTrue(anyMatch(clusters, [true, false, false, true]))
     }
     
 }

@@ -108,8 +108,10 @@ struct TwoDimensionalLineSegment: Equatable {
         if denominator == 0 {
             return nil
         }
-        let x = ((x0*y1-y0*x1)*(x2-x3)-(x0-x1)*(x2*y3-y2*x3) / denominator)
-        let y = ((x0*y1-y0*x1)*(y2-y3)-(y0-y1)*(x2*y3-y2*x3) / denominator)
+        let xNumerator = (x0*y1-y0*x1)*(x2-x3)-(x0-x1)*(x2*y3-y2*x3)
+        let yNumerator = (x0*y1-y0*x1)*(y2-y3)-(y0-y1)*(x2*y3-y2*x3)
+        let x = xNumerator / denominator
+        let y = yNumerator / denominator
         return TwoDimensionalPoint(x: x, y: y)
     }
     
