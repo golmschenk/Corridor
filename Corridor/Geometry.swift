@@ -112,6 +112,18 @@ struct TwoDimensionalLineSegment: Equatable {
         let y = ((x0*y1-y0*x1)*(y2-y3)-(y0-y1)*(x2*y3-y2*x3) / denominator)
         return TwoDimensionalPoint(x: x, y: y)
     }
+    
+    var midpoint: TwoDimensionalPoint {
+        get {
+            let (x0, y0) = self.start.tuple
+            let (x1, y1) = self.end.tuple
+            return TwoDimensionalPoint(x: (x0+x1)/2, y: (y0+y1)/2)
+        }
+    }
+    
+    /*func agreesWithVanishingPoint(point: TwoDimensionalPoint) -> Bool {
+        
+    }*/
 }
 
 func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {

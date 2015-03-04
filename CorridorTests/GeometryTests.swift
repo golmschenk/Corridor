@@ -157,4 +157,11 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertTrue(lineSegment0.findIntersectionWithLine(lineSegment1) == nil)
     }
     
+    func testMidpoint() {
+        let lineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 0))
+        let point = TwoDimensionalPoint(x: 1, y: 0)
+        
+        XCTAssertEqual(lineSegment.midpoint, point)
+    }
+    
 }

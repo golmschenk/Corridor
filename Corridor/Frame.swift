@@ -110,6 +110,7 @@ class Frame {
     
     /*func generateInitialClusters() -> [[Bool]] {
         var models = generateVanishingPointModels()
+        
     }*/
     
 }
