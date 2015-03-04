@@ -14,6 +14,7 @@ struct Constant {
     static let angleAcceptanceForExtensionAcceptanceOfLineSegmentWithLineSegment = π/32
     
     static let lineSegmentMinimumLength = 30.0
+    static let numberOfVanishingPointModels = 500
 }
 
 @objc class ObjCConstant {

@@ -111,4 +111,14 @@ class FrameTests: XCTestCase {
         XCTAssertEqual(frame.lineSegments.count, 6)
     }
     
+    func testGenerationOfVanishingPointModels() {
+        frame.lineSegments = [TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 1), end: TwoDimensionalPoint(x: 1, y: 1)),
+                              TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))]
+        
+        let models = frame.generateVanishingPointModels(numberOfModels: 5)
+        
+        XCTAssertEqual(models.count, 5)
+        XCTAssertEqual(models[0], TwoDimensionalPoint(x: 1, y: 1))
+    }
+    
 }

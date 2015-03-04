@@ -94,4 +94,22 @@ class Frame {
         }
     }
     
+    func generateVanishingPointModels(numberOfModels: Int = Constant.numberOfVanishingPointModels) -> [TwoDimensionalPoint] {
+        var models = [TwoDimensionalPoint]()
+        while models.count < numberOfModels {
+            let lineSegment0 = lineSegments.randomItem()
+            let lineSegment1 = lineSegments.randomItem()
+            if lineSegment0 != lineSegment1 {
+                if let vanishingPointModel = lineSegment0.findIntersectionWithLine(lineSegment1) {
+                    models.append(vanishingPointModel)
+                }
+            }
+        }
+        return models
+    }
+    
+    /*func generateInitialClusters() -> [[Bool]] {
+        var models = generateVanishingPointModels()
+    }*/
+    
 }
