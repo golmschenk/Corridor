@@ -164,4 +164,21 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertEqual(lineSegment.midpoint, point)
     }
     
+    func testVanishingPointAgreement() {
+        let lineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
+        let point1 = TwoDimensionalPoint(x: 6, y: 6)
+        let point2 = TwoDimensionalPoint(x: 6, y: 0)
+        
+        XCTAssertTrue(lineSegment.agreesWithVanishingPoint(point1, withEndPointDeviationAcceptance: 0.05))
+        XCTAssertFalse(lineSegment.agreesWithVanishingPoint(point2, withEndPointDeviationAcceptance: 0.05))
+    }
+    
+    func testVanishingPointAgreementDeviationAcceptanceInput() {
+        let lineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 2))
+        let point = TwoDimensionalPoint(x: 6, y: 5)
+        
+        XCTAssertTrue(lineSegment.agreesWithVanishingPoint(point, withEndPointDeviationAcceptance: 0.20))
+        XCTAssertFalse(lineSegment.agreesWithVanishingPoint(point, withEndPointDeviationAcceptance: 0.02))
+    }
+    
 }

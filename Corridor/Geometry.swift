@@ -121,9 +121,11 @@ struct TwoDimensionalLineSegment: Equatable {
         }
     }
     
-    /*func agreesWithVanishingPoint(point: TwoDimensionalPoint) -> Bool {
-        
-    }*/
+    func agreesWithVanishingPoint(point: TwoDimensionalPoint, withEndPointDeviationAcceptance endPointDeviationAcceptance: Double = Constant.endPointDeviationAcceptanceForLineSegmentToVanishingPointAgreement) -> Bool {
+        let centerLine = TwoDimensionalLineSegment(start: self.midpoint, end: point)
+        let deviationDistance = self.start.distanceToLine(centerLine)
+        return endPointDeviationAcceptance >= deviationDistance / self.length
+    }
 }
 
 func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLineSegment) -> Bool {
