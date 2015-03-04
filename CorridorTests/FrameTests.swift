@@ -129,21 +129,13 @@ class FrameTests: XCTestCase {
     
     func testGenerationOfInitialClusters() {
         frame.lineSegments = squareLineSegments
-        func anyMatch(array: [[Bool]], match: [Bool]) -> Bool {
-            for element in array {
-                if element == match {
-                    return true
-                }
-            }
-            return false
-        }
         
         let clusters = frame.generateInitialClusters()
         
-        XCTAssertTrue(anyMatch(clusters, [true, true, false, false]))
-        XCTAssertTrue(anyMatch(clusters, [false, true, true, false]))
-        XCTAssertTrue(anyMatch(clusters, [false, false, true, true]))
-        XCTAssertTrue(anyMatch(clusters, [true, false, false, true]))
+        XCTAssertTrue(contains(clusters[0], true) && contains(clusters[0], false))
+        XCTAssertTrue(contains(clusters[1], true) && contains(clusters[1], false))
+        XCTAssertTrue(contains(clusters[2], true) && contains(clusters[2], false))
+        XCTAssertTrue(contains(clusters[3], true) && contains(clusters[3], false))
     }
     
 }
