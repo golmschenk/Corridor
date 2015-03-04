@@ -14,6 +14,7 @@ class Frame {
     var edgeImage: UIImage! = nil
     let twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     var contours = [[TwoDimensionalPoint]]()
+    var lineSegments = [TwoDimensionalLineSegment]()
     
     init(image: UIImage) {
         self.image = image
@@ -36,7 +37,7 @@ class Frame {
     }
     
     func filterLineSegments(lineSegments: [TwoDimensionalLineSegment], byLength filterLength: Double) -> [TwoDimensionalLineSegment] {
-        return lineSegments.filter() {$0.length > filterLength}
+        return lineSegments.filter() {$0.length >= filterLength}
     }
     
     func attainLineSegmentsFromContour(var contour: [TwoDimensionalPoint]) -> [TwoDimensionalLineSegment] {
@@ -83,6 +84,14 @@ class Frame {
             lineSegments.append(potentialLineSegment)
         }
         return lineSegments
+    }
+    
+    func obtainLineSegmentsFromContours(contours: [[TwoDimensionalPoint]], byLength length: Double = Constant.lineSegmentMinimumLength) {
+        for contour in contours {
+            var contourLineSegments = attainLineSegmentsFromContour(contour)
+            contourLineSegments = filterLineSegments(contourLineSegments, byLength: length)
+            lineSegments.extend(contourLineSegments)
+        }
     }
     
 }

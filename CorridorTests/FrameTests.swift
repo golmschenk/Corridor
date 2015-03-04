@@ -103,4 +103,12 @@ class FrameTests: XCTestCase {
         XCTAssertEqual(filteredLineSegments1.count, 1)
     }
     
+    func testCanGetLengthFilteredLineSegmentArrayFromContourArray() {
+        let contours = [squareContour, jumpContour]
+        
+        frame.obtainLineSegmentsFromContours(contours, byLength: 2)
+        
+        XCTAssertEqual(frame.lineSegments.count, 6)
+    }
+    
 }

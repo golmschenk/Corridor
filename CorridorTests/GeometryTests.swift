@@ -10,6 +10,7 @@ import XCTest
 
 
 class TwoDimensionalPointTests: XCTestCase {
+    
     func testEquivalence() {
         let point0 = TwoDimensionalPoint(x: 1, y: 1)
         let point1 = TwoDimensionalPoint(x: 1, y: 1)
@@ -155,4 +156,5 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 1), end: TwoDimensionalPoint(x: 1, y: 1))
         XCTAssertTrue(lineSegment0.findIntersectionWithLine(lineSegment1) == nil)
     }
+    
 }
