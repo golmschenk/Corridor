@@ -130,12 +130,12 @@ class FrameTests: XCTestCase {
     func testGenerationOfInitialClusters() {
         frame.lineSegments = squareLineSegments
         
-        let clusters = frame.generateInitialClusters()
+        let clusters = frame.obtainInitialClusters()
         
-        XCTAssertTrue(contains(clusters[0], true) && contains(clusters[0], false))
-        XCTAssertTrue(contains(clusters[1], true) && contains(clusters[1], false))
-        XCTAssertTrue(contains(clusters[2], true) && contains(clusters[2], false))
-        XCTAssertTrue(contains(clusters[3], true) && contains(clusters[3], false))
+        XCTAssertTrue(contains(clusters[0].1, true) && contains(clusters[0].1, false))
+        XCTAssertTrue(contains(clusters[1].1, true) && contains(clusters[1].1, false))
+        XCTAssertTrue(contains(clusters[2].1, true) && contains(clusters[2].1, false))
+        XCTAssertTrue(contains(clusters[3].1, true) && contains(clusters[3].1, false))
     }
     
 }
