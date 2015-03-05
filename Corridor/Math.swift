@@ -15,3 +15,7 @@ infix operator ** { associativity left precedence 160 }
 func ** (left: Double, right: Double) -> Double {
     return pow(left, right)
 }
+
+func choose2 (from n: Int) -> Int {
+    return ((n-1)*(n))/2
+}
