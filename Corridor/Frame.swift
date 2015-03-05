@@ -108,12 +108,11 @@ class Frame {
         return models
     }
     
-    func obtainInitialClusters() -> [([TwoDimensionalLineSegment], [Bool])] {
+    func obtainInitialClusters() -> [Cluster] {
         let models = generateVanishingPointModels()
-        var clusters = [([TwoDimensionalLineSegment], [Bool])]()
+        var clusters = [Cluster]()
         for lineSegment in lineSegments {
-            let cluster = ([lineSegment], map(models) { lineSegment.agreesWithVanishingPoint($0) })
-            clusters.append(cluster)
+            clusters.append(Cluster(lineSegments: [lineSegment], preferenceSet: map(models) { lineSegment.agreesWithVanishingPoint($0) }))
         }
         return clusters
     }

@@ -132,10 +132,10 @@ class FrameTests: XCTestCase {
         
         let clusters = frame.obtainInitialClusters()
         
-        XCTAssertTrue(contains(clusters[0].1, true) && contains(clusters[0].1, false))
-        XCTAssertTrue(contains(clusters[1].1, true) && contains(clusters[1].1, false))
-        XCTAssertTrue(contains(clusters[2].1, true) && contains(clusters[2].1, false))
-        XCTAssertTrue(contains(clusters[3].1, true) && contains(clusters[3].1, false))
+        XCTAssertTrue(contains(clusters[0].preferenceSet, true) && contains(clusters[0].preferenceSet, false))
+        XCTAssertTrue(contains(clusters[1].preferenceSet, true) && contains(clusters[1].preferenceSet, false))
+        XCTAssertTrue(contains(clusters[2].preferenceSet, true) && contains(clusters[2].preferenceSet, false))
+        XCTAssertTrue(contains(clusters[3].preferenceSet, true) && contains(clusters[3].preferenceSet, false))
     }
     
 }
