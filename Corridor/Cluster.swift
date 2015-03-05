@@ -34,6 +34,10 @@ struct Cluster : Equatable {
         return (unionSum - intersectionSum) / unionSum
     }
     
+    /*func vanishingPointFromAverage() -> TwoDimensionalPoint {
+        var vanishingPoints = [TwoDimensionalPoint]
+    }*/
+    
 }
 
 func == (cluster0: Cluster, cluster1: Cluster) -> Bool {

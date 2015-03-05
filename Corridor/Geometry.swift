@@ -50,6 +50,10 @@ func == (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> Bool {
     return (point1.x == point2.x) && (point1.y == point2.y)
 }
 
+func + (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> TwoDimensionalPoint {
+    return TwoDimensionalPoint(x: point1.x + point2.x, y: point1.y + point2.y)
+}
+
 typealias TwoDimensionalVector = TwoDimensionalPoint
 
 struct TwoDimensionalLineSegment: Equatable {
