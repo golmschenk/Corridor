@@ -29,4 +29,20 @@ class PreferenceSetTests: XCTestCase {
         XCTAssertEqual(preferenceSet2, [false, true, false, false])
     }
     
+    func testClusterMerging() {
+        let preferenceSet0 = [true, true, false, false]
+        let preferenceSet1 = [false, true, true, false]
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 1), end: TwoDimensionalPoint(x: 2, y: 2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: -1, y: 1), end: TwoDimensionalPoint(x: -2, y: 2))
+        let cluster0 = Cluster(lineSegments: [lineSegment0], preferenceSet: preferenceSet0)
+        let cluster1 = Cluster(lineSegments: [lineSegment1], preferenceSet: preferenceSet1)
+        let cluster2Expected1 = Cluster(lineSegments: [lineSegment1, lineSegment0], preferenceSet: [false, true, false, false])
+        let cluster2Expected2 = Cluster(lineSegments: [lineSegment0, lineSegment1], preferenceSet: [false, true, false, false])
+        
+        let cluster2 = cluster0.mergeWithCluster(cluster1)
+        
+        // Need to check both directions as the order of the line segment list matters.
+        XCTAssertTrue(cluster2 == cluster2Expected1 || cluster2 == cluster2Expected2)
+    }
+    
 }
