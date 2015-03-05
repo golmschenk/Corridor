@@ -29,6 +29,14 @@ class PreferenceSetTests: XCTestCase {
         XCTAssertEqual(preferenceSet2, [false, true, false, false])
     }
     
+    func testSum() {
+        let preferenceSet = [true, true, false, true]
+        
+        let sum = Cluster.preferenceSetSum(preferenceSet)
+        
+        XCTAssertEqual(sum, 3)
+    }
+    
 }
 
 class ClusterTests: XCTestCase {
