@@ -69,5 +69,19 @@ class ClusterTests: XCTestCase {
         XCTAssertFalse(cluster0 == cluster1)
         XCTAssertFalse(cluster1 == cluster2)
     }
+    
+    func testJaccardDistanceBetweenClusters() {
+        let preferenceSet0 = [true, true, false, false]
+        let preferenceSet1 = [false, true, true, false]
+        let preferenceSet2 = [false, false, true, true]
+        let cluster0 = Cluster(lineSegments: [], preferenceSet: preferenceSet0)
+        let cluster1 = Cluster(lineSegments: [], preferenceSet: preferenceSet1)
+        let cluster2 = Cluster(lineSegments: [], preferenceSet: preferenceSet2)
+        
+        XCTAssertEqual(cluster0.jaccardDistanceToCluster(cluster0), 0.0)
+        XCTAssertEqual(cluster0.jaccardDistanceToCluster(cluster1), 2.0/3.0)
+        XCTAssertEqual(cluster0.jaccardDistanceToCluster(cluster2), 1.0)
+        XCTAssertEqual(cluster1.jaccardDistanceToCluster(cluster2), 2.0/3.0)
+    }
 
 }

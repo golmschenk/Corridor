@@ -26,9 +26,13 @@ struct Cluster : Equatable {
         return Cluster(lineSegments: self.lineSegments + cluster.lineSegments, preferenceSet: Cluster.preferenceSetIntersection(preferenceSet0: self.preferenceSet, preferenceSet1: cluster.preferenceSet))
     }
     
-    /*func jaccardDistanceToCluster(cluster: Cluster) -> Double {
-        
-    }*/
+    func jaccardDistanceToCluster(cluster: Cluster) -> Double {
+        let union = Cluster.preferenceSetUnion(preferenceSet0: self.preferenceSet, preferenceSet1: cluster.preferenceSet)
+        let intersection = Cluster.preferenceSetIntersection(preferenceSet0: self.preferenceSet, preferenceSet1: cluster.preferenceSet)
+        let unionSum = Double(Cluster.preferenceSetSum(union))
+        let intersectionSum = Double(Cluster.preferenceSetSum(intersection))
+        return (unionSum - intersectionSum) / unionSum
+    }
     
 }
 
