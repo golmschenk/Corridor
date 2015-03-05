@@ -14,6 +14,10 @@ struct Cluster {
         return map(0..<preferenceSet0.count) { preferenceSet0[$0] || preferenceSet1[$0] }
     }
     
+    static func preferenceSetIntersection(#preferenceSet0: [Bool], preferenceSet1: [Bool]) -> [Bool] {
+        return map(0..<preferenceSet0.count) { preferenceSet0[$0] && preferenceSet1[$0] }
+    }
+    
     /*func mergeWithCluster(cluster: Cluster) -> Cluster {
         
     }*/
