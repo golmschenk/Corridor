@@ -28,6 +28,14 @@ class TwoDimensionalPointTests: XCTestCase {
         XCTAssertEqual(point0 + point1, point2)
     }
     
+    func testDivisionByInt() {
+        let point0 = TwoDimensionalPoint(x: 6, y: 6)
+        let point1 = TwoDimensionalPoint(x: 3, y: 3)
+        let point2 = point0 / 2
+        
+        XCTAssertEqual(point1, point2)
+    }
+    
     func testDistanceToPoint() {
         let point0 = TwoDimensionalPoint(x: 0, y: 0)
         let point1 = TwoDimensionalPoint(x: 2, y: 2)

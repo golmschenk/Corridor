@@ -54,6 +54,10 @@ func + (point1: TwoDimensionalPoint, point2: TwoDimensionalPoint) -> TwoDimensio
     return TwoDimensionalPoint(x: point1.x + point2.x, y: point1.y + point2.y)
 }
 
+func / (point1: TwoDimensionalPoint, denominator: Int) -> TwoDimensionalPoint {
+    return TwoDimensionalPoint(x: point1.x / denominator, y: point1.y / denominator)
+}
+
 typealias TwoDimensionalVector = TwoDimensionalPoint
 
 struct TwoDimensionalLineSegment: Equatable {

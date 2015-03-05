@@ -35,7 +35,12 @@ struct Cluster : Equatable {
     }
     
     /*func vanishingPointFromAverage() -> TwoDimensionalPoint {
-        var vanishingPoints = [TwoDimensionalPoint]
+        var vanishingPointSum = [TwoDimensionalPoint]()
+        for index0 in 0..<self.lineSegments.count {
+            for index1 in index0+1..<self.lineSegments.count {
+                
+            }
+        }
     }*/
     
 }
