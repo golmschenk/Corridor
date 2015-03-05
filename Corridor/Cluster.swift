@@ -34,14 +34,17 @@ struct Cluster : Equatable {
         return (unionSum - intersectionSum) / unionSum
     }
     
-    /*func vanishingPointFromAverage() -> TwoDimensionalPoint {
-        var vanishingPointSum = [TwoDimensionalPoint]()
+    func vanishingPointFromAverage() -> TwoDimensionalPoint {
+        var vanishingPointSum = TwoDimensionalPoint(x: 0, y: 0)
         for index0 in 0..<self.lineSegments.count {
             for index1 in index0+1..<self.lineSegments.count {
-                
+                if let vanishingPoint = self.lineSegments[index0].findIntersectionWithLine(self.lineSegments[index1]) {
+                    vanishingPointSum = vanishingPointSum + vanishingPoint
+                }
             }
         }
-    }*/
+        return vanishingPointSum / choose2(from: self.lineSegments.count)
+    }
     
 }
 
@@ -78,4 +81,8 @@ func preformJLinkageMergingOnClusters(var clusters: [Cluster]) -> [Cluster] {
         }
     }
     return clusters
+}
+
+func attainVanishingPointsForClusters(clusters: [Cluster]) -> [TwoDimensionalPoint]{
+    return map(clusters) { $0.vanishingPointFromAverage() }
 }

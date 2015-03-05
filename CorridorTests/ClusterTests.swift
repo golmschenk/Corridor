@@ -104,5 +104,33 @@ class ClusterTests: XCTestCase {
         XCTAssertTrue(contains(clusters[1].lineSegments, lineSegment2))
         XCTAssertTrue(contains(clusters[0].lineSegments, lineSegment1))
     }
+    
+    func testAverageVanishingPointFinding() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 5), end: TwoDimensionalPoint(x: 1, y: 5))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 7, y: 0), end: TwoDimensionalPoint(x: 7, y: 1))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))
+        let cluster = Cluster(lineSegments: [lineSegment0, lineSegment1, lineSegment2], preferenceSet: [])
+        let expectedVanishingPoint = TwoDimensionalPoint(x: 6, y: 5)
+        
+        let vanishingPoint = cluster.vanishingPointFromAverage()
+            
+        XCTAssertEqual(vanishingPoint, expectedVanishingPoint)
+    }
+    
+    func testVanishingPointsForAllClusters() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 5), end: TwoDimensionalPoint(x: 1, y: 5))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 7, y: 0), end: TwoDimensionalPoint(x: 7, y: 1))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))
+        let cluster0 = Cluster(lineSegments: [lineSegment0, lineSegment2], preferenceSet: [])
+        let cluster1 = Cluster(lineSegments: [lineSegment1, lineSegment2], preferenceSet: [])
+        let clusters = [cluster0, cluster1]
+        let expectedVanishingPoint0 = TwoDimensionalPoint(x: 5, y: 5)
+        let expectedVanishingPoint1 = TwoDimensionalPoint(x: 7, y: 7)
+        
+        let vanishingPoints = attainVanishingPointsForClusters(clusters)
+        
+        XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint0))
+        XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint1))
+    }
 
 }
