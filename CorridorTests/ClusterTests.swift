@@ -83,5 +83,26 @@ class ClusterTests: XCTestCase {
         XCTAssertEqual(cluster0.jaccardDistanceToCluster(cluster2), 1.0)
         XCTAssertEqual(cluster1.jaccardDistanceToCluster(cluster2), 2.0/3.0)
     }
+    
+    func testJLinkageClusterMerging() {
+        let preferenceSet0 = [true, true, true, false, false]
+        let preferenceSet1 = [false, false, false, true, true]
+        let preferenceSet2 = [false, true, true, true, false]
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 1), end: TwoDimensionalPoint(x: 2, y: 2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 2), end: TwoDimensionalPoint(x: 3, y: 3))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 3), end: TwoDimensionalPoint(x: 4, y: 4))
+        let cluster0 = Cluster(lineSegments: [lineSegment0], preferenceSet: preferenceSet0)
+        let cluster1 = Cluster(lineSegments: [lineSegment1], preferenceSet: preferenceSet1)
+        let cluster2 = Cluster(lineSegments: [lineSegment2], preferenceSet: preferenceSet2)
+        var clusters = [cluster0, cluster1, cluster2]
+        
+        clusters = preformJLinkageMergingOnClusters(clusters)
+        
+        XCTAssertEqual(clusters.count, 2)
+        // These contains assume that newly added clusters are added to the end of the array. This may change depending on the merging process.
+        XCTAssertTrue(contains(clusters[1].lineSegments, lineSegment0))
+        XCTAssertTrue(contains(clusters[1].lineSegments, lineSegment2))
+        XCTAssertTrue(contains(clusters[0].lineSegments, lineSegment1))
+    }
 
 }

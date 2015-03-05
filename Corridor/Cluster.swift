@@ -40,7 +40,33 @@ func == (cluster0: Cluster, cluster1: Cluster) -> Bool {
     return cluster0.lineSegments == cluster1.lineSegments && cluster0.preferenceSet == cluster1.preferenceSet
 }
 
-/*func preformJLinkageMergingOnClusters(var clusters: [Cluster]) -> [Cluster] {
-    // TODO
+func preformJLinkageMergingOnClusters(var clusters: [Cluster]) -> [Cluster] {
+    var minimumDistance = 0.0
+    var mergeIndex0: Int?
+    var mergeIndex1: Int?
+    while minimumDistance < 1.0 {
+        if mergeIndex0 != nil && mergeIndex1 != nil {
+            let newCluster = clusters[mergeIndex0!].mergeWithCluster(clusters[mergeIndex1!])
+            clusters.removeAtIndex(max(mergeIndex0!, mergeIndex1!))
+            clusters.removeAtIndex(min(mergeIndex0!, mergeIndex1!))
+            clusters.append(newCluster)
+        }
+        minimumDistance = 1.0
+        outerFor : for (index0, cluster0) in enumerate(clusters) {
+            for (index1, cluster1) in enumerate(clusters) {
+                if index0 != index1 {
+                    let distance = cluster0.jaccardDistanceToCluster(cluster1)
+                    if distance < minimumDistance {
+                        minimumDistance = distance
+                        mergeIndex0 = index0
+                        mergeIndex1 = index1
+                        if minimumDistance == 0.0 {
+                            break outerFor
+                        }
+                    }
+                }
+            }
+        }
+    }
     return clusters
-}*/
+}
