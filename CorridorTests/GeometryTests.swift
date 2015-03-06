@@ -123,6 +123,13 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertTrue(lineSegment2.canExtendLineSegment(lineSegment3, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.05))
     }
     
+    func testCanExtendLineSegmentAcceptsLinesInOppositeDirections() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 1))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 1), end: TwoDimensionalPoint(x: 0, y: 0))
+        
+        XCTAssertTrue(lineSegment0.canExtendLineSegment(lineSegment1, withAngleAcceptance: π/32, withDeviationToLengthRatio: 0.05))
+    }
+    
     func testCanExtendLineSegmentAngleAcceptance() {
         let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))
         let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 1, y: 4))

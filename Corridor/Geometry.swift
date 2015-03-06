@@ -103,7 +103,7 @@ struct TwoDimensionalLineSegment: Equatable {
     
     // Could consider making the acceptance values depend on segment lengths.
     func canExtendLineSegment(lineSegment: TwoDimensionalLineSegment, withAngleAcceptance angleAcceptance: Double = Constant.angleAcceptanceForExtensionAcceptanceOfLineSegmentWithLineSegment, withDeviationToLengthRatio deviationToLengthRatio: Double = Constant.lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint) -> Bool {
-        return self.angleToLineSegment(lineSegment) < angleAcceptance && (lineSegment.start.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio) || lineSegment.end.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio))
+        return (self.angleToLineSegment(lineSegment) % π) < angleAcceptance && (lineSegment.start.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio) || lineSegment.end.canExtendLineSegment(self, withDeviationToLengthRatio: deviationToLengthRatio))
     }
     
     func findIntersectionWithLine(lineSegment: TwoDimensionalLineSegment) -> TwoDimensionalPoint? {
