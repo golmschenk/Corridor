@@ -132,5 +132,17 @@ class ClusterTests: XCTestCase {
         XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint0))
         XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint1))
     }
+    
+    func testRemovingOutlierClusters() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 5), end: TwoDimensionalPoint(x: 1, y: 5))
+        let cluster0 = Cluster(lineSegments: [lineSegment0, lineSegment0, lineSegment0, lineSegment0, lineSegment0], preferenceSet: [])
+        let cluster1 = Cluster(lineSegments: [lineSegment0, lineSegment0, lineSegment0, lineSegment0, lineSegment0], preferenceSet: [])
+        let cluster2 = Cluster(lineSegments: [lineSegment0], preferenceSet: [])
+        var clusters = [cluster0, cluster1, cluster2]
+        
+        clusters = removeOutlierClusters(clusters)
+        
+        XCTAssertEqual(clusters.count, 2)
+    }
 
 }

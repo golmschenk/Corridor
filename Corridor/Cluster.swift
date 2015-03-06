@@ -45,7 +45,6 @@ struct Cluster : Equatable {
         }
         return vanishingPointSum / choose2(from: self.lineSegments.count)
     }
-    
 }
 
 func == (cluster0: Cluster, cluster1: Cluster) -> Bool {
@@ -85,4 +84,8 @@ func preformJLinkageMergingOnClusters(var clusters: [Cluster]) -> [Cluster] {
 
 func attainVanishingPointsForClusters(clusters: [Cluster]) -> [TwoDimensionalPoint]{
     return map(clusters) { $0.vanishingPointFromAverage() }
+}
+
+func removeOutlierClusters(clusters: [Cluster]) -> [Cluster] {
+    return filter(clusters) { $0.lineSegments.count > 2 }
 }
