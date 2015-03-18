@@ -138,4 +138,12 @@ class FrameTests: XCTestCase {
         XCTAssertTrue(contains(clusters[3].preferenceSet, true) && contains(clusters[3].preferenceSet, false))
     }
     
+    /*func testManhattanVanishingPointDetermination() {
+        let vanishingPoint0 = Point()
+        
+        XCTAssertEqual(contains(frame.twoDimensionalManhattanVanishingPointSet), vanishingPoint0)
+        XCTAssertEqual(contains(frame.twoDimensionalManhattanVanishingPointSet), vanishingPoint1)
+        XCTAssertEqual(contains(frame.twoDimensionalManhattanVanishingPointSet), vanishingPoint2)
+    }*/
+    
 }

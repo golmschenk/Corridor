@@ -99,7 +99,7 @@ class ClusterTests: XCTestCase {
         clusters = preformJLinkageMergingOnClusters(clusters)
         
         XCTAssertEqual(clusters.count, 2)
-        // These contains assume that newly added clusters are added to the end of the array. This may change depending on the merging process.
+        // These contains() assume that newly added clusters are added to the end of the array. This may change depending on the merging process.
         XCTAssertTrue(contains(clusters[1].lineSegments, lineSegment0))
         XCTAssertTrue(contains(clusters[1].lineSegments, lineSegment2))
         XCTAssertTrue(contains(clusters[0].lineSegments, lineSegment1))

@@ -12,7 +12,7 @@ class Frame {
     
     let image: UIImage! = nil
     var edgeImage: UIImage! = nil
-    let twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
+    var twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     var contours = [[TwoDimensionalPoint]]()
     var lineSegments = [TwoDimensionalLineSegment]()
     

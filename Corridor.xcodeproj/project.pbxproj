@@ -45,6 +45,8 @@
 		65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
 		65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200BF2B496B369A4145471 /* FunctionalTests.swift */; };
 		65CD083F1A84315300F69CEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
+		65EC737D1AB9F884002AB067 /* simple_hallway3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EC737C1AB9F884002AB067 /* simple_hallway3.png */; };
+		65EC737E1AB9F884002AB067 /* simple_hallway3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EC737C1AB9F884002AB067 /* simple_hallway3.png */; };
 		65FF0AA71A96559500B983AC /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AA61A96559500B983AC /* Frame.swift */; };
 		65FF0AAB1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
 		65FF0AAC1A9661B000B983AC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FF0AAA1A9661B000B983AC /* Geometry.swift */; };
@@ -95,6 +97,7 @@
 		65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway2.png; sourceTree = "<group>"; };
 		65CD08321A84307900F69CEE /* FunctionalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CD08351A84307900F69CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65EC737C1AB9F884002AB067 /* simple_hallway3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simple_hallway3.png; sourceTree = "<group>"; };
 		65FF0AA61A96559500B983AC /* Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		65FF0AAA1A9661B000B983AC /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		B620000B1787A71C58E5D7DC /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +168,7 @@
 				65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */,
 				65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */,
 				65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */,
+				65EC737C1AB9F884002AB067 /* simple_hallway3.png */,
 			);
 			name = "Test Supporting Files";
 			path = FunctionalTests;
@@ -357,6 +361,7 @@
 				65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */,
 				65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */,
 				6526DDE01A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */,
+				65EC737E1AB9F884002AB067 /* simple_hallway3.png in Resources */,
 				65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +373,7 @@
 				6590B2C51A9508E3000F5194 /* simple_hallway1.png in Resources */,
 				6590B2C41A9508E3000F5194 /* simple_hallway0.png in Resources */,
 				6526DDDF1A9E56DB000A9BC4 /* simple_hallway0_canny.png in Resources */,
+				65EC737D1AB9F884002AB067 /* simple_hallway3.png in Resources */,
 				6590B2C61A9508E3000F5194 /* simple_hallway2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
