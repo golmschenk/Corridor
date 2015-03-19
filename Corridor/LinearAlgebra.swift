@@ -46,4 +46,10 @@ struct Matrix {
         }
         return Matrix(columnValues, autoTranspose: false)
     }
+    
+    var T: Matrix {
+        get {
+            return self.transpose()
+        }
+    }
 }

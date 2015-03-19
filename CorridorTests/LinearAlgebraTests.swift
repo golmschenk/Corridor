@@ -50,4 +50,14 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix1[1][0], 4)
     }
     
+    func testTransposeComputedProperty() {
+        let matrix0 = Matrix([[1, 2, 3],
+            [4, 5, 6]])
+        
+        let matrix1 = matrix0.T
+        
+        XCTAssertEqual(matrix1[0][2], 3)
+        XCTAssertEqual(matrix1[1][0], 4)
+    }
+    
 }
