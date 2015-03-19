@@ -44,6 +44,6 @@ struct Matrix {
         for index in 0..<matrixValues[0].count {
             columnValues.append(map(matrixValues) { $0[index] })
         }
-        return Matrix(matrixValues, autoTranspose: false)
+        return Matrix(columnValues, autoTranspose: false)
     }
 }

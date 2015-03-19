@@ -40,14 +40,14 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix[0][2], 3)
     }
     
-    /*func testMatrixTranspose() {
+    func testMatrixTranspose() {
         let matrix0 = Matrix([[1, 2, 3],
                               [4, 5, 6]])
         
         let matrix1 = matrix0.transpose()
         
         XCTAssertEqual(matrix1[0][2], 3)
-        XCTAssertEqual(matrix1[1][0], 5)
-    }*/
+        XCTAssertEqual(matrix1[1][0], 4)
+    }
     
 }
