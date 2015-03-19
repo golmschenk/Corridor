@@ -60,6 +60,18 @@ struct Matrix {
 
 infix operator • { associativity left precedence 160 }
 
-/*func • (left: Matrix, right: Matrix) -> Matrix {
-    for
-}*/
+func • (left: Matrix, right: Matrix) -> Matrix {
+    var matrixValues = [[Double]]()
+    for index0 in 0..<right.width {
+        var matrixRow = [Double]()
+        for index1 in 0..<left.height {
+            var total = 0.0
+            for index2 in 0..<right.height {
+                total += left[index2][index1] * right[index0][index2]
+            }
+            matrixRow.append(total)
+        }
+        matrixValues.append(matrixRow)
+    }
+    return Matrix(matrixValues, autoTranspose: false)
+}

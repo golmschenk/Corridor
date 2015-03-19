@@ -68,7 +68,7 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix.width, 3)
     }
     
-    /*func testDotProduct() {
+    func testDotProduct() {
         let matrix0 = Matrix([[1, 2, 3],
                               [4, 5, 6]])
         let matrix1 = Matrix([[ 7,  8],
@@ -77,8 +77,8 @@ class MatrixTests: XCTestCase {
         
         let matrix2 = matrix0 • matrix1
         
-        XCTAssertEqual(matrix1[0][2], 3)
-        XCTAssertEqual(matrix1[1][0], 4)
-    }*/
+        XCTAssertEqual(matrix2[1][0], 64)
+        XCTAssertEqual(matrix2[1][1], 154)
+    }
     
 }
