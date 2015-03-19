@@ -91,4 +91,13 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix2[1][0], 6)
     }
     
+    func testTwoByTwoDeterminant() {
+        let matrix = Matrix([[4, 6],
+                             [3, 8]])
+        
+        let determinant = matrix.determinant()
+        
+        XCTAssertEqual(determinant, 14)
+    }
+    
 }

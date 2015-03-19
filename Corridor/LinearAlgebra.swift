@@ -56,6 +56,10 @@ struct Matrix {
             return self.transpose()
         }
     }
+    
+    func determinant() -> Double {
+        return columns[0][0]*columns[1][1] - columns[1][0]*columns[0][1]
+    }
 }
 
 infix operator • { associativity left precedence 160 }
