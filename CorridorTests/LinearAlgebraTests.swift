@@ -81,4 +81,14 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix2[1][1], 154)
     }
     
+    func testCrossProduct() {
+        let matrix0 = Matrix([[2, 3, 4]]).T
+        let matrix1 = Matrix([[5, 6, 7]]).T
+        
+        let matrix2 = matrix0 × matrix1
+        
+        XCTAssertEqual(matrix2[0][0], -3)
+        XCTAssertEqual(matrix2[1][0], 6)
+    }
+    
 }

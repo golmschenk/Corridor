@@ -75,3 +75,11 @@ func • (left: Matrix, right: Matrix) -> Matrix {
     }
     return Matrix(matrixValues, autoTranspose: false)
 }
+
+infix operator × { associativity left precedence 160 }
+
+func × (left: Matrix, right: Matrix) -> Matrix {
+    return Matrix([[left[0][1]*right[0][2]-left[0][2]*right[0][1]],
+                   [left[0][2]*right[0][0]-left[0][0]*right[0][2]],
+                   [left[0][0]*right[0][1]-left[0][1]*right[0][0]]], autoTranspose: false)
+}
