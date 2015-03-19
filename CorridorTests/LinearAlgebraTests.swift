@@ -31,4 +31,23 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix[0][2], 7)
     }
     
+    func testMatrixIndexingWithoutAutoTranspose() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6],
+                             [7, 8, 9]], autoTranspose: false)
+        
+        XCTAssertEqual(matrix[2][1], 8)
+        XCTAssertEqual(matrix[0][2], 3)
+    }
+    
+    /*func testMatrixTranspose() {
+        let matrix0 = Matrix([[1, 2, 3],
+                              [4, 5, 6]])
+        
+        let matrix1 = matrix0.transpose()
+        
+        XCTAssertEqual(matrix1[0][2], 3)
+        XCTAssertEqual(matrix1[1][0], 5)
+    }*/
+    
 }
