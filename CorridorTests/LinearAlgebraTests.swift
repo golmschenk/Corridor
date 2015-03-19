@@ -52,12 +52,33 @@ class MatrixTests: XCTestCase {
     
     func testTransposeComputedProperty() {
         let matrix0 = Matrix([[1, 2, 3],
-            [4, 5, 6]])
+                              [4, 5, 6]])
         
         let matrix1 = matrix0.T
         
         XCTAssertEqual(matrix1[0][2], 3)
         XCTAssertEqual(matrix1[1][0], 4)
     }
+    
+    func testSize() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6]])
+        
+        XCTAssertEqual(matrix.height, 2)
+        XCTAssertEqual(matrix.width, 3)
+    }
+    
+    /*func testDotProduct() {
+        let matrix0 = Matrix([[1, 2, 3],
+                              [4, 5, 6]])
+        let matrix1 = Matrix([[ 7,  8],
+                              [ 9, 10],
+                              [11, 12]])
+        
+        let matrix2 = matrix0 • matrix1
+        
+        XCTAssertEqual(matrix1[0][2], 3)
+        XCTAssertEqual(matrix1[1][0], 4)
+    }*/
     
 }

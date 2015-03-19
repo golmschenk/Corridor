@@ -20,6 +20,8 @@ struct Column {
 
 struct Matrix {
     let columns: [Column]
+    let height: Int
+    let width: Int
     
     init(_ matrixValues: [[Double]], autoTranspose: Bool=true) {
         // "Transpose" the input array of arrays so that the indexing will be intuitive.
@@ -31,6 +33,8 @@ struct Matrix {
         } else {
             columnValues = matrixValues
         }
+        height = columnValues[0].count
+        width = columnValues.count
         columns = map(columnValues) { Column($0) }
     }
     
@@ -53,3 +57,9 @@ struct Matrix {
         }
     }
 }
+
+infix operator • { associativity left precedence 160 }
+
+/*func • (left: Matrix, right: Matrix) -> Matrix {
+    for
+}*/
