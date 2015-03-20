@@ -121,3 +121,8 @@ func == (matrix0: Matrix, matrix1: Matrix) -> Bool {
     return true
 }
 
+func * (scalar: Double, matrix: Matrix) -> Matrix {
+    let matrixValues = map(matrix.columns) { map($0.values) { $0 * scalar } }
+    return Matrix(matrixValues, autoTranspose: false)
+}
+

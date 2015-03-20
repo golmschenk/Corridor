@@ -133,6 +133,17 @@ class MatrixTests: XCTestCase {
         XCTAssertTrue(matrix0 != matrix3)
     }
     
+    func testScalarMultiplication() {
+        let matrix0 = Matrix([[4, 6],
+                              [3, 8]])
+        let matrix1 = Matrix([[8, 12],
+                              [6, 16]])
+        
+        let matrix2 = 2 * matrix0
+        
+        XCTAssertEqual(matrix2, matrix1)
+    }
+    
     /*func testTwoByTwoInverse() {
         let matrix0 = Matrix([[4, 6],
                               [3, 8]])
