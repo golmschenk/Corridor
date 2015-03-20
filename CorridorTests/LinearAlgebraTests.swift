@@ -117,4 +117,29 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(determinant1, -13516)
     }
     
+    func testEquivalence() {
+        let matrix0 = Matrix([[4, 6],
+                              [3, 8]])
+        let matrix1 = Matrix([[4, 6],
+                              [3, 8]])
+        let matrix2 = Matrix([[4, 6],
+                              [3, 8],
+                              [3, 8]])
+        let matrix3 = Matrix([[4, 7],
+                              [3, 8]])
+        
+        XCTAssertTrue(matrix0 == matrix1)
+        XCTAssertTrue(matrix0 != matrix2)
+        XCTAssertTrue(matrix0 != matrix3)
+    }
+    
+    /*func testTwoByTwoInverse() {
+        let matrix0 = Matrix([[4, 6],
+                              [3, 8]])
+        
+        let determinant = matrix0.determinant()
+        
+        XCTAssertEqual(determinant, 14)
+    }*/
+    
 }

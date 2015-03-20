@@ -18,7 +18,7 @@ struct Column {
     }
 }
 
-struct Matrix {
+struct Matrix : Equatable {
     let columns: [Column]
     let height: Int
     let width: Int
@@ -75,6 +75,10 @@ struct Matrix {
             return determinant
         }
     }
+    
+    /*func inverse() -> Matrix {
+        
+    }*/
 }
 
 infix operator • { associativity left precedence 160 }
@@ -102,3 +106,18 @@ func × (left: Matrix, right: Matrix) -> Matrix {
                    [left[0][2]*right[0][0]-left[0][0]*right[0][2]],
                    [left[0][0]*right[0][1]-left[0][1]*right[0][0]]], autoTranspose: false)
 }
+
+func == (matrix0: Matrix, matrix1: Matrix) -> Bool {
+    if matrix0.height != matrix1.height || matrix0.width != matrix1.width {
+        return false
+    }
+    for columnIndex in 0..<matrix0.columns.count {
+        for valueIndex in 0..<matrix0[columnIndex].values.count {
+            if matrix0[columnIndex][valueIndex] != matrix1[columnIndex][valueIndex] {
+                return false
+            }
+        }
+    }
+    return true
+}
+
