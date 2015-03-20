@@ -141,22 +141,6 @@ func == (matrix0: Matrix, matrix1: Matrix) -> Bool {
     return true
 }
 
-infix operator ≈≈ { precedence 130 }
-
-func ≈≈ (matrix0: Matrix, matrix1: Matrix) -> Bool {
-    if matrix0.height != matrix1.height || matrix0.width != matrix1.width {
-        return false
-    }
-    for columnIndex in 0..<matrix0.columns.count {
-        for valueIndex in 0..<matrix0[columnIndex].values.count {
-            if abs(matrix0[columnIndex][valueIndex] - matrix1[columnIndex][valueIndex]) > Constant.doubleEpsilon {
-                return false
-            }
-        }
-    }
-    return true
-}
-
 func * (scalar: Double, matrix: Matrix) -> Matrix {
     let matrixValues = map(matrix.columns) { map($0.values) { $0 * scalar } }
     return Matrix(matrixValues, autoTranspose: false)
