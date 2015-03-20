@@ -100,4 +100,21 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(determinant, 14)
     }
     
+    func testLargerDeterminant() {
+        let matrix0 = Matrix([[6,  1, 1],
+                             [4, -2, 5],
+                             [2,  8, 7]])
+        
+        let matrix1 = Matrix([[3, 1, 1, 3],
+                              [4, 5, 54, 6],
+                              [6, 4, 7, 13],
+                              [1, 6, 21, 71]])
+
+        let determinant0 = matrix0.determinant()
+        let determinant1 = matrix1.determinant()
+        
+        XCTAssertEqual(determinant0, -306)
+        XCTAssertEqual(determinant1, -13516)
+    }
+    
 }

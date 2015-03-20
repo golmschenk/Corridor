@@ -58,7 +58,22 @@ struct Matrix {
     }
     
     func determinant() -> Double {
-        return columns[0][0]*columns[1][1] - columns[1][0]*columns[0][1]
+        if self.height == 2 {
+            return columns[0][0]*columns[1][1] - columns[1][0]*columns[0][1]
+        } else {
+            var determinant = 0.0
+            for (index, value) in enumerate(columns[0].values) {
+                let subMatrix = map(Array(columns[1..<columns.count])) { (column: Column) -> [Double] in
+                    var values = column.values
+                    values.removeAtIndex(index)
+                    return values
+                }
+                let subDeterminant = Matrix(subMatrix, autoTranspose: false).determinant()
+                let sign = index % 2 == 0 ? 1.0 : -1.0
+                determinant += sign * value * subDeterminant
+            }
+            return determinant
+        }
     }
 }
 
