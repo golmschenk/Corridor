@@ -76,9 +76,29 @@ struct Matrix : Equatable {
         }
     }
     
-    /*func inverse() -> Matrix {
-        
-    }*/
+    func inverse() -> Matrix {
+        if self.height == 2 {
+            return self.determinant() * Matrix([[self[1][1], -self[1][0]], [-self[0][1], self[0][0]]], autoTranspose: false)
+        } else {
+            var minorMatrixValues = [[Double]]()
+            for index0 in 0..<self.height {
+                var minorMatrixColumn = [Double]()
+                for index1 in 0..<self.width {
+                    var subColumns = columns
+                    subColumns.removeAtIndex(index0)
+                    let subMatrix = map(subColumns) { (column: Column) -> [Double] in
+                        var values = column.values
+                        values.removeAtIndex(index1)
+                        return values
+                    }
+                    let sign = (index0 + index1) % 2 == 0 ? 1.0 : -1.0
+                    minorMatrixColumn.append(sign * Matrix(subMatrix).determinant())
+                }
+                minorMatrixValues.append(minorMatrixColumn)
+            }
+            return (1.0/self.determinant()) * Matrix(minorMatrixValues, autoTranspose: false).transpose()
+        }
+    }
 }
 
 infix operator • { associativity left precedence 160 }
@@ -114,6 +134,22 @@ func == (matrix0: Matrix, matrix1: Matrix) -> Bool {
     for columnIndex in 0..<matrix0.columns.count {
         for valueIndex in 0..<matrix0[columnIndex].values.count {
             if matrix0[columnIndex][valueIndex] != matrix1[columnIndex][valueIndex] {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+infix operator ≈≈ { precedence 130 }
+
+func ≈≈ (matrix0: Matrix, matrix1: Matrix) -> Bool {
+    if matrix0.height != matrix1.height || matrix0.width != matrix1.width {
+        return false
+    }
+    for columnIndex in 0..<matrix0.columns.count {
+        for valueIndex in 0..<matrix0[columnIndex].values.count {
+            if abs(matrix0[columnIndex][valueIndex] - matrix1[columnIndex][valueIndex]) > Constant.doubleEpsilon {
                 return false
             }
         }

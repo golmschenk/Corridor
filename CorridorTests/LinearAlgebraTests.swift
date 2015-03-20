@@ -144,13 +144,29 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix2, matrix1)
     }
     
-    /*func testTwoByTwoInverse() {
+    func testTwoByTwoInverse() {
         let matrix0 = Matrix([[4, 6],
                               [3, 8]])
         
         let determinant = matrix0.determinant()
         
         XCTAssertEqual(determinant, 14)
-    }*/
+    }
+    
+    func testFourByFourInverse() {
+        let matrix0 = Matrix([[ 3,  5, 7, -7],
+                              [27, -7, 2,  1],
+                              [ 6,  4, 7,  2],
+                              [17,  1, 1,  1]])
+        let column0 = [7.0/1486.0, 8.0/2229.0, -31.0/2229.0, 85.0/1486.0]
+        let column1 = [13.0/1486.0, -167.0/1486.0, -3.0/1486.0, 132.0/743.0]
+        let column2 = [17.0/743.0, 145.0/2229.0, 274.0/2229.0, -112.0/743.0]
+        let column3 = [-83.0/743.0, -61.0/4458.0, 515.0/4458.0, 1.0/1486.0]
+        let matrix1Expected = Matrix([column0, column1, column2, column3])
+        
+        let matrix1 = matrix0.inverse()
+        
+        XCTAssertTrue(matrix1 ≈≈ matrix1Expected)
+    }
     
 }

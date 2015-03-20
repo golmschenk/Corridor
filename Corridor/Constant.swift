@@ -16,6 +16,8 @@ struct Constant {
     
     static let lineSegmentMinimumLength = 30.0
     static let numberOfVanishingPointModels = 500
+    
+    static let doubleEpsilon = 0.000000001
 }
 
 @objc class ObjCConstant {
