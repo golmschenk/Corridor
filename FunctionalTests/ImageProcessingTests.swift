@@ -10,16 +10,18 @@ import XCTest
 
 class ImageProcessingTests: XCTestCase {
     
-    func testPrintP() {
-        // Camera matrix for blender with f=35, F=0.00980392156
+    var P: Matrix
+    
+    func obtainCameraMatrixForSimpleHallway3() {
+        // Camera matrix for blender with f=35mm, F=0.00980392156mm/px
         let K = Matrix([[0.00980392156,             0, 0],
             [            0, 0.00980392156, 0],
             [            0,             0, 1]])
-        
+        // Rotation of -10 degrees on x then -10 degrees on y
         let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
             [         0,  0.98480775, -0.17364818],
             [0.17364818,  0.17101007,  0.96984631]])
-        
+        // Camera offset by 0.5m in both the x and y directions
         let T = Matrix([[500],
             [500],
             [  0]])
@@ -30,7 +32,6 @@ class ImageProcessingTests: XCTestCase {
         var PwoK = RT.inverse()
         PwoK.removeRow(3)
         
-        let P = K • PwoK
-        println(P)
+        P = K • PwoK
     }
 }
