@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Greg Olmschenk. All rights reserved.
 //
 
-struct Column {
+class Column {
     var values: [Double]
     
     init(_ values: [Double]) {
@@ -110,6 +110,11 @@ class Matrix : Equatable {
     
     func addColumn(column: Column) {
         columns.append(column)
+        updateSize()
+    }
+    
+    func addRow(row: [Double]) {
+        map(enumerate(columns)) { $1.values.append(row[$0]) }
         updateSize()
     }
 }

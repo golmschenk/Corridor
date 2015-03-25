@@ -201,4 +201,17 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix, expectedMatrix)
     }
     
+    func testAddRow() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6]])
+        let row : [Double] = [7, 8, 9]
+        let expectedMatrix = Matrix([[1, 2, 3],
+                                     [4, 5, 6],
+                                     [7, 8, 9]])
+        
+        matrix.addRow(row)
+        
+        XCTAssertEqual(matrix, expectedMatrix)
+    }
+    
 }
