@@ -113,6 +113,11 @@ class Matrix : Equatable {
         updateSize()
     }
     
+    func removeColumn(columnIndex: Int) {
+        columns.removeAtIndex(columnIndex)
+        updateSize()
+    }
+    
     func addRow(row: [Double]) {
         map(enumerate(columns)) { $1.values.append(row[$0]) }
         updateSize()

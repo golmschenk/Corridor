@@ -201,6 +201,19 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix, expectedMatrix)
     }
     
+    func testRemoveColumn() {
+        let expectedMatrix = Matrix([[1, 2],
+            [4, 5],
+            [7, 8]])
+        let matrix = Matrix([[1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]])
+        
+        matrix.removeColumn(2)
+        
+        XCTAssertEqual(matrix, expectedMatrix)
+    }
+    
     func testAddRow() {
         let matrix = Matrix([[1, 2, 3],
                              [4, 5, 6]])
