@@ -7,7 +7,7 @@
 //
 
 struct Column {
-    let values: [Double]
+    var values: [Double]
     
     init(_ values: [Double]) {
         self.values = values
@@ -18,10 +18,10 @@ struct Column {
     }
 }
 
-struct Matrix : Equatable {
-    let columns: [Column]
-    let height: Int
-    let width: Int
+class Matrix : Equatable {
+    var columns: [Column]
+    var height = 0
+    var width = 0
     
     init(_ matrixValues: [[Double]], autoTranspose: Bool=true) {
         // "Transpose" the input array of arrays so that the indexing will be intuitive.
@@ -33,9 +33,13 @@ struct Matrix : Equatable {
         } else {
             columnValues = matrixValues
         }
-        height = columnValues[0].count
-        width = columnValues.count
         columns = map(columnValues) { Column($0) }
+        updateSize()
+    }
+    
+    func updateSize() {
+        height = self.columns[0].values.count
+        width = self.columns.count
     }
     
     subscript(index: Int) -> Column {
@@ -59,7 +63,11 @@ struct Matrix : Equatable {
     
     func determinant() -> Double {
         if self.height == 2 {
-            return columns[0][0]*columns[1][1] - columns[1][0]*columns[0][1]
+            let a = columns[0][0]
+            let b = columns[1][0]
+            let c = columns[0][1]
+            let d = columns[1][1]
+            return a*d - b*c
         } else {
             var determinant = 0.0
             for (index, value) in enumerate(columns[0].values) {
@@ -98,6 +106,11 @@ struct Matrix : Equatable {
             }
             return (1.0/self.determinant()) * Matrix(minorMatrixValues, autoTranspose: false).transpose()
         }
+    }
+    
+    func addColumn(column: Column) {
+        columns.append(column)
+        updateSize()
     }
 }
 

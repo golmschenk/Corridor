@@ -19,6 +19,24 @@ class ColumnTests {
     }
 }
 
+// Camera matrix for blender with f=35, F=0.00980392156
+let K = Matrix([[0.00980392156,             0, 0],
+                [            0, 0.00980392156, 0],
+                [            0,             0, 1]])
+
+let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
+                [         0,  0.98480775, -0.17364818],
+                [0.17364818,  0.17101007,  0.96984631]])
+
+let T = Matrix([[500],
+                [500],
+                [  0]])
+
+let M = K • R
+
+let NMC = -1 * (M • T) //Using the wrong R and T (reverse frames)
+
+let P = Matrix([M.columns[0].values, M.columns[1].values, M.columns[2].values])
 
 class MatrixTests: XCTestCase {
     
@@ -167,6 +185,20 @@ class MatrixTests: XCTestCase {
         let matrix1 = matrix0.inverse()
         
         XCTAssertTrue(matrix1 ≈≈ matrix1Expected)
+    }
+    
+    func testAddColumn() {
+        let matrix = Matrix([[1, 2],
+                             [4, 5],
+                             [7, 8]])
+        let column = Column([3, 6, 9])
+        let expectedMatrix = Matrix([[1, 2, 3],
+                                     [4, 5, 6],
+                                     [7, 8, 9]])
+        
+        matrix.addColumn(column)
+        
+        XCTAssertEqual(matrix, expectedMatrix)
     }
     
 }
