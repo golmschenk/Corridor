@@ -26,6 +26,7 @@
 		6538B7D01AA78951005F054E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538B7CE1AA78951005F054E /* Utility.swift */; };
 		6538B7D11AA78951005F054E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6538B7CE1AA78951005F054E /* Utility.swift */; };
 		65427FB21A9BC7DC007F5A78 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65427FB01A9BC7DC007F5A78 /* FrameTests.swift */; };
+		656841611AC34D59001CE446 /* ImageProcessingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656841601AC34D59001CE446 /* ImageProcessingTests.swift */; };
 		65738D981A9C119300501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; };
 		65738D991A9C11A700501DFF /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65738D971A9C119300501DFF /* opencv2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		65738D9B1A9C13FC00501DFF /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */; };
@@ -47,7 +48,7 @@
 		65C6F20A1A93F7EF006AF8A0 /* simple_hallway0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2071A93F7EF006AF8A0 /* simple_hallway0.png */; };
 		65C6F20B1A93F7EF006AF8A0 /* simple_hallway1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2081A93F7EF006AF8A0 /* simple_hallway1.png */; };
 		65C6F20C1A93F7EF006AF8A0 /* simple_hallway2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6F2091A93F7EF006AF8A0 /* simple_hallway2.png */; };
-		65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200BF2B496B369A4145471 /* FunctionalTests.swift */; };
+		65CD083D1A84309900F69CEE /* InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200BF2B496B369A4145471 /* InterfaceTests.swift */; };
 		65CD083F1A84315300F69CEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6200DB904BE796D189E21B5 /* ViewController.swift */; };
 		65EC737D1AB9F884002AB067 /* simple_hallway3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EC737C1AB9F884002AB067 /* simple_hallway3.png */; };
 		65EC737E1AB9F884002AB067 /* simple_hallway3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EC737C1AB9F884002AB067 /* simple_hallway3.png */; };
@@ -89,6 +90,7 @@
 		6538B7CE1AA78951005F054E /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		65427FB01A9BC7DC007F5A78 /* FrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 		65427FB61A9BD4AE007F5A78 /* Corridor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Corridor-Bridging-Header.h"; sourceTree = "<group>"; };
+		656841601AC34D59001CE446 /* ImageProcessingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessingTests.swift; sourceTree = "<group>"; };
 		65738D971A9C119300501DFF /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../3rdparty/OpenCV/opencv2.framework; sourceTree = "<group>"; };
 		65738D9A1A9C13FC00501DFF /* OpenCVBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVBridge.mm; sourceTree = "<group>"; };
 		65738D9D1A9C141E00501DFF /* OpenCVBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVBridge.h; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		B62005C1D4ABEC6AFB8019A3 /* Corridor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Corridor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62006905443123CF96317F0 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		B6200BDE46FE292FC51AD57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B6200BF2B496B369A4145471 /* FunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FunctionalTests.swift; path = ../CorridorTests/FunctionalTests.swift; sourceTree = "<group>"; };
+		B6200BF2B496B369A4145471 /* InterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceTests.swift; path = ../CorridorTests/InterfaceTests.swift; sourceTree = "<group>"; };
 		B6200C4532A56D1612549784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		B6200DB904BE796D189E21B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6200F24372FD8407AB7118E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 		65CD08331A84307900F69CEE /* FunctionalTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6200BF2B496B369A4145471 /* FunctionalTests.swift */,
+				B6200BF2B496B369A4145471 /* InterfaceTests.swift */,
+				656841601AC34D59001CE446 /* ImageProcessingTests.swift */,
 				65CD08341A84307900F69CEE /* Supporting Files */,
 			);
 			path = FunctionalTests;
@@ -410,8 +413,9 @@
 				65B017AA1AA0CBE70022093A /* Math.swift in Sources */,
 				6538B7D11AA78951005F054E /* Utility.swift in Sources */,
 				652DC1A81A9E4FA100B96CC2 /* OpenCVBridge.mm in Sources */,
+				656841611AC34D59001CE446 /* ImageProcessingTests.swift in Sources */,
 				65CD083F1A84315300F69CEE /* ViewController.swift in Sources */,
-				65CD083D1A84309900F69CEE /* FunctionalTests.swift in Sources */,
+				65CD083D1A84309900F69CEE /* InterfaceTests.swift in Sources */,
 				652858FD1AA7E3980088FAB8 /* Cluster.swift in Sources */,
 				658D2FBA1ABB5AB400C0189F /* LinearAlgebra.swift in Sources */,
 			);

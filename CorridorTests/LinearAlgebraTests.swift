@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Darwin
 
 
 class ColumnTests {
@@ -18,25 +19,6 @@ class ColumnTests {
         XCTAssertEqual(column1[1], 6)
     }
 }
-
-// Camera matrix for blender with f=35, F=0.00980392156
-let K = Matrix([[0.00980392156,             0, 0],
-                [            0, 0.00980392156, 0],
-                [            0,             0, 1]])
-
-let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
-                [         0,  0.98480775, -0.17364818],
-                [0.17364818,  0.17101007,  0.96984631]])
-
-let T = Matrix([[500],
-                [500],
-                [  0]])
-
-let M = K • R
-
-let NMC = -1 * (M • T) //Using the wrong R and T (reverse frames)
-
-let P = Matrix([M.columns[0].values, M.columns[1].values, M.columns[2].values])
 
 class MatrixTests: XCTestCase {
     
@@ -237,6 +219,27 @@ class MatrixTests: XCTestCase {
         matrix.removeRow(2)
         
         XCTAssertEqual(matrix, expectedMatrix)
+    }
+    
+    func testInverseIsReverseTransformation() {
+        var point0 = Matrix([[-2], [0], [3]])
+        point0.addRow([1])
+        var point1 = Matrix([[2], [0], [2]])
+        point1.addRow([1])
+        var transformation = Matrix([[ cos(π/2), 0, sin(π/2), -1],
+                                     [        0, 1,        0, 0],
+                                     [-sin(π/2), 0, cos(π/2), 0]])
+        transformation.addRow([0, 0, 0, 1])
+        
+        var point1expected = transformation • point0
+        point1expected.removeRow(3)
+        var point0expected = transformation.inverse() • point1
+        point0expected.removeRow(3)
+        point0.removeRow(3)
+        point1.removeRow(3)
+        
+        XCTAssertTrue(point0 ≈≈ point0expected)
+        XCTAssertTrue(point1 ≈≈ point1expected)
     }
     
 }

@@ -6,7 +6,7 @@
 import UIKit
 import XCTest
 
-class FunctionalTests: XCTestCase {
+class InterfaceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
