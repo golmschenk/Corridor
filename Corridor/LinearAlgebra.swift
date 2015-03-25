@@ -122,6 +122,11 @@ class Matrix : Equatable {
         map(enumerate(columns)) { $1.values.append(row[$0]) }
         updateSize()
     }
+    
+    func removeRow(rowIndex: Int) {
+        map(columns) { $0.values.removeAtIndex(rowIndex) }
+        updateSize()
+    }
 }
 
 infix operator • { associativity left precedence 160 }
