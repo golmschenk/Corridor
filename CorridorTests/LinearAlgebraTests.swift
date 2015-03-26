@@ -287,4 +287,16 @@ class MatrixTests: XCTestCase {
         XCTAssertTrue(transformedPoint1 ≈≈ expectedTransformedPoint1)
     }
     
+    func testWritingToSpecificCellWithDoubleSubscript() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6],
+                             [7, 8, 9]])
+        let expectedMatrix = Matrix([[1, 2, 3],
+                                     [4, 5, 0],
+                                     [7, 8, 9]])
+        
+        matrix[2][1] = 0
+        
+        XCTAssertEqual(matrix, expectedMatrix)
+    }
 }
