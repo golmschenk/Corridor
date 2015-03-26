@@ -10,21 +10,19 @@ import XCTest
 
 class ImageProcessingTests: XCTestCase {
     
-    var P: Matrix
-    
-    func obtainCameraMatrixForSimpleHallway3() {
-        // Camera matrix for blender with f=35mm, F=0.00980392156mm/px
-        let K = Matrix([[0.00980392156,             0, 0],
-            [            0, 0.00980392156, 0],
-            [            0,             0, 1]])
-        // Rotation of -10 degrees on x then -10 degrees on y
-        let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
-            [         0,  0.98480775, -0.17364818],
-            [0.17364818,  0.17101007,  0.96984631]])
-        // Camera offset by 0.5m in both the x and y directions
-        let T = Matrix([[500],
-            [500],
-            [  0]])
+    func attainCameraMatrixForSimpleHallway1() -> Matrix {
+        // Camera matrix for blender with F=35mm //, W/w=0.00980392156mm/px
+        let K = Matrix([[35,             0, 0],
+                        [            0, 35, 0],
+                        [            0,             0, 1]])
+        // Rotation of 10 degrees on y
+        var R = Matrix([[ cos(radiansFromDegrees(10)), 0, sin(radiansFromDegrees(10))],
+                        [                           0, 1,                           0],
+                        [-sin(radiansFromDegrees(10)), 0, cos(radiansFromDegrees(10))]])
+        // Camera offset by -0.5m in the x direction
+        let T = Matrix([[-500],
+                        [   0],
+                        [   0]])
         
         var RT = R
         RT.addColumn(T.columns[0])
@@ -32,11 +30,37 @@ class ImageProcessingTests: XCTestCase {
         var PwoK = RT.inverse()
         PwoK.removeRow(3)
         
-        P = K • PwoK
+        return K • PwoK
+    }
+    
+    func attainCameraMatrixForSimpleHallway3() -> Matrix {
+        // Camera matrix for blender with F=35mm //, W/w=0.00980392156mm/px
+        let K = Matrix([[0.00980392156,             0, 0],
+                        [            0, 0.00980392156, 0],
+                        [            0,             0, 1]])
+        // Rotation of -10 degrees on x then -10 degrees on y
+        let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
+                        [         0,  0.98480775, -0.17364818],
+                        [0.17364818,  0.17101007,  0.96984631]])
+        // Camera offset by 0.5m in both the x and y directions
+        let T = Matrix([[500],
+                        [500],
+                        [  0]])
+        
+        var RT = R
+        RT.addColumn(T.columns[0])
+        RT.addRow([0, 0, 0, 1])
+        var PwoK = RT.inverse()
+        PwoK.removeRow(3)
+        
+        return K • PwoK
     }
     
     func testCameraTransformation() {
-        obtainCameraMatrixForSimpleHallway3()
-        point0 = Matrix([[0], [0], [50]])
+        let P = attainCameraMatrixForSimpleHallway1()
+        let point0 = Matrix([[0], [0], [1000000000000000000]])
+        
+        let point1 = point0.transform(P)
+        println(point1)
     }
 }

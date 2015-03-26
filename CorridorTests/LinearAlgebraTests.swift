@@ -254,4 +254,37 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(point1, expected1Point)
     }
     
+    func testApplyCameraMatrix() {
+        // Intrinsic camera matrix for F=35mm
+        let K = Matrix([[35,  0, 0],
+                        [ 0, 35, 0],
+                        [ 0,  0, 1]])
+        // Rotation matrix of 10 degrees on y
+        var R = Matrix([[ cos(radiansFromDegrees(10)), 0, sin(radiansFromDegrees(10))],
+                        [                           0, 1,                           0],
+                        [-sin(radiansFromDegrees(10)), 0, cos(radiansFromDegrees(10))]])
+        // Camera offset by -0.5m in the x direction
+        let T = Matrix([[-500],
+                        [   0],
+                        [   0]])
+        // Geting P for this camera.
+        var RT = R
+        RT.addColumn(T.columns[0])
+        RT.addRow([0, 0, 0, 1])
+        var PwoK = RT.inverse()
+        PwoK.removeRow(3)
+        let P = K • PwoK
+        
+        let point0 = Matrix([[0], [0], [2835.64090981]])
+        let expectedTransformedPoint0 = Matrix([[0], [0], [1]])
+        let point1 = Matrix([[0], [0], [Double(FLT_MAX)]])
+        let expectedTransformedPoint1 = Matrix([[-6.1714443248], [0], [1]])
+        
+        let transformedPoint0 = point0.applyCameraMatrix(P)
+        let transformedPoint1 = point1.applyCameraMatrix(P)
+        
+        XCTAssertTrue(transformedPoint0 ≈≈ expectedTransformedPoint0)
+        XCTAssertTrue(transformedPoint1 ≈≈ expectedTransformedPoint1)
+    }
+    
 }

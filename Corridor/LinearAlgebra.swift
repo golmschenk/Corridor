@@ -14,7 +14,12 @@ class Column {
     }
     
     subscript(index: Int) -> Double {
-        return values[index]
+        get {
+            return values[index]
+        }
+        set {
+            values[index] = newValue
+        }
     }
 }
 
@@ -136,6 +141,14 @@ class Matrix : Equatable {
         transformationMatrix.removeRow(3)
         resultantPoint.removeRow(3)
         return resultantPoint
+    }
+    
+    func applyCameraMatrix(cameraMatrix: Matrix) -> Matrix {
+        let transformedPoint = self.transform(cameraMatrix)
+        let x = (1/transformedPoint[0][2]) * transformedPoint[0][0]
+        let y = (1/transformedPoint[0][2]) * transformedPoint[0][1]
+        let z = 1.0
+        return Matrix([[x], [y], [z]])
     }
 }
 
