@@ -242,4 +242,16 @@ class MatrixTests: XCTestCase {
         XCTAssertTrue(point1 ≈≈ point1expected)
     }
     
+    func testTransformPoint() {
+        var point0 = Matrix([[-2], [0], [3]])
+        var transformation = Matrix([[ cos(π/2), 0, sin(π/2), -1],
+                                     [        0, 1,        0, 0],
+                                     [-sin(π/2), 0, cos(π/2), 0]])
+        var expected1Point = Matrix([[2], [0], [2]])
+        
+        let point1 = point0.transform(transformation)
+        
+        XCTAssertEqual(point1, expected1Point)
+    }
+    
 }

@@ -34,4 +34,9 @@ class ImageProcessingTests: XCTestCase {
         
         P = K • PwoK
     }
+    
+    func testCameraTransformation() {
+        obtainCameraMatrixForSimpleHallway3()
+        point0 = Matrix([[0], [0], [50]])
+    }
 }

@@ -127,6 +127,16 @@ class Matrix : Equatable {
         map(columns) { $0.values.removeAtIndex(rowIndex) }
         updateSize()
     }
+    
+    func transform(transformationMatrix: Matrix) -> Matrix {
+        self.addRow([1])
+        transformationMatrix.addRow([0, 0, 0, 1])
+        var resultantPoint = transformationMatrix • self
+        self.removeRow(3)
+        transformationMatrix.removeRow(3)
+        resultantPoint.removeRow(3)
+        return resultantPoint
+    }
 }
 
 infix operator • { associativity left precedence 160 }
