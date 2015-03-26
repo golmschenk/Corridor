@@ -130,7 +130,7 @@ class FrameTests: XCTestCase {
     func testGenerationOfInitialClusters() {
         frame.lineSegments = squareLineSegments
         
-        let clusters = frame.obtainInitialClusters()
+        let clusters = frame.attainInitialClusters()
         
         XCTAssertTrue(contains(clusters[0].preferenceSet, true) && contains(clusters[0].preferenceSet, false))
         XCTAssertTrue(contains(clusters[1].preferenceSet, true) && contains(clusters[1].preferenceSet, false))

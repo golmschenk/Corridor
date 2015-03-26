@@ -94,6 +94,10 @@ class Frame {
         }
     }
     
+    func obtainLineSegments() {
+        obtainLineSegmentsFromContours(contours)
+    }
+    
     func generateVanishingPointModels(numberOfModels: Int = Constant.numberOfVanishingPointModels) -> [TwoDimensionalPoint] {
         var models = [TwoDimensionalPoint]()
         while models.count < numberOfModels {
@@ -108,13 +112,24 @@ class Frame {
         return models
     }
     
-    func obtainInitialClusters() -> [Cluster] {
+    func attainInitialClusters() -> [Cluster] {
         let models = generateVanishingPointModels()
         var clusters = [Cluster]()
         for lineSegment in lineSegments {
             clusters.append(Cluster(lineSegments: [lineSegment], preferenceSet: map(models) { lineSegment.agreesWithVanishingPoint($0) }))
         }
         return clusters
+    }
+    
+    func attainVanishingPoints() -> [TwoDimensionalPoint] {
+        obtainCanny()
+        obtainContours()
+        obtainLineSegments()
+        var clusters = attainInitialClusters()
+        clusters = preformJLinkageMergingOnClusters(clusters)
+        clusters = removeOutlierClusters(clusters)
+        let vanishingPoints = attainVanishingPointsForClusters(clusters)
+        return vanishingPoints
     }
     
 }

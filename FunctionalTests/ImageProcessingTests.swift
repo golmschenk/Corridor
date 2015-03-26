@@ -11,9 +11,9 @@ import XCTest
 class ImageProcessingTests: XCTestCase {
     
     func attainCameraMatrixForSimpleHallway1() -> Matrix {
-        // Camera matrix for blender with F=35mm //, W/w=0.00980392156mm/px
-        let K = Matrix([[35,             0, 0],
-                        [            0, 35, 0],
+        // Camera matrix for blender with F=35mm, W/w=0.00980392156mm/px, f=3570.00000314
+        let K = Matrix([[3570.00000314,             0, 0],
+                        [            0, 3570.00000314, 0],
                         [            0,             0, 1]])
         // Rotation of 10 degrees on y
         var R = Matrix([[ cos(radiansFromDegrees(10)), 0, sin(radiansFromDegrees(10))],
@@ -34,9 +34,9 @@ class ImageProcessingTests: XCTestCase {
     }
     
     func attainCameraMatrixForSimpleHallway3() -> Matrix {
-        // Camera matrix for blender with F=35mm //, W/w=0.00980392156mm/px
-        let K = Matrix([[0.00980392156,             0, 0],
-                        [            0, 0.00980392156, 0],
+        // Camera matrix for blender with F=35mm, W/w=0.00980392156mm/px, f=3570.00000314
+        let K = Matrix([[3570.00000314,             0, 0],
+                        [            0, 3570.00000314, 0],
                         [            0,             0, 1]])
         // Rotation of -10 degrees on x then -10 degrees on y
         let R = Matrix([[0.98480775, -0.03015369, -0.17101007],
@@ -56,11 +56,14 @@ class ImageProcessingTests: XCTestCase {
         return K • PwoK
     }
     
-    func testCameraTransformation() {
-        let P = attainCameraMatrixForSimpleHallway1()
-        let point0 = Matrix([[0], [0], [1000000000000000000]])
+    func testZAxisVanishingPointFoundInSimpleHallway0() {
+        // Create the frame from test file image.
+        let testBundle = NSBundle(forClass: self.dynamicType)
+        let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
+        let corridorUIImage = UIImage(contentsOfFile: imagePath!)
+        let frame = Frame(image: corridorUIImage!)
         
-        let point1 = point0.transform(P)
-        println(point1)
+        let vanishingPoints = frame.attainVanishingPoints()
+        println(vanishingPoints)
     }
 }
