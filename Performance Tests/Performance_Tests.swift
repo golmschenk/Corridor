@@ -12,12 +12,11 @@ import XCTest
 class Performance_Tests: XCTestCase {
     
     func testBasicVanishingPointAttainingTime() {
-        let testBundle = NSBundle(forClass: self.dynamicType)
-        let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
-        let corridorUIImage = UIImage(contentsOfFile: imagePath!)
-        let frame = Frame(image: corridorUIImage!)
-        
         self.measureBlock() {
+            let testBundle = NSBundle(forClass: self.dynamicType)
+            let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
+            let corridorUIImage = UIImage(contentsOfFile: imagePath!)
+            let frame = Frame(image: corridorUIImage!)
             let vanishingPoints = frame.attainVanishingPoints()
         }
     }
