@@ -63,6 +63,8 @@ class ImageProcessingTests: XCTestCase {
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         let frame = Frame(image: corridorUIImage!)
         
+        println(frame.image.size.height)
+        println(frame.image.size.width)
         let vanishingPoints = frame.attainVanishingPoints()
         println(vanishingPoints)
     }
