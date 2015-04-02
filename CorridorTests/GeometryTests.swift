@@ -204,4 +204,15 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
         XCTAssertFalse(lineSegment.agreesWithVanishingPoint(point, withEndPointDeviationAcceptance: 0.02))
     }
     
+    func testAttainSlopeAndIntercept() {
+        let lineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: -1, y: 6), end: TwoDimensionalPoint(x: 5, y: -4))
+        let expectedSlope = -5.0/3.0
+        let expectedIntercept = 13.0/3.0
+        
+        let (slope, intercept) = lineSegment.attainSlopeAndIntercept()
+        
+        XCTAssertEqual(slope, expectedSlope)
+        XCTAssertEqual(intercept, expectedIntercept)
+    }
+    
 }
