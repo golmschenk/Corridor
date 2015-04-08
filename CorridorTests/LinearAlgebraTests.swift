@@ -327,6 +327,17 @@ class MatrixTests: XCTestCase {
     }
     
     func testSolveApproximateLinearEquation() {
-        XCTFail("Needs to be made")
+        let A = Matrix([[2, -1],
+                        [1, 2],
+                        [1, 1]])
+        let b = Matrix([[2],
+                        [1],
+                        [4]])
+        let expectedSolution = Matrix([[10.0/7.0],
+                                       [3.0/7.0]])
+        
+        let solution = Matrix.generateSolutionForApproximateLinearEquation(A: A, b: b)
+        
+        XCTAssertTrue(solution ≈≈ expectedSolution)
     }
 }

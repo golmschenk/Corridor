@@ -155,6 +155,11 @@ class ClusterTests: XCTestCase {
         
         let (coefficients, constraints) = cluster.attainLinearEquationMatriciesForLineSegments()
         
+        coefficients.convertToReducedRowEchelonForm()
+        constraints.convertToReducedRowEchelonForm()
+        expectedCoefficients.convertToReducedRowEchelonForm()
+        expectedConstraints.convertToReducedRowEchelonForm()
+        
         XCTAssertEqual(coefficients, expectedCoefficients)
         XCTAssertEqual(constraints, expectedConstraints)
     }

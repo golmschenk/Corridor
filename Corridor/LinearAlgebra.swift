@@ -197,7 +197,14 @@ class Matrix : Equatable {
         }
     }
     
-    //class func
+    class func generateSolutionForApproximateLinearEquation(#A: Matrix, b: Matrix) -> Matrix {
+        let equation = A.T • A
+        let right = A.T • b
+        equation.addColumn(right.columns[0])
+        equation.convertToReducedRowEchelonForm()
+        let solutionColumn = equation.columns[equation.columns.count - 1]
+        return Matrix(map(solutionColumn.values) { [$0] })
+    }
 }
 
 infix operator • { associativity left precedence 160 }
