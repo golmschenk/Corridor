@@ -51,6 +51,21 @@ class Cluster : Equatable {
         }
         return vanishingPointSum / choose2(from: self.lineSegments.count)
     }
+    
+    func attainLinearEquationMatriciesForLineSegments() -> (A: Matrix, b: Matrix) {
+        var aValues = [[Double]]()
+        var bValues = [[Double]]()
+        for lineSegment in lineSegments {
+            let (slope, intercept) = lineSegment.attainSlopeAndIntercept()
+            aValues.append([-slope, 1])
+            bValues.append([intercept])
+        }
+        return (Matrix(aValues), Matrix(bValues))
+    }
+    
+    /*func vanishingPointFromLeastSquaresIntercept() -> TwoDimensionalPoint {
+        
+    }*/
 }
 
 func == (cluster0: Cluster, cluster1: Cluster) -> Bool {

@@ -299,4 +299,34 @@ class MatrixTests: XCTestCase {
         
         XCTAssertEqual(matrix, expectedMatrix)
     }
+    
+    func testSwapRows() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6],
+                             [7, 8, 9]])
+        let expectedMatrix = Matrix([[1, 2, 3],
+                                     [7, 8, 9],
+                                     [4, 5, 6]])
+        
+        matrix.swapRows(1, 2)
+        
+        XCTAssertEqual(matrix, expectedMatrix)
+    }
+    
+    func testAttainReducedRowEchelonForm() {
+        let matrix = Matrix([[1, 2, -1, -4],
+                             [2, 3, -1, -11],
+                             [-2, 0, -3, 22]])
+        let expectedMatrix = Matrix([[1, 0, 0, -8],
+                                     [0, 1, 0, 1],
+                                     [0, 0, 1, -2]])
+        
+        matrix.convertToReducedRowEchelonForm()
+        
+        XCTAssertEqual(matrix, expectedMatrix)
+    }
+    
+    func testSolveApproximateLinearEquation() {
+        XCTFail("Needs to be made")
+    }
 }

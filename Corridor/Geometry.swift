@@ -137,7 +137,7 @@ struct TwoDimensionalLineSegment: Equatable {
         return endPointDeviationAcceptance >= deviationDistance / self.length
     }
     
-    func attainSlopeAndIntercept() -> (Double, Double) {
+    func attainSlopeAndIntercept() -> (slope: Double, intercept: Double) {
         let slope = Double(self.start.y - self.end.y) / Double(self.start.x - self.end.x)
         let intercept = Double(self.start.y) - (Double(self.start.x) * slope)
         return (slope, intercept)

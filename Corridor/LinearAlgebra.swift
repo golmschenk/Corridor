@@ -150,6 +150,54 @@ class Matrix : Equatable {
         let z = 1.0
         return Matrix([[x], [y], [z]])
     }
+    
+    func swapRows(rowIndex0: Int, _ rowIndex1: Int) {
+        for column in columns {
+            let tmp = column[rowIndex0]
+            column[rowIndex0] = column[rowIndex1]
+            column[rowIndex1] = tmp
+        }
+    }
+    
+    func convertToReducedRowEchelonForm() {
+        var numberOfEchelonColumns = 0
+        var numberOfZeroedColumns = 0
+        while numberOfZeroedColumns < columns.count {
+            // Find the first row with non-zero value.
+            var rowIndex: Int?
+            for (index, value) in enumerate(columns[numberOfZeroedColumns].values[numberOfEchelonColumns..<columns[numberOfZeroedColumns].values.count]) {
+                if !(value ≈≈ 0) {
+                    rowIndex = index
+                    break
+                }
+            }
+            if let position = rowIndex {
+                // Move the row to the top.
+                if position != 0 {
+                    swapRows(position, numberOfEchelonColumns)
+                }
+                // Multiply the row so the first value is 1.
+                let multiplier = 1.0 / columns[numberOfZeroedColumns].values[numberOfEchelonColumns]
+                for column in columns {
+                    column.values[numberOfEchelonColumns] *= multiplier
+                }
+                // Add row to others to zero out the rest of the column.
+                for (index, value) in enumerate(columns[numberOfZeroedColumns].values) {
+                    if index == numberOfEchelonColumns {
+                        continue
+                    }
+                    let rowMultiplier = -value
+                    for column in columns {
+                        column.values[index] += rowMultiplier * column.values[numberOfEchelonColumns]
+                    }
+                }
+                ++numberOfEchelonColumns
+            }
+            ++numberOfZeroedColumns
+        }
+    }
+    
+    //class func
 }
 
 infix operator • { associativity left precedence 160 }

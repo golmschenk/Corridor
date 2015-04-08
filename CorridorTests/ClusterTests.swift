@@ -144,5 +144,21 @@ class ClusterTests: XCTestCase {
         
         XCTAssertEqual(clusters.count, 2)
     }
+    
+    func testAttainLinearEquations() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 0, y: -2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 3, y: -1))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 4), end: TwoDimensionalPoint(x: 4, y: 0))
+        let cluster = Cluster(lineSegments: [lineSegment0, lineSegment1, lineSegment2], preferenceSet: [])
+        let expectedCoefficients = Matrix([[2, -1],[1, 2],[1, 1]])
+        let expectedConstraints = Matrix([[2], [1], [4]])
+        
+        let (coefficients, constraints) = cluster.attainLinearEquationMatriciesForLineSegments()
+        
+        XCTAssertEqual(coefficients, expectedCoefficients)
+        XCTAssertEqual(constraints, expectedConstraints)
+    }
+    
+    
 
 }
