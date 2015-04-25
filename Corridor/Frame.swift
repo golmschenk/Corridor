@@ -10,7 +10,7 @@ import UIKit
 
 class Frame {
     
-    let image: UIImage! = nil
+    var image: UIImage! = nil
     var edgeImage: UIImage! = nil
     var twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     var contours = [[TwoDimensionalPoint]]()
@@ -25,7 +25,7 @@ class Frame {
     }
     
     func obtainContours() {
-        let contour_ints = OpenCVBridge.findContours(edgeImage) as [[[Int]]]
+        let contour_ints = OpenCVBridge.findContours(edgeImage) as! [[[Int]]]
         // Convert the [[[Int]]] to [[TwoDimensionalPoint]].
         for contour in contour_ints {
             var points = [TwoDimensionalPoint]()

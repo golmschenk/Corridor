@@ -57,15 +57,24 @@ class Cluster : Equatable {
         var bValues = [[Double]]()
         for lineSegment in lineSegments {
             let (slope, intercept) = lineSegment.attainSlopeAndIntercept()
-            aValues.append([-slope, 1])
-            bValues.append([intercept])
+            if slope.isFinite {
+                aValues.append([-slope, 1])
+                bValues.append([intercept])
+            }
+            else {
+                // The line is straight up and down.
+                aValues.append([1, 0])
+                bValues.append([Double(lineSegment.start.x)])
+            }
         }
         return (Matrix(aValues), Matrix(bValues))
     }
     
-    /*func vanishingPointFromLeastSquaresIntercept() -> TwoDimensionalPoint {
-        
-    }*/
+    func vanishingPointFromLeastSquaresIntercept() -> TwoDimensionalPoint {
+        let (A, b) = attainLinearEquationMatriciesForLineSegments()
+        let x = Matrix.generateSolutionForApproximateLinearEquation(A: A, b: b)
+        return TwoDimensionalPoint(x: Int(x[0][0]), y: Int(x[0][1]))
+    }
 }
 
 func == (cluster0: Cluster, cluster1: Cluster) -> Bool {
@@ -126,7 +135,7 @@ func preformJLinkageMergingOnClusters(var clusters: [Cluster]) -> [Cluster] {
 }
 
 func attainVanishingPointsForClusters(clusters: [Cluster]) -> [TwoDimensionalPoint]{
-    return map(clusters) { $0.vanishingPointFromAverage() }
+    return map(clusters) { $0.vanishingPointFromLeastSquaresIntercept() }
 }
 
 func removeOutlierClusters(clusters: [Cluster]) -> [Cluster] {

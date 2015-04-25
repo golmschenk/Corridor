@@ -117,7 +117,7 @@ class ClusterTests: XCTestCase {
         XCTAssertEqual(vanishingPoint, expectedVanishingPoint)
     }
     
-    func testVanishingPointsForAllClusters() {
+    /*func testVanishingPointsForAllClusters() {
         let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 5), end: TwoDimensionalPoint(x: 1, y: 5))
         let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 7, y: 0), end: TwoDimensionalPoint(x: 7, y: 1))
         let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))
@@ -131,7 +131,7 @@ class ClusterTests: XCTestCase {
         
         XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint0))
         XCTAssertTrue(contains(vanishingPoints, expectedVanishingPoint1))
-    }
+    }*/
     
     func testRemovingOutlierClusters() {
         let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 5), end: TwoDimensionalPoint(x: 1, y: 5))
@@ -164,6 +164,29 @@ class ClusterTests: XCTestCase {
         XCTAssertEqual(constraints, expectedConstraints)
     }
     
+    func testAttainLinearEquationsHandlesXIsConstantForAllY() {
+        let lineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 0), end: TwoDimensionalPoint(x: 2, y: 10))
+        let cluster = Cluster(lineSegments: [lineSegment], preferenceSet: [])
+        let expectedCoefficients = Matrix([[1, 0]])
+        let expectedConstraints = Matrix([[2]])
+        
+        let (coefficients, constraints) = cluster.attainLinearEquationMatriciesForLineSegments()
+        
+        XCTAssertEqual(coefficients, expectedCoefficients)
+        XCTAssertEqual(constraints, expectedConstraints)
+    }
     
+    func testAttainLeastSquaresIntercept() {
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 0, y: -2))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 3, y: -1))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 4), end: TwoDimensionalPoint(x: 4, y: 0))
+        let cluster = Cluster(lineSegments: [lineSegment0, lineSegment1, lineSegment2], preferenceSet: [])
+        let expectedIntercept = TwoDimensionalPoint(x: 1, y: 1)
+        
+        let intercept = cluster.vanishingPointFromLeastSquaresIntercept()
+        
+        // Approximate intercept is non-unique and this could be a different answer if the approach changes.
+        XCTAssertEqual(intercept, expectedIntercept)
+    }
 
 }

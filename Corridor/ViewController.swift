@@ -14,7 +14,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     var frame: Frame?
     var imagePicker: UIImagePickerController!
-
+    
     @IBAction func loadImageButton() {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -23,8 +23,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func processFrameButton() {
     }
-
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         frame = Frame(image: image)
         
         self.dismissViewControllerAnimated(true, completion: nil)
