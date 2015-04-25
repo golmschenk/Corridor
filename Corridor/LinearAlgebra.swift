@@ -23,7 +23,7 @@ class Column {
     }
 }
 
-class Matrix : Equatable {
+class Matrix : Equatable, Printable {
     var columns: [Column]
     var height = 0
     var width = 0
@@ -204,6 +204,25 @@ class Matrix : Equatable {
         equation.convertToReducedRowEchelonForm()
         let solutionColumn = equation.columns[equation.columns.count - 1]
         return Matrix(map(solutionColumn.values) { [$0] })
+    }
+    
+    var description: String {
+        var quickLook = "["
+        // Use the transposed version because that has the appropiate display orientation
+        let transposedSelf = self.transpose()
+        var first = true
+        for column in transposedSelf.columns {
+            if !first {
+                quickLook += "\n "
+            }
+            else {
+                first = false
+            }
+            quickLook += column.values.description
+        }
+        quickLook += "]"
+        
+        return quickLook
     }
 }
 

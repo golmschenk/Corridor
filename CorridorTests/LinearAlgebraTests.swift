@@ -340,4 +340,15 @@ class MatrixTests: XCTestCase {
         
         XCTAssertTrue(solution ≈≈ expectedSolution)
     }
+    
+    func testDescriptionIsEasyToRead() {
+        let matrix = Matrix([[1, 2, 3],
+                             [4, 5, 6],
+                             [7, 8, 9]])
+        let expectedDescription = "[[1.0, 2.0, 3.0]\n [4.0, 5.0, 6.0]\n [7.0, 8.0, 9.0]]"
+        
+        let description = matrix.description
+        
+        XCTAssertEqual(description, expectedDescription)
+    }
 }
