@@ -181,7 +181,7 @@ class ClusterTests: XCTestCase {
         let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 10, y: 0), end: TwoDimensionalPoint(x: 30, y: -10))
         let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 40), end: TwoDimensionalPoint(x: 40, y: 0))
         let cluster = Cluster(lineSegments: [lineSegment0, lineSegment1, lineSegment2], preferenceSet: [])
-        let expectedIntercept = TwoDimensionalPoint(x: 16, y: 11)
+        let expectedIntercept = TwoDimensionalPoint(x: 17, y: 7)
         
         let intercept = cluster.vanishingPointFromLeastSquaresIntercept()
         

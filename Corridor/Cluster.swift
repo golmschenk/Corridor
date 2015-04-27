@@ -58,8 +58,9 @@ class Cluster : Equatable {
         for lineSegment in lineSegments {
             let (slope, intercept) = lineSegment.attainSlopeAndIntercept()
             if slope.isFinite {
-                aValues.append([-slope, 1])
-                bValues.append([intercept])
+                let normalizingScalar = abs(slope) + 1
+                aValues.append([-slope / normalizingScalar, 1 / normalizingScalar])
+                bValues.append([intercept / normalizingScalar])
             }
             else {
                 // The line is straight up and down.
