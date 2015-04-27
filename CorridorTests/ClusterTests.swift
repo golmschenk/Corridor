@@ -177,11 +177,11 @@ class ClusterTests: XCTestCase {
     }
     
     func testAttainLeastSquaresIntercept() {
-        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 0, y: -2))
-        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 1, y: 0), end: TwoDimensionalPoint(x: 3, y: -1))
-        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 4), end: TwoDimensionalPoint(x: 4, y: 0))
+        let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 10, y: 0), end: TwoDimensionalPoint(x: 0, y: -20))
+        let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 10, y: 0), end: TwoDimensionalPoint(x: 30, y: -10))
+        let lineSegment2 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 40), end: TwoDimensionalPoint(x: 40, y: 0))
         let cluster = Cluster(lineSegments: [lineSegment0, lineSegment1, lineSegment2], preferenceSet: [])
-        let expectedIntercept = TwoDimensionalPoint(x: 1, y: 1)
+        let expectedIntercept = TwoDimensionalPoint(x: 16, y: 11)
         
         let intercept = cluster.vanishingPointFromLeastSquaresIntercept()
         
