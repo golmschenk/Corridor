@@ -57,15 +57,36 @@ class ImageProcessingTests: XCTestCase {
         return K • PwoK
     }
     
-    func testZAxisVanishingPointFoundInSimpleHallway0() {
+    func testManhattanDirectionVanishingPointsAreFoundInSimpleHallway0() {
         // Create the frame from test file image.
         let testBundle = NSBundle(forClass: self.dynamicType)
         let imagePath = testBundle.pathForResource("simple_hallway0", ofType: "png")
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         let frame = Frame(image: corridorUIImage!)
+        let center = (x: 612, y: 816)
         
-        let newImage = frame.attainAnnotatedImage()
+        let vanishingPoints = frame.attainVanishingPoints()
         
-        println("test")
+        // Check that the Z axis vanishing point was found. Must be a point close to the center.
+        let zAxisQualifying = vanishingPoints.filter() { abs($0.x - center.x) < 15 && abs($0.y - center.y) < 15 }
+        XCTAssertTrue(zAxisQualifying.count >= 1)
+        // Check that the X axis vanishing point was found. Must have a huge ratio between the x and the y from the center.
+        let xAxisQualifying = vanishingPoints.filter() {
+            let xDiff = abs($0.x - center.x)
+            let yDiff = abs($0.y - center.y)
+            let hasLargeRatio = $0.y - center.y == 0 || xDiff / yDiff > 300
+            let hasDistantPoint = xDiff > 2000
+            return hasLargeRatio && hasDistantPoint
+        }
+        XCTAssertTrue(xAxisQualifying.count >= 1)
+        // Check that the Y axis vanishing point was found. Must have a huge ratio between the y and the x from the center.
+        let yAxisQualifying = vanishingPoints.filter() {
+            let xDiff = abs($0.x - center.x)
+            let yDiff = abs($0.y - center.y)
+            let hasLargeRatio = $0.x - center.x == 0 || yDiff / xDiff > 300
+            let hasDistantPoint = yDiff > 2000
+            return hasLargeRatio && hasDistantPoint
+        }
+        XCTAssertTrue(yAxisQualifying.count >= 1)
     }
 }
