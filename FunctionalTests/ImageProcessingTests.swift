@@ -64,30 +64,8 @@ class ImageProcessingTests: XCTestCase {
         let corridorUIImage = UIImage(contentsOfFile: imagePath!)
         let frame = Frame(image: corridorUIImage!)
         
-        println(frame.image.size.height)
-        println(frame.image.size.width)
-        let vanishingPoints = frame.attainVanishingPoints()
+        let newImage = frame.attainAnnotatedImage()
         
-        UIGraphicsBeginImageContext(frame.image.size)
-        frame.image.drawAtPoint(CGPoint(x: 0, y: 0))
-        
-        let context = UIGraphicsGetCurrentContext();
-        CGContextSetStrokeColorWithColor(context, UIColor.blueColor().CGColor)
-        CGContextSetLineWidth(context, 7)
-        for vanishingPoint in vanishingPoints {
-            let x = vanishingPoint.x
-            let y = vanishingPoint.y
-            let rect = CGRect(x: x-25, y: y-25, width: 50, height: 50)
-            CGContextAddEllipseInRect(context, rect)
-        }
-        /*for lineSegment in frame.lineSegments {
-            CGContextMoveToPoint(context, CGFloat(lineSegment.start.x), CGFloat(lineSegment.start.y));
-            CGContextAddLineToPoint(context, CGFloat(lineSegment.end.x), CGFloat(lineSegment.end.y));
-        }*/
-        CGContextStrokePath(context)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        println(vanishingPoints)
+        println("test")
     }
 }

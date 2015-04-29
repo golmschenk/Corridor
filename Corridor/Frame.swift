@@ -15,6 +15,8 @@ class Frame {
     var twoDimensionalManhattanVanishingPointSet: TwoDimensionalManhattanVanishingPointSet!
     var contours = [[TwoDimensionalPoint]]()
     var lineSegments = [TwoDimensionalLineSegment]()
+    var clusters = [Cluster]() // TODO - Just for debugging. Remove me.
+    var vanishingPoints = [TwoDimensionalPoint]()
     
     init(image: UIImage) {
         self.image = image
@@ -129,7 +131,49 @@ class Frame {
         clusters = preformJLinkageMergingOnClusters(clusters)
         clusters = removeOutlierClusters(clusters)
         let vanishingPoints = attainVanishingPointsForClusters(clusters)
+        self.clusters = clusters
         return vanishingPoints
+    }
+    
+    func attainAnnotatedImage() -> UIImage {
+        vanishingPoints = attainVanishingPoints()
+        
+        UIGraphicsBeginImageContext(image.size)
+        image.drawAtPoint(CGPoint(x: 0, y: 0))
+        
+        let context = UIGraphicsGetCurrentContext();
+        var colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
+        for cluster in clusters {
+            if colorList.count == 0 {
+                break
+            }
+            let color = colorList.removeAtIndex(0)
+            CGContextSetStrokeColorWithColor(context, color)
+            CGContextSetLineWidth(context, 4)
+            for lineSegment in cluster.lineSegments {
+                CGContextMoveToPoint(context, CGFloat(lineSegment.start.x), CGFloat(lineSegment.start.y));
+                CGContextAddLineToPoint(context, CGFloat(lineSegment.end.x), CGFloat(lineSegment.end.y));
+                CGContextStrokePath(context)
+            }
+        }
+        
+        CGContextSetLineWidth(context, 7)
+        colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
+        for vanishingPoint in vanishingPoints {
+            if colorList.count == 0 {
+                break
+            }
+            let color = colorList.removeAtIndex(0)
+            CGContextSetStrokeColorWithColor(context, color)
+            let x = vanishingPoint.x
+            let y = vanishingPoint.y
+            let rect = CGRect(x: x-25, y: y-25, width: 50, height: 50)
+            CGContextAddEllipseInRect(context, rect)
+            CGContextStrokePath(context)
+        }
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
 }
