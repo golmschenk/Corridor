@@ -135,45 +135,84 @@ class Frame {
         return vanishingPoints
     }
     
-    func attainAnnotatedImage() -> UIImage {
-        vanishingPoints = attainVanishingPoints()
+    func attainDebugAnnotatedImage(componentsToDraw: [String]) -> UIImage {
+        if !contains(componentsToDraw, "do not process") {
+            vanishingPoints = attainVanishingPoints()
+        }
         
         UIGraphicsBeginImageContext(image.size)
         image.drawAtPoint(CGPoint(x: 0, y: 0))
         
         let context = UIGraphicsGetCurrentContext();
-        var colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
-        for cluster in clusters {
-            if colorList.count == 0 {
-                break
-            }
-            let color = colorList.removeAtIndex(0)
-            CGContextSetStrokeColorWithColor(context, color)
+        
+        // Contour drawing.
+        if contains(componentsToDraw, "contours") {
+            CGContextSetStrokeColorWithColor(context, UIColor.greenColor().CGColor)
             CGContextSetLineWidth(context, 4)
-            for lineSegment in cluster.lineSegments {
+            for contour in contours {
+                var pointIndex = 0
+                while pointIndex < contour.count - 1 {
+                    CGContextMoveToPoint(context, CGFloat(contour[pointIndex].x), CGFloat(contour[pointIndex].y))
+                    CGContextAddLineToPoint(context, CGFloat(contour[pointIndex+1].x), CGFloat(contour[pointIndex+1].y))
+                    CGContextStrokePath(context)
+                    ++pointIndex
+                }
+                CGContextMoveToPoint(context, CGFloat(contour.last!.x), CGFloat(contour.last!.y))
+                CGContextAddLineToPoint(context, CGFloat(contour.first!.x), CGFloat(contour.first!.y))
+                CGContextStrokePath(context)
+            }
+        }
+        
+        // Line segment drawing.
+        if contains(componentsToDraw, "line segments") {
+            CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
+            CGContextSetLineWidth(context, 4)
+            for lineSegment in lineSegments {
                 CGContextMoveToPoint(context, CGFloat(lineSegment.start.x), CGFloat(lineSegment.start.y));
                 CGContextAddLineToPoint(context, CGFloat(lineSegment.end.x), CGFloat(lineSegment.end.y));
                 CGContextStrokePath(context)
             }
         }
         
-        CGContextSetLineWidth(context, 7)
-        colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
-        for vanishingPoint in vanishingPoints {
-            if colorList.count == 0 {
-                break
+        // Cluster drawing.
+        if contains(componentsToDraw, "clusters") {
+            // Line segments of cluster.
+            let context = UIGraphicsGetCurrentContext();
+            var colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
+            for cluster in clusters {
+                if colorList.count == 0 {
+                    break
+                }
+                let color = colorList.removeAtIndex(0)
+                CGContextSetStrokeColorWithColor(context, color)
+                CGContextSetLineWidth(context, 4)
+                for lineSegment in cluster.lineSegments {
+                    CGContextMoveToPoint(context, CGFloat(lineSegment.start.x), CGFloat(lineSegment.start.y));
+                    CGContextAddLineToPoint(context, CGFloat(lineSegment.end.x), CGFloat(lineSegment.end.y));
+                    CGContextStrokePath(context)
+                }
             }
-            let color = colorList.removeAtIndex(0)
-            CGContextSetStrokeColorWithColor(context, color)
-            let x = vanishingPoint.x
-            let y = vanishingPoint.y
-            let rect = CGRect(x: x-25, y: y-25, width: 50, height: 50)
-            CGContextAddEllipseInRect(context, rect)
-            CGContextStrokePath(context)
+            
+            // Vanishing points of cluster.
+            CGContextSetLineWidth(context, 7)
+            colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
+            for vanishingPoint in vanishingPoints {
+                if colorList.count == 0 {
+                    break
+                }
+                let color = colorList.removeAtIndex(0)
+                CGContextSetStrokeColorWithColor(context, color)
+                let x = vanishingPoint.x
+                let y = vanishingPoint.y
+                let rect = CGRect(x: x-25, y: y-25, width: 50, height: 50)
+                CGContextAddEllipseInRect(context, rect)
+                CGContextStrokePath(context)
+            }
         }
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        let annotatedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return annotatedImage
     }
     
 }
