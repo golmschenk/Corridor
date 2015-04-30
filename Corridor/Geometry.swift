@@ -148,6 +148,10 @@ func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLi
     return ((lineSegment0.start == lineSegment1.start) && (lineSegment0.end == lineSegment1.end)) || (lineSegment0.start == lineSegment1.end) && (lineSegment0.end == lineSegment1.start)
 }
 
+class TwoDimensionalPointCloud {
+    var points = [TwoDimensionalPoint]()
+}
+
 
 struct TwoDimensionalManhattanVanishingPointSet {
     let X: TwoDimensionalPoint

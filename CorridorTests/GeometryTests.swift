@@ -216,3 +216,8 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
     }
     
 }
+
+
+class TwoDimensionalPointCloudTests: XCTestCase {
+    
+}
