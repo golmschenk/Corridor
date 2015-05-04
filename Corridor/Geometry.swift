@@ -151,7 +151,7 @@ func == (lineSegment0: TwoDimensionalLineSegment, lineSegment1: TwoDimensionalLi
 class TwoDimensionalPointCloud {
     var points = [TwoDimensionalPoint]()
     
-    func attainAverageX -> Double {
+    func attainAverageX() -> Double {
         return Double(points.reduce(0) { $0 + $1.x }) / Double(points.count)
     }
     
@@ -159,7 +159,7 @@ class TwoDimensionalPointCloud {
         return attainAverageX()
     }
     
-    func attainAverageY -> Double {
+    func attainAverageY() -> Double {
         return Double(points.reduce(0) { $0 + $1.y }) / Double(points.count)
     }
     

@@ -219,5 +219,25 @@ class TwoDimensionalLineSegmentTests: XCTestCase {
 
 
 class TwoDimensionalPointCloudTests: XCTestCase {
+    func testAverageX() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        let average0 = pointCloud.attainAverageX()
+        let average1 = pointCloud.x̅
+        
+        XCTAssertEqual(average0, 2.0)
+        XCTAssertEqual(average1, 2.0)
+    }
     
+    func testAverageY() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        let average0 = pointCloud.attainAverageY()
+        let average1 = pointCloud.y̅
+        
+        XCTAssertEqual(average0, 3.0)
+        XCTAssertEqual(average1, 3.0)
+    }
 }
