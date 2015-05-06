@@ -240,4 +240,45 @@ class TwoDimensionalPointCloudTests: XCTestCase {
         XCTAssertEqual(average0, 3.0)
         XCTAssertEqual(average1, 3.0)
     }
+    
+    func testVarianceXx() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        let variance0 = pointCloud.attainVarianceXx()
+        let variance1 = pointCloud.s_xx
+        
+        XCTAssertEqual(variance0, 1.0)
+        XCTAssertEqual(variance1, 1.0)
+    }
+    
+    func testVarianceYy() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        let variance0 = pointCloud.attainVarianceYy()
+        let variance1 = pointCloud.s_yy
+        
+        XCTAssertEqual(variance0, 1.0)
+        XCTAssertEqual(variance1, 1.0)
+    }
+    
+    func testVarianceXy() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        let variance0 = pointCloud.attainVarianceXy()
+        let variance1 = pointCloud.s_xy
+        
+        XCTAssertEqual(variance0, -1.0)
+        XCTAssertEqual(variance1, -1.0)
+    }
+    
+    func testOrthogonalRegressionSlope {
+        XCTFail("Needs test")
+    }
+    
+    func testOrthogonalRegressionIntercept {
+        XCTFail("Needs test")
+    }
 }
