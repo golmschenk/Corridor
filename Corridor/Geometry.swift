@@ -154,6 +154,10 @@ class TwoDimensionalPointCloud {
     var x̅ = 0.0
     var y̅ = 0.0
     var s_xx = 0.0
+    var s_yy = 0.0
+    var s_xy = 0.0
+    var slope = 0.0
+    var intercept = 0.0
     
     func obtainAverageX() {
         x̅ = points.reduce(0.0) { $0 + Double($1.x) } / Double(points.count)
@@ -167,28 +171,20 @@ class TwoDimensionalPointCloud {
         s_xx = points.reduce(0.0) { $0 + (Double($1.x) - x̅)**2 } / Double(points.count - 1)
     }
     
-    func attainVarianceYy() -> Double {
-        return points.reduce(0.0) { $0 + (Double($1.y) - y̅)**2 } / Double(points.count - 1)
+    func obtainVarianceYy() {
+        s_yy = points.reduce(0.0) { $0 + (Double($1.y) - y̅)**2 } / Double(points.count - 1)
     }
     
-    var s_yy: Double {
-        return attainVarianceYy()
+    func obtainVarianceXy() {
+        s_xy = points.reduce(0.0) { (Double($1.x) - x̅) * (Double($1.y) - y̅) + $0 } / Double(points.count - 1)
     }
     
-    func attainVarianceXy() -> Double {
-        return points.reduce(0.0) { (Double($1.x) - x̅) * (Double($1.y) - y̅) + $0 } / Double(points.count - 1)
+    func obtainOrthogonalRegressionSlope() {
+        slope = (s_yy - s_xx + sqrt((s_yy - s_xx)**2 + 4 * s_xy**2)) / (2 * s_xy)
     }
     
-    var s_xy: Double {
-        return attainVarianceXy()
-    }
-    
-    func attainOrthogonalRegressionSlope() -> Double {
-        return (s_yy - s_xx + sqrt((s_yy - s_xx)**2 + 4 * s_xy**2)) / (2 * s_xy)
-    }
-    
-    func attainOrthogonalRegressionIntercept() -> Double {
-        return y̅ - attainOrthogonalRegressionSlope() * x̅
+    func obtainOrthogonalRegressionIntercept() {
+        intercept = y̅ - slope * x̅
     }
     
     /*func attainCorrespondingRegressionLinePointForPoint(point: TwoDimensionalPoint) -> (x: Double, y: Double) {
