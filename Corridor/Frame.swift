@@ -63,9 +63,8 @@ class Frame {
                 potentialLineSegmentPointCloud.points.removeLast()
                 // Get the line segment for the point cloud.
                 lineSegments.append(potentialLineSegmentPointCloud.attainLineSegment())
-                // Create a new point cloud with the point that didn't fit.
+                // Create a new point cloud with the point that didn't fit and the last merged point.
                 potentialLineSegmentPointCloud = TwoDimensionalPointCloud(points: [potentialLineSegmentPointCloud.points.last!, point])
-                continue
             }
         }
         

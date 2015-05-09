@@ -220,38 +220,45 @@ class TwoDimensionalPointCloud {
         return total_deviation / Double(points.count)
     }
     
-    // This algorithm does not find the largest possible line segment in all cases, but for a nearly straight
-    // line of points, it should be almost perfect and is much faster than convex hull methods.
-    // This algorithm finds the farthest point from the first point in the list, then
-    // finds the farthest point from that point, and those two points are the ends points of the line.
     func attainLineSegment() -> TwoDimensionalLineSegment {
-        var point0: TwoDimensionalPoint
-        var point1: TwoDimensionalPoint
-        var maxDistance = 0.0
-        var index0 = -1
+        obtainOrthogonalRegressionLine()
+        var xMin = Int.max
+        var xMax = Int.min
+        var yMin = Int.max
+        var yMax = Int.min
         for (index, point) in enumerate(points) {
-            if index == 0 {
-                continue
+            if point.x > xMax {
+                xMax = point.x
             }
-            let distance = points[0].distanceToPoint(point)
-            if distance > maxDistance {
-                maxDistance = distance
-                index0 = index
+            if point.x < xMin {
+                xMin = point.x
+            }
+            if point.y > yMax {
+                yMax = point.y
+            }
+            if point.y < yMin {
+                yMin = point.y
             }
         }
-        maxDistance = 0.0
-        var index1 = -1
-        for (index, point) in enumerate(points) {
-            if index == index0 {
-                continue
-            }
-            let distance = points[index0].distanceToPoint(point)
-            if distance > maxDistance {
-                maxDistance = distance
-                index1 = index
-            }
+        let lineSegment: TwoDimensionalLineSegment
+        if abs(slope) == Double.infinity {
+            let start = TwoDimensionalPoint(x: Int(x̅), y: yMin)
+            let end = TwoDimensionalPoint(x: Int(x̅), y: yMax)
+            lineSegment = TwoDimensionalLineSegment(start: start, end: end)
+        } else if slope == 0 {
+            let start = TwoDimensionalPoint(x: xMin, y: Int(y̅))
+            let end = TwoDimensionalPoint(x: xMax, y: Int(y̅))
+            lineSegment = TwoDimensionalLineSegment(start: start, end: end)
+        } else if xMax - xMin > yMax - yMin {
+            let start = TwoDimensionalPoint(x: xMin, y: Int(slope * Double(xMin) + intercept))
+            let end = TwoDimensionalPoint(x: xMax, y: Int(slope * Double(xMax) + intercept))
+            lineSegment = TwoDimensionalLineSegment(start: start, end: end)
+        } else {
+            let start = TwoDimensionalPoint(x: Int((Double(yMin) - intercept)/slope), y: yMin)
+            let end = TwoDimensionalPoint(x: Int((Double(yMax) - intercept)/slope), y: yMax)
+            lineSegment = TwoDimensionalLineSegment(start: start, end: end)
         }
-        return TwoDimensionalLineSegment(start: points[index0], end: points[index1])
+        return lineSegment
     }
 }
 

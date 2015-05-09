@@ -101,7 +101,7 @@ class ImageProcessingTests: XCTestCase {
         let vanishingPoints = frame.attainVanishingPoints()
         
         //Debug
-        let image = frame.attainDebugAnnotatedImage(["contours"])
+        let image = frame.attainDebugAnnotatedImage(["clusters"])
         let edgeimage = frame.edgeImage!
         
         // Check that the Z axis vanishing point was found. Must be a point close to the center.

@@ -13,7 +13,7 @@ struct Constant {
     static let lineSegmentLengthToPointDeviationRatioForExtensionAcceptanceOfLineSegmentByPoint = 0.05
     static let angleAcceptanceForExtensionAcceptanceOfLineSegmentWithLineSegment = π/32
     static let endPointDeviationAcceptanceForLineSegmentToVanishingPointAgreement = 0.05
-    static let acceptableStandardDeviationOfLineSegment = 2.0
+    static let acceptableStandardDeviationOfLineSegment = 1.0
     
     static let lineSegmentMinimumLength = 170.0
     static let numberOfVanishingPointModels = 500
