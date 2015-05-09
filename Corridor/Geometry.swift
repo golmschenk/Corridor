@@ -187,6 +187,16 @@ class TwoDimensionalPointCloud {
         intercept = y̅ - slope * x̅
     }
     
+    func obtainOrthogonalRegressionLine() {
+        obtainAverageX()
+        obtainAverageY()
+        obtainVarianceXx()
+        obtainVarianceYy()
+        obtainVarianceXy()
+        obtainOrthogonalRegressionSlope()
+        obtainOrthogonalRegressionIntercept()
+    }
+    
     /*func attainCorrespondingRegressionLinePointForPoint(point: TwoDimensionalPoint) -> (x: Double, y: Double) {
         // Get corresponding regression x.
         let x = point.x

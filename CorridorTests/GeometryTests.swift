@@ -269,10 +269,46 @@ class TwoDimensionalPointCloudTests: XCTestCase {
     }
     
     func testOrthogonalRegressionSlope() {
-        XCTFail("Needs test")
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        pointCloud.obtainAverageX()
+        pointCloud.obtainAverageY()
+        pointCloud.obtainVarianceXx()
+        pointCloud.obtainVarianceYy()
+        pointCloud.obtainVarianceXy()
+        pointCloud.obtainOrthogonalRegressionSlope()
+        
+        XCTAssertEqual(pointCloud.slope, -1.0)
     }
     
     func testOrthogonalRegressionIntercept() {
-        XCTFail("Needs test")
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        
+        pointCloud.obtainAverageX()
+        pointCloud.obtainAverageY()
+        pointCloud.obtainVarianceXx()
+        pointCloud.obtainVarianceYy()
+        pointCloud.obtainVarianceXy()
+        pointCloud.obtainOrthogonalRegressionSlope()
+        pointCloud.obtainOrthogonalRegressionIntercept()
+        
+        XCTAssertEqual(pointCloud.intercept, 5.0)
+    }
+    
+    func testOrthogonalRegressionLine() {
+        var pointCloud0 = TwoDimensionalPointCloud()
+        pointCloud0.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        var pointCloud1 = TwoDimensionalPointCloud()
+        pointCloud1.points = [TwoDimensionalPoint(x: 10, y: -10), TwoDimensionalPoint(x: -10, y: 10), TwoDimensionalPoint(x: 1, y: 1), TwoDimensionalPoint(x: -1, y: -1)]
+        
+        pointCloud0.obtainOrthogonalRegressionLine()
+        pointCloud1.obtainOrthogonalRegressionLine()
+        
+        XCTAssertEqual(pointCloud0.slope, -1.0)
+        XCTAssertEqual(pointCloud0.intercept, 5.0)
+        XCTAssertEqual(pointCloud1.slope, -1.0)
+        XCTAssertEqual(pointCloud1.intercept, 0.0)
     }
 }
