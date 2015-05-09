@@ -282,6 +282,20 @@ class TwoDimensionalPointCloudTests: XCTestCase {
         XCTAssertEqual(pointCloud.slope, -1.0)
     }
     
+    func testDoesNotGetNaNForHorizontalLine() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 10, y: 0), TwoDimensionalPoint(x: 20, y: 0)]
+        
+        pointCloud.obtainAverageX()
+        pointCloud.obtainAverageY()
+        pointCloud.obtainVarianceXx()
+        pointCloud.obtainVarianceYy()
+        pointCloud.obtainVarianceXy()
+        pointCloud.obtainOrthogonalRegressionSlope()
+        
+        XCTAssertEqual(pointCloud.slope, 0.0)
+    }
+    
     func testOrthogonalRegressionIntercept() {
         var pointCloud = TwoDimensionalPointCloud()
         pointCloud.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]

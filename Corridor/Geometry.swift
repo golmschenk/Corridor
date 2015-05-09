@@ -186,7 +186,12 @@ class TwoDimensionalPointCloud {
     }
     
     func obtainOrthogonalRegressionSlope() {
-        slope = (s_yy - s_xx + sqrt((s_yy - s_xx)**2 + 4 * s_xy**2)) / (2 * s_xy)
+        let numerator = (s_yy - s_xx + sqrt((s_yy - s_xx)**2 + 4 * s_xy**2))
+        if numerator == 0 {
+            slope = 0
+        } else {
+            slope = numerator / (2 * s_xy)
+        }
     }
     
     func obtainOrthogonalRegressionIntercept() {
