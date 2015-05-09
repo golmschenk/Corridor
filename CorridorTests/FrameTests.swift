@@ -96,6 +96,12 @@ class FrameTests: XCTestCase {
         XCTAssertEqual(doubleBackLineSegments.count, 1)
     }
     
+    func testAttainLineSegmentsForSinglePointCompletesAndReturnsNoSegments() {
+        let singlePointLineSegments = frame.attainLineSegmentsFromContour([TwoDimensionalPoint(x: 10, y: 10)])
+        
+        XCTAssertEqual(singlePointLineSegments.count, 0)
+    }
+    
     func testCanFilterLineSegmentsBySize() {
         let lineSegment0 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 0))
         let lineSegment1 = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 1, y: 1))

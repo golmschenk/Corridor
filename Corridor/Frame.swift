@@ -68,25 +68,29 @@ class Frame {
                 continue
             }
         }
+        
         // ==Ending clean up.==
-        // Get the line segment for the last point cloud.
-        var potentialLineSegment = potentialLineSegmentPointCloud.attainLineSegment()
-        // If there's at least one line segment in the list...
-        if !lineSegments.isEmpty {
-            // Check if the final line segment can extend the first one.
-            if potentialLineSegment.canExtendLineSegment(lineSegments[0]) {
+        // If the final point cloud has more than one point...
+        if potentialLineSegmentPointCloud.points.count > 1 {
+            // Get the line segment for the last point cloud.
+            var potentialLineSegment = potentialLineSegmentPointCloud.attainLineSegment()
+            // If there's at least one line segment in the list and the final line segment can extend the first...
+            if !lineSegments.isEmpty && potentialLineSegment.canExtendLineSegment(lineSegments[0]){
+                // Merge the last line segment to the first.
                 lineSegments[0].mergeWithLineSegment(potentialLineSegment)
             } else {
                 lineSegments.append(potentialLineSegment)
-                // Check if the final point can extend the first line segment.
-                if point.canExtendLineSegment(lineSegments[0]) {
-                    // Merge the point into the line segment.
-                    lineSegments[0].mergeInPoint(point)
-                }
             }
-        } else {
-            lineSegments.append(potentialLineSegment)
         }
+        // If there's at least 1 line segment.
+        if !lineSegments.isEmpty {
+            // Check if the final point can extend the first line segment.
+            if point.canExtendLineSegment(lineSegments[0]) {
+                // Merge the point into the line segment.
+                lineSegments[0].mergeInPoint(point)
+            }
+        }
+        
         return lineSegments
     }
     
@@ -149,9 +153,12 @@ class Frame {
         
         // Contour drawing.
         if contains(componentsToDraw, "contours") {
-            CGContextSetStrokeColorWithColor(context, UIColor.greenColor().CGColor)
             CGContextSetLineWidth(context, 4)
+            var colorList = [UIColor.redColor().CGColor, UIColor.greenColor().CGColor, UIColor.blueColor().CGColor, UIColor.magentaColor().CGColor, UIColor.orangeColor().CGColor]
             for contour in contours {
+                let randomColorIndex = Int(arc4random_uniform(UInt32(colorList.count)))
+                let color = colorList[randomColorIndex]
+                CGContextSetStrokeColorWithColor(context, color)
                 var pointIndex = 0
                 while pointIndex < contour.count - 1 {
                     CGContextMoveToPoint(context, CGFloat(contour[pointIndex].x), CGFloat(contour[pointIndex].y))

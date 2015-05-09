@@ -100,9 +100,8 @@ class ImageProcessingTests: XCTestCase {
         
         let vanishingPoints = frame.attainVanishingPoints()
         
-        XCTFail("Finish me!")
         //Debug
-        let image = frame.attainDebugAnnotatedImage(["line segments"])
+        let image = frame.attainDebugAnnotatedImage(["contours"])
         let edgeimage = frame.edgeImage!
         
         // Check that the Z axis vanishing point was found. Must be a point close to the center.
