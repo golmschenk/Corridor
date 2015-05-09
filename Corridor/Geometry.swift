@@ -208,6 +208,40 @@ class TwoDimensionalPointCloud {
         }
         return total_deviation / Double(points.count)
     }
+    
+    // This algorithm does not find the largest possible line segment in all cases, but for a nearly straight
+    // line of points, it should be almost perfect and is much faster than convex hull methods.
+    // This algorithm finds the farthest point from the first point in the list, then
+    // finds the farthest point from that point, and those two points are the ends points of the line.
+    func attainLineSegment() -> TwoDimensionalLineSegment {
+        var point0: TwoDimensionalPoint
+        var point1: TwoDimensionalPoint
+        var maxDistance = 0.0
+        var index0 = -1
+        for (index, point) in enumerate(points) {
+            if index == 0 {
+                continue
+            }
+            let distance = points[0].distanceToPoint(point)
+            if distance > maxDistance {
+                maxDistance = distance
+                index0 = index
+            }
+        }
+        maxDistance = 0.0
+        var index1 = -1
+        for (index, point) in enumerate(points) {
+            if index == index0 {
+                continue
+            }
+            let distance = points[index0].distanceToPoint(point)
+            if distance > maxDistance {
+                maxDistance = distance
+                index1 = index
+            }
+        }
+        return TwoDimensionalLineSegment(start: points[index0], end: points[index1])
+    }
 }
 
 

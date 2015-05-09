@@ -324,4 +324,14 @@ class TwoDimensionalPointCloudTests: XCTestCase {
         XCTAssertEqual(deviation0, 0)
         XCTAssertTrue(deviation1 ≈≈ sqrt(2)/2)
     }
+    
+    func testLineSegmentExtraction() {
+        var pointCloud = TwoDimensionalPointCloud()
+        pointCloud.points = [TwoDimensionalPoint(x: 10, y: -10), TwoDimensionalPoint(x: -10, y: 10), TwoDimensionalPoint(x: 1, y: 1), TwoDimensionalPoint(x: -1, y: -1)]
+        let expectedLineSegment = TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 10, y: -10), end: TwoDimensionalPoint(x: -10, y: 10))
+        
+        let lineSegment = pointCloud.attainLineSegment()
+        
+        XCTAssertEqual(lineSegment, expectedLineSegment)
+    }
 }
