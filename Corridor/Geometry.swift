@@ -159,6 +159,12 @@ class TwoDimensionalPointCloud {
     var slope = 0.0
     var intercept = 0.0
     
+    init() { }
+    
+    init(points: [TwoDimensionalPoint]) {
+        self.points = points
+    }
+    
     func obtainAverageX() {
         x̅ = points.reduce(0.0) { $0 + Double($1.x) } / Double(points.count)
     }

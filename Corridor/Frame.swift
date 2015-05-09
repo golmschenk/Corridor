@@ -46,29 +46,31 @@ class Frame {
         var lineSegments = [TwoDimensionalLineSegment]()
         // The potential line starts as just an individual point.
         var point = contour.removeLast()
-        var lastMergedPoint = point
-        var potentialLineSegment = TwoDimensionalLineSegment(start: point, end: point)
+        var potentialLineSegmentPointCloud = TwoDimensionalPointCloud(points: [point])
         while !contour.isEmpty {
+            // Add the next point.
             point = contour.removeLast()
-            // If the line is just a single point, we can immediately add the new point.
-            if potentialLineSegment.start == potentialLineSegment.end {
-                potentialLineSegment.end = point
-                lastMergedPoint = point
+            potentialLineSegmentPointCloud.points.append(point)
+            // If the point cloud is just a two points, we can immediately add the new point without checking.
+            if potentialLineSegmentPointCloud.points.count == 2 {
                 continue
             }
-            // Check if the new point is on or extends the line segment.
-            if point.canExtendLineSegment(potentialLineSegment) {
-                // Merge the point into the line segment.
-                potentialLineSegment.mergeInPoint(point)
-                lastMergedPoint = point
-                continue
-            } else {
-                lineSegments.append(potentialLineSegment)
-                potentialLineSegment = TwoDimensionalLineSegment(start: lastMergedPoint, end: point)
-                lastMergedPoint = point
+            // Calculate the standard deviation of the current line.
+            let σ = potentialLineSegmentPointCloud.attainOrthogonalRegressionStandardDeviation()
+            // Check if the standard deviation exceeds the limit.
+            if σ > Constant.acceptableStandardDeviationOfLineSegment {
+                // Remove the point.
+                potentialLineSegmentPointCloud.points.removeLast()
+                // Get the line segment for the point cloud.
+                lineSegments.append(potentialLineSegmentPointCloud.attainLineSegment())
+                // Create a new point cloud with the point that didn't fit.
+                potentialLineSegmentPointCloud = TwoDimensionalPointCloud(points: [potentialLineSegmentPointCloud.points.last!, point])
                 continue
             }
         }
+        // ==Ending clean up.==
+        // Get the line segment for the last point cloud.
+        var potentialLineSegment = potentialLineSegmentPointCloud.attainLineSegment()
         // If there's at least one line segment in the list...
         if !lineSegments.isEmpty {
             // Check if the final line segment can extend the first one.

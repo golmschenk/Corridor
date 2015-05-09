@@ -15,22 +15,22 @@ class FrameTests: XCTestCase {
     
     // Square contour with each side having a length of 2.
     let squareContour = [TwoDimensionalPoint(x: 0, y: 0),
-                         TwoDimensionalPoint(x: 0, y: 1),
-                         TwoDimensionalPoint(x: 0, y: 2),
-                         TwoDimensionalPoint(x: 1, y: 2),
-                         TwoDimensionalPoint(x: 2, y: 2),
-                         TwoDimensionalPoint(x: 2, y: 1),
-                         TwoDimensionalPoint(x: 2, y: 0),
-                         TwoDimensionalPoint(x: 1, y: 0)]
+                         TwoDimensionalPoint(x: 0, y: 10),
+                         TwoDimensionalPoint(x: 0, y: 20),
+                         TwoDimensionalPoint(x: 10, y: 20),
+                         TwoDimensionalPoint(x: 20, y: 20),
+                         TwoDimensionalPoint(x: 20, y: 10),
+                         TwoDimensionalPoint(x: 20, y: 0),
+                         TwoDimensionalPoint(x: 10, y: 0)]
     // A contour with a jump. 3 length horizontal, 1 vertical, 3 horizontal again. Right, up, right.
     let jumpContour = [TwoDimensionalPoint(x: 0, y: 0),
-                       TwoDimensionalPoint(x: 1, y: 0),
-                       TwoDimensionalPoint(x: 2, y: 0),
-                       TwoDimensionalPoint(x: 3, y: 0),
-                       TwoDimensionalPoint(x: 3, y: 1),
-                       TwoDimensionalPoint(x: 4, y: 1),
-                       TwoDimensionalPoint(x: 5, y: 1),
-                       TwoDimensionalPoint(x: 6, y: 1)]
+                       TwoDimensionalPoint(x: 10, y: 0),
+                       TwoDimensionalPoint(x: 20, y: 0),
+                       TwoDimensionalPoint(x: 30, y: 0),
+                       TwoDimensionalPoint(x: 30, y: 10),
+                       TwoDimensionalPoint(x: 40, y: 10),
+                       TwoDimensionalPoint(x: 50, y: 10),
+                       TwoDimensionalPoint(x: 60, y: 10)]
     // A straight line contour from x-axis 0 to 3 which doubles back on itself and has the start-end gap in the middle.
     let doubleBackContour = [TwoDimensionalPoint(x: 2, y: 0),
                              TwoDimensionalPoint(x: 3, y: 0),
@@ -73,19 +73,19 @@ class FrameTests: XCTestCase {
     func testCanGetLineSegmentsFromSquareContour() {
         let squareLineSegments = frame.attainLineSegmentsFromContour(squareContour)
         
-        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 2, y: 0))))
-        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 2, y: 2), end: TwoDimensionalPoint(x: 2, y: 0))))
-        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 2), end: TwoDimensionalPoint(x: 2, y: 2))))
-        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 2))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 20, y: 0))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 20, y: 20), end: TwoDimensionalPoint(x: 20, y: 0))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 20), end: TwoDimensionalPoint(x: 20, y: 20))))
+        XCTAssertTrue(contains(squareLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 0, y: 20))))
         XCTAssertEqual(squareLineSegments.count, 4)
     }
     
     func testCanGetLineSegmentsFromJumpContour() {
         let jumpLineSegments = frame.attainLineSegmentsFromContour(jumpContour)
         
-        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 3, y: 0))))
-        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 0), end: TwoDimensionalPoint(x: 3, y: 1))))
-        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 3, y: 1), end: TwoDimensionalPoint(x: 6, y: 1))))
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 0, y: 0), end: TwoDimensionalPoint(x: 30, y: 0))))
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 30, y: 0), end: TwoDimensionalPoint(x: 30, y: 10))))
+        XCTAssertTrue(contains(jumpLineSegments, TwoDimensionalLineSegment(start: TwoDimensionalPoint(x: 30, y: 10), end: TwoDimensionalPoint(x: 60, y: 10))))
         XCTAssertEqual(jumpLineSegments.count, 3)
     }
     
@@ -112,7 +112,7 @@ class FrameTests: XCTestCase {
     func testCanGetLengthFilteredLineSegmentArrayFromContourArray() {
         let contours = [squareContour, jumpContour]
         
-        frame.obtainLineSegmentsFromContours(contours, byLength: 2)
+        frame.obtainLineSegmentsFromContours(contours, byLength: 20)
         
         XCTAssertEqual(frame.lineSegments.count, 6)
     }
