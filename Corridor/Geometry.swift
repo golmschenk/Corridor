@@ -197,10 +197,17 @@ class TwoDimensionalPointCloud {
         obtainOrthogonalRegressionIntercept()
     }
     
-    /*func attainCorrespondingRegressionLinePointForPoint(point: TwoDimensionalPoint) -> (x: Double, y: Double) {
-        // Get corresponding regression x.
-        let x = point.x
-    }*/
+    func attainOrthogonalRegressionStandardDeviation() -> Double {
+        obtainOrthogonalRegressionLine()
+        var total_deviation = 0.0
+        for point in points {
+            // Distance from the point to the line
+            let numerator = abs(-slope * Double(point.x) + Double(point.y) - intercept)
+            let denominator = sqrt(-slope ** 2 + 1)
+            total_deviation += numerator/denominator
+        }
+        return total_deviation / Double(points.count)
+    }
 }
 
 

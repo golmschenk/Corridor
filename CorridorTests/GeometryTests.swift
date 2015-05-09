@@ -311,4 +311,17 @@ class TwoDimensionalPointCloudTests: XCTestCase {
         XCTAssertEqual(pointCloud1.slope, -1.0)
         XCTAssertEqual(pointCloud1.intercept, 0.0)
     }
+    
+    func testOrthogonalRegressionStandardDeviation() {
+        var pointCloud0 = TwoDimensionalPointCloud()
+        pointCloud0.points = [TwoDimensionalPoint(x: 1, y: 4), TwoDimensionalPoint(x: 2, y: 3), TwoDimensionalPoint(x: 3, y: 2)]
+        var pointCloud1 = TwoDimensionalPointCloud()
+        pointCloud1.points = [TwoDimensionalPoint(x: 10, y: -10), TwoDimensionalPoint(x: -10, y: 10), TwoDimensionalPoint(x: 1, y: 1), TwoDimensionalPoint(x: -1, y: -1)]
+        
+        let deviation0 = pointCloud0.attainOrthogonalRegressionStandardDeviation()
+        let deviation1 = pointCloud1.attainOrthogonalRegressionStandardDeviation()
+        
+        XCTAssertEqual(deviation0, 0)
+        XCTAssertTrue(deviation1 ≈≈ sqrt(2)/2)
+    }
 }
